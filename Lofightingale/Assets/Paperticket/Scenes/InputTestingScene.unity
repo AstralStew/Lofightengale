@@ -316,7 +316,7 @@ MonoBehaviour:
   axisInputList: 0101010100000000
   _AxisDeadzone: 0.4
   _NativeInputTable: 
-  _InputBuffer: 9
+  _InputBuffer: 10
   _EnableGUI: 1
   _Debug: 0
 --- !u!4 &582476638
