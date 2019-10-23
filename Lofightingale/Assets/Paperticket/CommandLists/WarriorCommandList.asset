@@ -1,0 +1,237 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14eda10a191c92f4698ffc1bc2eaa61a, type: 3}
+  m_Name: WarriorCommandList
+  m_EditorClassIdentifier: 
+  listName: Warrior
+  commandList:
+  - commandName: Reversal Moon Slash
+    commandEnabled: 1
+    commandInputs:
+    - LeftStickDown
+    - LeftStickUp+X
+    commandSteps:
+    - rawInputs: 0000000001000000000000000000000000000000000000000000000000000000
+      combinedInputs: LeftStickDown
+    - rawInputs: 0100000000000000000000000000000000000000010000000000000000000000
+      combinedInputs: LeftStickUp+X
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
+  - commandName: Running Charge / Air Lunge
+    commandEnabled: 1
+    commandInputs:
+    - LeftStickLeft
+    - LeftStickRight+X
+    commandSteps:
+    - rawInputs: 0000000000000000010000000000000000000000000000000000000000000000
+      combinedInputs: LeftStickLeft
+    - rawInputs: 0000000000000000000000000100000000000000010000000000000000000000
+      combinedInputs: LeftStickRight+X
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
+  - commandName: Medium Kick / Body Slam
+    commandEnabled: 1
+    commandInputs:
+    - LeftStickDown+X
+    commandSteps:
+    - rawInputs: 0000000001000000000000000000000000000000010000000000000000000000
+      combinedInputs: LeftStickDown+X
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
+  - commandName: Shortranged Throw
+    commandEnabled: 1
+    commandInputs:
+    - LeftStickDown+Y
+    commandSteps:
+    - rawInputs: 0000000001000000000000000000000000000000000000000100000000000000
+      combinedInputs: LeftStickDown+Y
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
+  - commandName: Overhead
+    commandEnabled: 1
+    commandInputs:
+    - LeftStickRight+X
+    commandSteps:
+    - rawInputs: 0000000000000000000000000100000000000000010000000000000000000000
+      combinedInputs: LeftStickRight+X
+    commandImage: {fileID: 0}
+    recoveryLength: 100
+    debug: 1
+  - commandName: Heavyranged Throw
+    commandEnabled: 1
+    commandInputs:
+    - LeftStickRight+Y
+    commandSteps:
+    - rawInputs: 0000000000000000000000000100000000000000000000000100000000000000
+      combinedInputs: LeftStickRight+Y
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
+  - commandName: Anti Air
+    commandEnabled: 1
+    commandInputs:
+    - LeftStickLeft+X
+    commandSteps:
+    - rawInputs: 0000000000000000010000000000000000000000010000000000000000000000
+      combinedInputs: LeftStickLeft+X
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
+  - commandName: Medium Ranged Anti Air
+    commandEnabled: 1
+    commandInputs:
+    - LeftStickLeft+Y
+    commandSteps:
+    - rawInputs: 0000000000000000010000000000000000000000000000000100000000000000
+      combinedInputs: LeftStickLeft+Y
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
+  - commandName: Medium Punch / Short Air Kick
+    commandEnabled: 1
+    commandInputs:
+    - X
+    commandSteps:
+    - rawInputs: 0000000000000000000000000000000000000000010000000000000000000000
+      combinedInputs: X
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
+  - commandName: Medium Ranged Throw / Short Air Grab
+    commandEnabled: 1
+    commandInputs:
+    - Y
+    commandSteps:
+    - rawInputs: 0000000000000000000000000000000000000000000000000100000000000000
+      combinedInputs: Y
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
+  - commandName: Back Super Jump
+    commandEnabled: 1
+    commandInputs:
+    - LeftStickDown
+    - LeftStickUp+LeftStickLeft
+    commandSteps:
+    - rawInputs: 0000000001000000000000000000000000000000000000000000000000000000
+      combinedInputs: LeftStickDown
+    - rawInputs: 0100000000000000010000000000000000000000000000000000000000000000
+      combinedInputs: LeftStickUp+LeftStickLeft
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
+  - commandName: Forward Super Jump
+    commandEnabled: 1
+    commandInputs:
+    - LeftStickDown
+    - LeftStickUp+LeftStickRight
+    commandSteps:
+    - rawInputs: 0000000001000000000000000000000000000000000000000000000000000000
+      combinedInputs: LeftStickDown
+    - rawInputs: 0100000000000000000000000100000000000000000000000000000000000000
+      combinedInputs: LeftStickUp+LeftStickRight
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
+  - commandName: Neutral Super Jump
+    commandEnabled: 1
+    commandInputs:
+    - LeftStickDown
+    - LeftStickUp
+    commandSteps:
+    - rawInputs: 0000000001000000000000000000000000000000000000000000000000000000
+      combinedInputs: LeftStickDown
+    - rawInputs: 0100000000000000000000000000000000000000000000000000000000000000
+      combinedInputs: LeftStickUp
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
+  - commandName: Forward Jump
+    commandEnabled: 1
+    commandInputs:
+    - LeftStickUp+LeftStickRight
+    commandSteps:
+    - rawInputs: 0100000000000000000000000100000000000000000000000000000000000000
+      combinedInputs: LeftStickUp+LeftStickRight
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
+  - commandName: Back Jump
+    commandEnabled: 1
+    commandInputs:
+    - LeftStickUp+LeftStickLeft
+    commandSteps:
+    - rawInputs: 0100000000000000010000000000000000000000000000000000000000000000
+      combinedInputs: LeftStickUp+LeftStickLeft
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
+  - commandName: Neutral Jump
+    commandEnabled: 1
+    commandInputs:
+    - LeftStickUp
+    commandSteps:
+    - rawInputs: 0100000000000000000000000000000000000000000000000000000000000000
+      combinedInputs: LeftStickUp
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
+  - commandName: Forward Jump
+    commandEnabled: 1
+    commandInputs:
+    - LeftStickUp+LeftStickRight
+    commandSteps:
+    - rawInputs: 0100000000000000000000000100000000000000000000000000000000000000
+      combinedInputs: LeftStickUp+LeftStickRight
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
+  - commandName: Back Jump
+    commandEnabled: 1
+    commandInputs:
+    - LeftStickUp+LeftStickLeft
+    commandSteps:
+    - rawInputs: 0100000000000000010000000000000000000000000000000000000000000000
+      combinedInputs: LeftStickUp+LeftStickLeft
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
+  - commandName: Back Dash
+    commandEnabled: 1
+    commandInputs:
+    - LeftStickLeft
+    - LeftStickLeft
+    commandSteps:
+    - rawInputs: 0000000000000000010000000000000000000000000000000000000000000000
+      combinedInputs: LeftStickLeft
+    - rawInputs: 0000000000000000010000000000000000000000000000000000000000000000
+      combinedInputs: LeftStickLeft
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
+  - commandName: Forward Dash
+    commandEnabled: 1
+    commandInputs:
+    - LeftStickRight
+    - LeftStickRight
+    commandSteps:
+    - rawInputs: 0000000000000000000000000100000000000000000000000000000000000000
+      combinedInputs: LeftStickRight
+    - rawInputs: 0000000000000000000000000100000000000000000000000000000000000000
+      combinedInputs: LeftStickRight
+    commandImage: {fileID: 0}
+    recoveryLength: 15
+    debug: 1
