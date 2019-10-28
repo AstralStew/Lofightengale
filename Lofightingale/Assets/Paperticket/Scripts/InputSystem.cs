@@ -33,9 +33,10 @@ namespace Paperticket {
 
         [Header("Misc")]
 
-
+        [SerializeField] bool _EnableGUI;
 
         [SerializeField] bool _Debug;
+        string debugLog;
 
 
         int delay;
@@ -83,17 +84,24 @@ namespace Paperticket {
 
         void OnGUI() {
 
-            if (_Debug) {
-                
+            if (_EnableGUI) {
+
+                // Show the time since startup
+                GUI.Label(new Rect(10, 10, 100, 20), (Mathf.Round(Time.realtimeSinceStartup * 100f) / 100f).ToString());
+
+                //Show the inputs as they happen
                 for (int i = 0; i < _InputList.Count; i++) {
-                    GUI.Label(new Rect(10, 10 + (10*i), 100, 20), _InputList[i] + ": " + rawInputList[i]);
+                    GUI.Label(new Rect(10, 50 + (10*i), 100, 20), _InputList[i] + ": " + rawInputList[i]);
                 }
 
+                // Show the rolling Native Input Table
                 for (int i = 0; i < _NativeInputTable.Length; i++) {
-                    GUI.Label(new Rect(400, 10 + (10 * i), 800, 20), 
+                    GUI.Label(new Rect(400, 50 + (10 * i), 800, 20), 
                         (i == (frameIterator-1) ? "*" : " ") + "f" + (i<10 ? "0"+i : ""+i) + ": " + 
                         _NativeInputTable[i].combinedInputs); 
                 }
+
+                
 
             }
 
@@ -203,11 +211,11 @@ namespace Paperticket {
 
             // Check this is a valid input
             if (_InputList.Count > inputIndex) {
-               
-                // Match the provided index to the current frame is in the NTI             
-                int frame = (frameIterator - frameNo + _InputList.Count) % _InputList.Count;
 
-                //if (_Debug) Debug.Log("[InputManager] Adjusted frame(" + frame + ") = [iterator(" + frameIterator + ") - unadjusted frame(" + frameNo + ")] % input buffer(" + _InputList.Count + ")");
+                // Match the provided index to the current frame is in the NTI             
+                int frame = (frameIterator - frameNo + _InputBuffer) % _InputBuffer;
+
+                //if (_Debug) Debug.Log("[InputManager] Adjusted frame(" + frame + ") = [iterator(" + frameIterator + ") - unadjusted frame(" + frameNo + ")] % input buffer(" + _InputBuffer + ")");
 
                 // Check state of input during frame
                 if (_NativeInputTable[frame].rawInputs[inputIndex] == 1 || _NativeInputTable[frame].rawInputs[inputIndex] == 2) {
@@ -274,12 +282,22 @@ namespace Paperticket {
 
         public int InputStateInFrame( int inputIndex, int frameNo ) {
 
-            if (_Debug) Debug.Log("[InputManager] Checking InputIndex(" + inputIndex + ") at frameNo(" + frameNo + ")");
+            if (_Debug) debugLog = "[InputManager] Checking InputIndex(" + inputIndex + ") at frameNo(" + frameNo + ")";
+            
 
-            // Match the provided index to the current frame in the NTI             
-            int frame = (frameIterator - frameNo + _InputList.Count) % _InputList.Count;       // maybe +1 to brackets
+            // Match the provided index to the current frame in the NTI    
+            int frame = (frameIterator - frameNo + _InputBuffer) % _InputBuffer;       // maybe +1 to brackets
 
-            if (_Debug) Debug.Log("[InputManager] Adjusted frame(" + frame + ") = [iterator(" + frameIterator + ") - unadjusted frame(" + frameNo + ")] % input buffer(" + _InputList.Count + ")");
+            //if (_Debug) {
+            //    Debug.Log("[InputManager] Adjusted frame(" + frame + ") = [iterator(" + frameIterator + ") - unadjusted frame(" + frameNo + ")] % input buffer(" + _InputBuffer + ")");
+            //    Debug.Log("[InputManager] InputIndex(" + inputIndex + ") = " + _NativeInputTable[frame].rawInputs[inputIndex] + " at frameNo(" + frame + ")");
+            //}
+
+            if (_Debug) {
+                debugLog += "\n [InputManager] Adjusted frame(" + frame + ") = [iterator(" + frameIterator + ") - unadjusted frame(" + frameNo + ")] % input buffer(" + _InputBuffer + ")";
+                debugLog += "\n [InputManager] InputIndex(" + inputIndex + ") = " + _NativeInputTable[frame].rawInputs[inputIndex] + " at frameNo(" + frame + ")";
+                Debug.Log(debugLog);
+            }
 
             // Check state of input during frame
             return _NativeInputTable[frame].rawInputs[inputIndex];

@@ -79,12 +79,24 @@ namespace Paperticket {
                 // If it is an axis, check raw input against deadzone and previous state 
                 if (axisInputList[i]) {
 
-                    // If the input is currently held, set to input buffer
+                    // The input is currently held, check previous state
                     if (Input.GetAxisRaw(inputName) > _AxisDeadzone) {
-                        _NativeInputTable[i] = _InputBuffer;
-                        newInputsThisFrame = true;
 
-                    // If the input is not held, decrement by 1
+                        // The input was already held down, keep it where it is
+                        if (_NativeInputTable[i] == _InputBuffer) {
+                            continue;
+                        
+                        // The input was new last frame, decrement it
+                        } else if (_NativeInputTable[i] == _InputBuffer + 1) {
+                            _NativeInputTable[i] = Mathf.Clamp(_NativeInputTable[i] - 1, 0, _InputBuffer);
+
+                        // The input is completely new, set it to one above the input buffer
+                        } else {                            
+                            _NativeInputTable[i] = _InputBuffer + 1;
+                            newInputsThisFrame = true;
+                        }
+
+                    // The input is not held, decrement by 1
                     } else {
                         _NativeInputTable[i] = Mathf.Clamp(_NativeInputTable[i] - 1, 0, _InputBuffer);
                     }
@@ -92,12 +104,16 @@ namespace Paperticket {
                 // If it is a button, use the in-built get button function
                 } else {
 
-                    // If the input is currently held, set to input buffer
-                    if (Input.GetButton(inputName)) {
-                        _NativeInputTable[i] = _InputBuffer;
+                    // If the input is new, set to one above the input buffer
+                    if (Input.GetButtonDown(inputName)) {
+                        _NativeInputTable[i] = _InputBuffer + 1;
                         newInputsThisFrame = true;
 
-                    // If the input is not held, decrement by 1
+                    // If the input is currently held, set to input buffer
+                    } else if (Input.GetButton(inputName)) {
+                        _NativeInputTable[i] = _InputBuffer;
+
+                    // If the input is not held, decrement by 1 
                     } else {
                         _NativeInputTable[i] = Mathf.Clamp(_NativeInputTable[i] - 1, 0, _InputBuffer);
                     }
@@ -132,12 +148,11 @@ namespace Paperticket {
             if (_EnableGUI) {
 
                 for (int i = 0; i < _InputList.Count; i++) {
-                    GUI.Label(new Rect(10, 10 + (10 * i), 100, 20), _InputList[i] + ": " + _NativeInputTable[i]);
+                    GUI.Label(new Rect(10, 10 + (10 * i), 120, 20), _InputList[i] + ": " + _NativeInputTable[i]);
                 }
 
-                GUI.Label(new Rect(100, 10, 100, 20), (Mathf.Round(Time.realtimeSinceStartup * 100f) / 100f).ToString());
-
-
+                GUI.Label(new Rect(300, 10, 100, 20), (Mathf.Round(Time.realtimeSinceStartup * 100f) / 100f).ToString());
+                
             }
 
         }
