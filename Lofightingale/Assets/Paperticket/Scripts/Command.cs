@@ -32,7 +32,7 @@ namespace Paperticket
 
         // Read Only
 
-        [HideInInspector]
+        //[HideInInspector]
         public NativeInput[] commandSteps;      // Create at compile (start of runtime atm)
 
     }

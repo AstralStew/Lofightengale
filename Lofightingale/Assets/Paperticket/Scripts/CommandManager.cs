@@ -141,9 +141,10 @@ namespace Paperticket {
                     numberOfFramesToSearch = InputSystem.instance._InputBuffer;
                 }                
 
-                // Reset the frame count and which step we're checking for 
+                // Reset the frame count, the step we're checking for, and the command success bool 
                 frameCount = 0;
                 stepIndex = commandSteps.Length - 1;
+                commandSuccess = false;
 
                 if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] Checking for Input(" + commandSteps[stepIndex].combinedInputs + ")");
 
@@ -184,6 +185,8 @@ namespace Paperticket {
                             commandSuccess = true;
                             break;
                         } else if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] There are still more inputs tho...");
+                    } else {
+                        if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] Required input missing!");
                     }
 
                     // Goto the next frame

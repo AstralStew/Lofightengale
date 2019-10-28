@@ -32,7 +32,7 @@ MonoBehaviour:
     - rawInputs: 0000000000000000000000000000000000000000010000000000000000000000
       combinedInputs: X
   - commandName: Running Charge / Air Lunge
-    commandEnabled: 0
+    commandEnabled: 1
     debug: 0
     commandInputs:
     - LeftStickLeft
@@ -49,7 +49,7 @@ MonoBehaviour:
     - rawInputs: 0000000000000000000000000000000000000000010000000000000000000000
       combinedInputs: X
   - commandName: Medium Kick / Body Slam
-    commandEnabled: 0
+    commandEnabled: 1
     debug: 0
     commandInputs:
     - LeftStickDown+X
@@ -60,7 +60,7 @@ MonoBehaviour:
     - rawInputs: 0000000001000000000000000000000000000000010000000000000000000000
       combinedInputs: LeftStickDown+X
   - commandName: Shortranged Throw
-    commandEnabled: 0
+    commandEnabled: 1
     debug: 0
     commandInputs:
     - LeftStickDown+Y
@@ -71,7 +71,7 @@ MonoBehaviour:
     - rawInputs: 0000000001000000000000000000000000000000000000000100000000000000
       combinedInputs: LeftStickDown+Y
   - commandName: Overhead
-    commandEnabled: 0
+    commandEnabled: 1
     debug: 0
     commandInputs:
     - LeftStickRight+X
@@ -82,7 +82,7 @@ MonoBehaviour:
     - rawInputs: 0000000000000000000000000100000000000000010000000000000000000000
       combinedInputs: LeftStickRight+X
   - commandName: Heavyranged Throw
-    commandEnabled: 0
+    commandEnabled: 1
     debug: 0
     commandInputs:
     - LeftStickRight+Y
@@ -93,7 +93,7 @@ MonoBehaviour:
     - rawInputs: 0000000000000000000000000100000000000000000000000100000000000000
       combinedInputs: LeftStickRight+Y
   - commandName: Anti Air
-    commandEnabled: 0
+    commandEnabled: 1
     debug: 0
     commandInputs:
     - LeftStickLeft+X
@@ -104,7 +104,7 @@ MonoBehaviour:
     - rawInputs: 0000000000000000010000000000000000000000010000000000000000000000
       combinedInputs: LeftStickLeft+X
   - commandName: Medium Ranged Anti Air
-    commandEnabled: 0
+    commandEnabled: 1
     debug: 0
     commandInputs:
     - LeftStickLeft+Y
@@ -115,7 +115,7 @@ MonoBehaviour:
     - rawInputs: 0000000000000000010000000000000000000000000000000100000000000000
       combinedInputs: LeftStickLeft+Y
   - commandName: Medium Punch / Short Air Kick
-    commandEnabled: 0
+    commandEnabled: 1
     debug: 0
     commandInputs:
     - X
@@ -126,7 +126,7 @@ MonoBehaviour:
     - rawInputs: 0000000000000000000000000000000000000000010000000000000000000000
       combinedInputs: X
   - commandName: Medium Ranged Throw / Short Air Grab
-    commandEnabled: 0
+    commandEnabled: 1
     debug: 0
     commandInputs:
     - Y
@@ -137,7 +137,7 @@ MonoBehaviour:
     - rawInputs: 0000000000000000000000000000000000000000000000000100000000000000
       combinedInputs: Y
   - commandName: Back Super Jump
-    commandEnabled: 0
+    commandEnabled: 1
     debug: 0
     commandInputs:
     - LeftStickDown
@@ -151,7 +151,7 @@ MonoBehaviour:
     - rawInputs: 0100000000000000010000000000000000000000000000000000000000000000
       combinedInputs: LeftStickUp+LeftStickLeft
   - commandName: Forward Super Jump
-    commandEnabled: 0
+    commandEnabled: 1
     debug: 0
     commandInputs:
     - LeftStickDown
@@ -165,7 +165,7 @@ MonoBehaviour:
     - rawInputs: 0100000000000000000000000100000000000000000000000000000000000000
       combinedInputs: LeftStickUp+LeftStickRight
   - commandName: Neutral Super Jump
-    commandEnabled: 0
+    commandEnabled: 1
     debug: 0
     commandInputs:
     - LeftStickDown
@@ -179,7 +179,7 @@ MonoBehaviour:
     - rawInputs: 0100000000000000000000000000000000000000000000000000000000000000
       combinedInputs: LeftStickUp
   - commandName: Forward Jump
-    commandEnabled: 0
+    commandEnabled: 1
     debug: 0
     commandInputs:
     - LeftStickUp+LeftStickRight
@@ -190,7 +190,7 @@ MonoBehaviour:
     - rawInputs: 0100000000000000000000000100000000000000000000000000000000000000
       combinedInputs: LeftStickUp+LeftStickRight
   - commandName: Back Jump
-    commandEnabled: 0
+    commandEnabled: 1
     debug: 0
     commandInputs:
     - LeftStickUp+LeftStickLeft
@@ -201,7 +201,7 @@ MonoBehaviour:
     - rawInputs: 0100000000000000010000000000000000000000000000000000000000000000
       combinedInputs: LeftStickUp+LeftStickLeft
   - commandName: Neutral Jump
-    commandEnabled: 0
+    commandEnabled: 1
     debug: 0
     commandInputs:
     - LeftStickUp
@@ -212,7 +212,7 @@ MonoBehaviour:
     - rawInputs: 0100000000000000000000000000000000000000000000000000000000000000
       combinedInputs: LeftStickUp
   - commandName: Back Dash
-    commandEnabled: 0
+    commandEnabled: 1
     debug: 0
     commandInputs:
     - LeftStickLeft
@@ -229,7 +229,7 @@ MonoBehaviour:
     - rawInputs: 0000000000000000010000000000000000000000000000000000000000000000
       combinedInputs: LeftStickLeft
   - commandName: Forward Dash
-    commandEnabled: 0
+    commandEnabled: 1
     debug: 0
     commandInputs:
     - LeftStickRight
