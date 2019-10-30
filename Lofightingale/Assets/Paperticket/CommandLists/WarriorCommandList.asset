@@ -15,15 +15,15 @@ MonoBehaviour:
   listName: Warrior
   commandList:
   - commandName: Reversal Moon Slash
-    commandEnabled: 1
-    debug: 1
+    commandEnabled: 0
     commandInputs:
     - LeftStickDown
     - LeftStickUp
     - X
     inputAllowance: 0
     recoveryLength: 55
-    commandImage: {fileID: 0}
+    animationTrigger: 
+    debug: 1
     commandSteps:
     - rawInputs: 0000000001000000000000000000000000000000000000000000000000000000
       combinedInputs: LeftStickDown
@@ -32,15 +32,15 @@ MonoBehaviour:
     - rawInputs: 0000000000000000000000000000000000000000010000000000000000000000
       combinedInputs: X
   - commandName: Running Charge / Air Lunge
-    commandEnabled: 1
-    debug: 0
+    commandEnabled: 0
     commandInputs:
     - LeftStickLeft
     - LeftStickRight
     - X
     inputAllowance: 0
     recoveryLength: 30
-    commandImage: {fileID: 0}
+    animationTrigger: 
+    debug: 0
     commandSteps:
     - rawInputs: 0000000000000000010000000000000000000000000000000000000000000000
       combinedInputs: LeftStickLeft
@@ -49,178 +49,178 @@ MonoBehaviour:
     - rawInputs: 0000000000000000000000000000000000000000010000000000000000000000
       combinedInputs: X
   - commandName: Medium Kick / Body Slam
-    commandEnabled: 1
-    debug: 0
+    commandEnabled: 0
     commandInputs:
     - LeftStickDown+X
     inputAllowance: 0
     recoveryLength: 30
-    commandImage: {fileID: 0}
+    animationTrigger: 
+    debug: 0
     commandSteps:
     - rawInputs: 0000000001000000000000000000000000000000010000000000000000000000
       combinedInputs: LeftStickDown+X
   - commandName: Shortranged Throw
-    commandEnabled: 1
-    debug: 0
+    commandEnabled: 0
     commandInputs:
     - LeftStickDown+Y
     inputAllowance: 0
     recoveryLength: 55
-    commandImage: {fileID: 0}
+    animationTrigger: 
+    debug: 0
     commandSteps:
     - rawInputs: 0000000001000000000000000000000000000000000000000100000000000000
       combinedInputs: LeftStickDown+Y
   - commandName: Overhead
-    commandEnabled: 1
-    debug: 0
+    commandEnabled: 0
     commandInputs:
     - LeftStickRight+X
     inputAllowance: 0
     recoveryLength: 30
-    commandImage: {fileID: 0}
+    animationTrigger: 
+    debug: 0
     commandSteps:
     - rawInputs: 0000000000000000000000000100000000000000010000000000000000000000
       combinedInputs: LeftStickRight+X
   - commandName: Heavyranged Throw
-    commandEnabled: 1
-    debug: 0
+    commandEnabled: 0
     commandInputs:
     - LeftStickRight+Y
     inputAllowance: 0
     recoveryLength: 55
-    commandImage: {fileID: 0}
+    animationTrigger: 
+    debug: 0
     commandSteps:
     - rawInputs: 0000000000000000000000000100000000000000000000000100000000000000
       combinedInputs: LeftStickRight+Y
   - commandName: Anti Air
-    commandEnabled: 1
-    debug: 0
+    commandEnabled: 0
     commandInputs:
     - LeftStickLeft+X
     inputAllowance: 0
     recoveryLength: 35
-    commandImage: {fileID: 0}
+    animationTrigger: 
+    debug: 0
     commandSteps:
     - rawInputs: 0000000000000000010000000000000000000000010000000000000000000000
       combinedInputs: LeftStickLeft+X
   - commandName: Medium Ranged Anti Air
-    commandEnabled: 1
-    debug: 0
+    commandEnabled: 0
     commandInputs:
     - LeftStickLeft+Y
     inputAllowance: 0
     recoveryLength: 50
-    commandImage: {fileID: 0}
+    animationTrigger: 
+    debug: 0
     commandSteps:
     - rawInputs: 0000000000000000010000000000000000000000000000000100000000000000
       combinedInputs: LeftStickLeft+Y
-  - commandName: Medium Punch / Short Air Kick
+  - commandName: Medium Punch
     commandEnabled: 1
-    debug: 0
     commandInputs:
     - X
     inputAllowance: 0
     recoveryLength: 20
-    commandImage: {fileID: 0}
+    animationTrigger: MediumPunch
+    debug: 0
     commandSteps:
     - rawInputs: 0000000000000000000000000000000000000000010000000000000000000000
       combinedInputs: X
-  - commandName: Medium Ranged Throw / Short Air Grab
+  - commandName: Heavy Swing
     commandEnabled: 1
-    debug: 0
     commandInputs:
     - Y
     inputAllowance: 0
     recoveryLength: 50
-    commandImage: {fileID: 0}
+    animationTrigger: HeavySwing
+    debug: 0
     commandSteps:
     - rawInputs: 0000000000000000000000000000000000000000000000000100000000000000
       combinedInputs: Y
   - commandName: Back Super Jump
-    commandEnabled: 1
-    debug: 0
+    commandEnabled: 0
     commandInputs:
     - LeftStickDown
     - LeftStickUp+LeftStickLeft
     inputAllowance: 0
     recoveryLength: 85
-    commandImage: {fileID: 0}
+    animationTrigger: 
+    debug: 0
     commandSteps:
     - rawInputs: 0000000001000000000000000000000000000000000000000000000000000000
       combinedInputs: LeftStickDown
     - rawInputs: 0100000000000000010000000000000000000000000000000000000000000000
       combinedInputs: LeftStickUp+LeftStickLeft
   - commandName: Forward Super Jump
-    commandEnabled: 1
-    debug: 0
+    commandEnabled: 0
     commandInputs:
     - LeftStickDown
     - LeftStickUp+LeftStickRight
     inputAllowance: 0
     recoveryLength: 85
-    commandImage: {fileID: 0}
+    animationTrigger: 
+    debug: 0
     commandSteps:
     - rawInputs: 0000000001000000000000000000000000000000000000000000000000000000
       combinedInputs: LeftStickDown
     - rawInputs: 0100000000000000000000000100000000000000000000000000000000000000
       combinedInputs: LeftStickUp+LeftStickRight
   - commandName: Neutral Super Jump
-    commandEnabled: 1
-    debug: 0
+    commandEnabled: 0
     commandInputs:
     - LeftStickDown
     - LeftStickUp
     inputAllowance: 0
     recoveryLength: 85
-    commandImage: {fileID: 0}
+    animationTrigger: 
+    debug: 0
     commandSteps:
     - rawInputs: 0000000001000000000000000000000000000000000000000000000000000000
       combinedInputs: LeftStickDown
     - rawInputs: 0100000000000000000000000000000000000000000000000000000000000000
       combinedInputs: LeftStickUp
   - commandName: Forward Jump
-    commandEnabled: 1
-    debug: 0
+    commandEnabled: 0
     commandInputs:
     - LeftStickUp+LeftStickRight
     inputAllowance: 0
     recoveryLength: 60
-    commandImage: {fileID: 0}
+    animationTrigger: 
+    debug: 0
     commandSteps:
     - rawInputs: 0100000000000000000000000100000000000000000000000000000000000000
       combinedInputs: LeftStickUp+LeftStickRight
   - commandName: Back Jump
-    commandEnabled: 1
-    debug: 0
+    commandEnabled: 0
     commandInputs:
     - LeftStickUp+LeftStickLeft
     inputAllowance: 0
     recoveryLength: 60
-    commandImage: {fileID: 0}
+    animationTrigger: 
+    debug: 0
     commandSteps:
     - rawInputs: 0100000000000000010000000000000000000000000000000000000000000000
       combinedInputs: LeftStickUp+LeftStickLeft
   - commandName: Neutral Jump
-    commandEnabled: 1
-    debug: 0
+    commandEnabled: 0
     commandInputs:
     - LeftStickUp
     inputAllowance: 0
     recoveryLength: 60
-    commandImage: {fileID: 0}
+    animationTrigger: 
+    debug: 0
     commandSteps:
     - rawInputs: 0100000000000000000000000000000000000000000000000000000000000000
       combinedInputs: LeftStickUp
   - commandName: Back Dash
-    commandEnabled: 1
-    debug: 0
+    commandEnabled: 0
     commandInputs:
     - LeftStickLeft
     - ^LeftStickLeft
     - LeftStickLeft
     inputAllowance: 0
     recoveryLength: 28
-    commandImage: {fileID: 0}
+    animationTrigger: 
+    debug: 0
     commandSteps:
     - rawInputs: 0000000000000000010000000000000000000000000000000000000000000000
       combinedInputs: LeftStickLeft
@@ -229,15 +229,15 @@ MonoBehaviour:
     - rawInputs: 0000000000000000010000000000000000000000000000000000000000000000
       combinedInputs: LeftStickLeft
   - commandName: Forward Dash
-    commandEnabled: 1
-    debug: 0
+    commandEnabled: 0
     commandInputs:
     - LeftStickRight
     - ^LeftStickRight
     - LeftStickRight
     inputAllowance: 0
     recoveryLength: 28
-    commandImage: {fileID: 0}
+    animationTrigger: 
+    debug: 0
     commandSteps:
     - rawInputs: 0000000000000000000000000100000000000000000000000000000000000000
       combinedInputs: LeftStickRight

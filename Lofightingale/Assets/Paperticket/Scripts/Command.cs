@@ -12,9 +12,7 @@ namespace Paperticket
         [Tooltip("If this is unchecked, the command will be completely disabled.\n\nEnable All Commands / Disable All Commands buttons at the bottom of this component")]
         public bool commandEnabled;
 
-        [Tooltip("Output debug logs in the console.\n\nEnable All Commands / Disable All Commands buttons at the bottom of this component")]
-        public bool debug;
-
+               
 
         [Header("Command Values")]
 
@@ -25,14 +23,22 @@ namespace Paperticket
         public int inputAllowance;
 
         [Tooltip("The amount of recovery frames in this command.\n\nNOTE: This is in frames, not seconds")]
-        public int recoveryLength;        
+        public int recoveryLength;
 
-        public Sprite commandImage;
+        [Tooltip("The animation parametre that triggers the animation of the command")]
+        public string animationTrigger;
 
+
+
+        [Header("Misc")]
+
+        [Tooltip("Output debug logs in the console.\n\nEnable All Commands / Disable All Commands buttons at the bottom of this component")]
+        public bool debug;
+        
 
         // Read Only
 
-        //[HideInInspector]
+        [HideInInspector]
         public NativeInput[] commandSteps;      // Create at compile (start of runtime atm)
 
     }

@@ -6,12 +6,16 @@ namespace Paperticket {
     [AddComponentMenu("Paperticket/Command Manager")]
     public class CommandManager : MonoBehaviour {
 
+        CharacterManager characterManager;
         public CommandList _CommandList;
 
-
+        
         [Header("Read Only")]
 
+        [SerializeField] string defaultAnimationTrigger;
+
         [SerializeField] bool _Recovering;
+
 
         [Header("Misc")]
 
@@ -27,6 +31,12 @@ namespace Paperticket {
 
 
         void OnEnable() {
+
+            characterManager = characterManager ?? GetComponentInParent<CharacterManager>();
+            if(characterManager == null) {
+                Debug.LogError("[CommandManager] ERROR -> No character manager found! Child this object to the character manager!");
+                enabled = false;
+            }
 
             // Disable this component if no commands have been created
             if (_CommandList.commandList.Length == 0) {
@@ -214,8 +224,8 @@ namespace Paperticket {
             onCommandRegistered?.Invoke(_CommandList.commandList[commandIndex]);
 
             // Start recovery time for command
-            StopAllCoroutines();
-            StartCoroutine(WaitForRecovery(_CommandList.commandList[commandIndex].recoveryLength));
+            //StopAllCoroutines();
+            //StartCoroutine(WaitForRecovery(_CommandList.commandList[commandIndex].recoveryLength));
 
 
             // Clear the cache of frames held in the Native Input Table
@@ -226,6 +236,13 @@ namespace Paperticket {
             InputSystem.instance.ClearNativeInputTable();
 
         }
+
+
+
+        public void SetRecovering(bool active ) {
+            _Recovering = active;
+        }
+
 
 
 
