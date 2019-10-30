@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace Paperticket
 {
+    [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
     public class CharacterManager : MonoBehaviour
     {
         [Header("References")]
@@ -17,14 +19,33 @@ namespace Paperticket
         [Tooltip("The AnimationManager script that controls the animations for this character")]
         public AnimationManager animationManager;
 
+        [SerializeField] Rigidbody2D rigidbody2D;
+        [SerializeField] BoxCollider2D boxCollider;
+
+
+        [Header("Ground Settings")]
+
+        public float gravityScale;
+        public float groundedAllowance;
+        public LayerMask groundLayers;
+
 
         [Header("Read Only")]
 
-        [Tooltip("The inputs of the command.\n\nUse '+' to include mutliple inputs required on the same frame.\n\nUse '^' to designate that the input must be released as part of the command")]
-        public bool asd;
+        [Tooltip("Whether the player is grounded or not")]
+        public bool isGrounded;
+
+        [Tooltip("Whether the player is crouching or not")]
+        public bool isCrouching;
+
+        [Tooltip("Whether the player is recovering or not")]
+        public bool isRecovering;
 
 
-        void Awake () {
+        void Awake() {
+
+            rigidbody2D = rigidbody2D ?? GetComponent<Rigidbody2D>();
+            boxCollider = boxCollider ?? GetComponent<BoxCollider2D>();
 
             // Save reference to and disable the script if cannot find input system
             inputSystem = inputSystem ?? GetComponentInChildren<InputSystem>();
@@ -45,14 +66,68 @@ namespace Paperticket
                 enabled = false;
             }
 
+            // Set the initial gravity setting
+            SetGravity(true);
 
         }
 
+        public void AddForce( Vector2 direction, float magnitude, bool wipeVelocity ) {
 
+            // Wipe the existing velocity of the character if applicable
+            if (wipeVelocity) rigidbody2D.velocity = Vector2.zero;
+
+            // Add the specified force
+            rigidbody2D.AddForce(direction.normalized * magnitude);
+            
+        }
+
+
+
+
+
+
+
+        void FixedUpdate() {
+            isGrounded = rigidbody2D.IsTouchingLayers(groundLayers);
+        }
 
         void Update() {
+            isCrouching = isGrounded && inputSystem.InputPresentInFrame("LeftStickDown", 1);
+        }
+
+
+
+        public void SetRecovering( bool active ) {
+            isRecovering = active;
+        }
+
+        public void SetGravity( bool active) {
+            rigidbody2D.gravityScale = active ? gravityScale : 0;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        void OnDrawGizmosSelected() {
+
+            //boxCollider.bounds.min.x - (groundedAllowance / 2)
+
+            if (groundedAllowance > 0) {
+                Gizmos.DrawCube(transform.position, Vector3.one * groundedAllowance);
+            }
 
         }
+
     }
 
 }

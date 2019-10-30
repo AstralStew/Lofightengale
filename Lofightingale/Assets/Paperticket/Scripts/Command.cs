@@ -12,7 +12,15 @@ namespace Paperticket
         [Tooltip("If this is unchecked, the command will be completely disabled.\n\nEnable All Commands / Disable All Commands buttons at the bottom of this component")]
         public bool commandEnabled;
 
-               
+
+
+        [Header("Requirements")]
+                
+        public bool requireGrounded;
+        public bool requireAirborne;
+        public bool requireCrouching;
+
+
 
         [Header("Command Values")]
 
@@ -28,7 +36,15 @@ namespace Paperticket
         [Tooltip("The animation parametre that triggers the animation of the command")]
         public string animationTrigger;
 
+                     
 
+        [Header("Movement Options")]
+
+        public bool moveCharacter;
+        public Vector2 moveForce;
+        public float forceMulltiplier;
+
+        
 
         [Header("Misc")]
 

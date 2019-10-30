@@ -204,6 +204,19 @@ namespace Paperticket {
 
 
 
+        public int InputIndexFromName( string input ) {
+
+            // Check this is a valid input
+            if (_InputList.Contains(input)) {
+
+                return _InputList.IndexOf(input);
+            
+            } else {
+                Debug.LogError("[" + name + "] ERROR -> Bad input!");
+                return -1;
+            }
+
+        }
 
         public bool InputPresentInFrame( int inputIndex, int frameNo ) {
 
@@ -265,16 +278,7 @@ namespace Paperticket {
             // Input is a standard single input
             } else {
 
-                // Check this is a valid input
-                if (_InputList.Contains(input)) {
-
-                    // Check state of input during frame
-                    return InputPresentInFrame(_InputList.IndexOf(input), frameNo);
-
-                } else {
-                    Debug.LogError("[" + name + "] ERROR -> Bad input!");
-                    return false;
-                }
+                return InputPresentInFrame(InputIndexFromName(input), frameNo);
 
             }
         }
@@ -304,20 +308,15 @@ namespace Paperticket {
 
         }
         public int InputStateInFrame( string input, int frameNo ) {
-            
-            // Check this is a valid input
-            if (_InputList.Contains(input)) {
 
-                // Check state of input during frame
-                return InputStateInFrame(_InputList.IndexOf(input), frameNo);
+            return InputStateInFrame(InputIndexFromName(input), frameNo);
 
-            } else {
-                Debug.LogError("[" + name + "] ERROR -> Bad input!");
-                return -1;
-            }
         }
 
         
+
+
+
 
         public void ClearNativeInputTable() {
                         

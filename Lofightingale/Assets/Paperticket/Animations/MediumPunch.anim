@@ -1809,14 +1809,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.033333335
-    functionName: SetRecovery
+    functionName: SetRecovering
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 0.33333334
-    functionName: SetRecovery
+  - time: 0.31666666
+    functionName: SetRecovering
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

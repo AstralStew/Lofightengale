@@ -10,58 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14eda10a191c92f4698ffc1bc2eaa61a, type: 3}
-  m_Name: WarriorCommandList
+  m_Name: ExampleCommandList 1
   m_EditorClassIdentifier: 
-  listName: Warrior
+  listName: Example
   commandList:
-  - commandName: Reversal Moon Slash
-    commandEnabled: 0
-    requireGrounded: 1
-    requireAirborne: 0
-    requireCrouching: 0
-    commandInputs:
-    - LeftStickDown
-    - LeftStickUp
-    - X
-    inputAllowance: 0
-    recoveryLength: 55
-    animationTrigger: 
-    moveCharacter: 0
-    moveForce: {x: 0, y: 0}
-    forceMulltiplier: 0
-    debug: 0
-    commandSteps:
-    - rawInputs: 0000000001000000000000000000000000000000000000000000000000000000
-      combinedInputs: LeftStickDown
-    - rawInputs: 0100000000000000000000000000000000000000000000000000000000000000
-      combinedInputs: LeftStickUp
-    - rawInputs: 0000000000000000000000000000000000000000010000000000000000000000
-      combinedInputs: X
-  - commandName: Running Charge
-    commandEnabled: 0
-    requireGrounded: 1
-    requireAirborne: 0
-    requireCrouching: 0
-    commandInputs:
-    - LeftStickLeft
-    - LeftStickRight
-    - X
-    inputAllowance: 0
-    recoveryLength: 30
-    animationTrigger: 
-    moveCharacter: 0
-    moveForce: {x: 0, y: 0}
-    forceMulltiplier: 0
-    debug: 0
-    commandSteps:
-    - rawInputs: 0000000000000000010000000000000000000000000000000000000000000000
-      combinedInputs: LeftStickLeft
-    - rawInputs: 0000000000000000000000000100000000000000000000000000000000000000
-      combinedInputs: LeftStickRight
-    - rawInputs: 0000000000000000000000000000000000000000010000000000000000000000
-      combinedInputs: X
   - commandName: Medium Kick
-    commandEnabled: 0
+    commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 1
@@ -69,21 +23,21 @@ MonoBehaviour:
     - X
     inputAllowance: 0
     recoveryLength: 30
-    animationTrigger: 
+    animationTrigger: MediumKick
     moveCharacter: 0
     moveForce: {x: 0, y: 0}
     forceMulltiplier: 0
-    debug: 0
+    debug: 1
     commandSteps:
-    - rawInputs: 0000000001000000000000000000000000000000010000000000000000000000
-      combinedInputs: LeftStickDown+X
-  - commandName: Stab Slash Down
-    commandEnabled: 0
+    - rawInputs: 0000000000000000000000000000000000000000010000000000000000000000
+      combinedInputs: X
+  - commandName: Shortranged Throw
+    commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
-    requireCrouching: 1
+    requireCrouching: 0
     commandInputs:
-    - Y
+    - LeftStickDown+Y
     inputAllowance: 0
     recoveryLength: 55
     animationTrigger: 
@@ -95,7 +49,7 @@ MonoBehaviour:
     - rawInputs: 0000000001000000000000000000000000000000000000000100000000000000
       combinedInputs: LeftStickDown+Y
   - commandName: Overhead
-    commandEnabled: 0
+    commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 0
@@ -112,7 +66,7 @@ MonoBehaviour:
     - rawInputs: 0000000000000000000000000100000000000000010000000000000000000000
       combinedInputs: LeftStickRight+X
   - commandName: Heavyranged Throw
-    commandEnabled: 0
+    commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 0
@@ -129,7 +83,7 @@ MonoBehaviour:
     - rawInputs: 0000000000000000000000000100000000000000000000000100000000000000
       combinedInputs: LeftStickRight+Y
   - commandName: Anti Air
-    commandEnabled: 0
+    commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 0
@@ -146,7 +100,7 @@ MonoBehaviour:
     - rawInputs: 0000000000000000010000000000000000000000010000000000000000000000
       combinedInputs: LeftStickLeft+X
   - commandName: Medium Ranged Anti Air
-    commandEnabled: 0
+    commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 0
@@ -196,66 +150,6 @@ MonoBehaviour:
     commandSteps:
     - rawInputs: 0000000000000000000000000000000000000000000000000100000000000000
       combinedInputs: Y
-  - commandName: Back Super Jump
-    commandEnabled: 1
-    requireGrounded: 1
-    requireAirborne: 0
-    requireCrouching: 0
-    commandInputs:
-    - LeftStickDown
-    - LeftStickUp+LeftStickLeft
-    inputAllowance: 0
-    recoveryLength: 85
-    animationTrigger: 
-    moveCharacter: 0
-    moveForce: {x: 0, y: 0}
-    forceMulltiplier: 0
-    debug: 1
-    commandSteps:
-    - rawInputs: 0000000001000000000000000000000000000000000000000000000000000000
-      combinedInputs: LeftStickDown
-    - rawInputs: 0100000000000000010000000000000000000000000000000000000000000000
-      combinedInputs: LeftStickUp+LeftStickLeft
-  - commandName: Forward Super Jump
-    commandEnabled: 1
-    requireGrounded: 1
-    requireAirborne: 0
-    requireCrouching: 0
-    commandInputs:
-    - LeftStickDown
-    - LeftStickUp+LeftStickRight
-    inputAllowance: 0
-    recoveryLength: 85
-    animationTrigger: 
-    moveCharacter: 0
-    moveForce: {x: 0, y: 0}
-    forceMulltiplier: 0
-    debug: 1
-    commandSteps:
-    - rawInputs: 0000000001000000000000000000000000000000000000000000000000000000
-      combinedInputs: LeftStickDown
-    - rawInputs: 0100000000000000000000000100000000000000000000000000000000000000
-      combinedInputs: LeftStickUp+LeftStickRight
-  - commandName: Neutral Super Jump
-    commandEnabled: 1
-    requireGrounded: 1
-    requireAirborne: 0
-    requireCrouching: 0
-    commandInputs:
-    - LeftStickDown
-    - LeftStickUp
-    inputAllowance: 0
-    recoveryLength: 85
-    animationTrigger: 
-    moveCharacter: 0
-    moveForce: {x: 0, y: 0}
-    forceMulltiplier: 0
-    debug: 1
-    commandSteps:
-    - rawInputs: 0000000001000000000000000000000000000000000000000000000000000000
-      combinedInputs: LeftStickDown
-    - rawInputs: 0100000000000000000000000000000000000000000000000000000000000000
-      combinedInputs: LeftStickUp
   - commandName: Forward Jump
     commandEnabled: 1
     requireGrounded: 1

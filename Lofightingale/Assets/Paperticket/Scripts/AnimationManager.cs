@@ -10,6 +10,7 @@ namespace Paperticket
         CharacterManager characterManager;
         [SerializeField] Animator animator;
 
+        [SerializeField] bool _Debug;
         
         void Awake() {
 
@@ -43,18 +44,41 @@ namespace Paperticket
 
 
         public void PlayCommandAnimation (string animationTrigger ) {
-            // Fire off the given animation trigger parametre
-            animator.SetTrigger(animationTrigger);
 
+            // Cancel if there's no animation trigger set
+            if (animationTrigger != "") {
+
+                // Reset all trigger parametres
+                for (int i = 0; i < animator.parameters.Length; i++) {                    
+                    if (animator.parameters[i].type == AnimatorControllerParameterType.Trigger) {
+                        if (_Debug) Debug.Log("[AnimationManager] Resetting parameter = " + animator.parameters[i].name);
+                        animator.ResetTrigger(animator.parameters[i].name);
+                    }
+                }
+
+                // Fire off the given trigger parametre
+                animator.SetTrigger(animationTrigger);
+            }
         }
 
-
-        public void SetRecovery (int active) {
-            
-            characterManager.commandManager.SetRecovering(active>0);
+        public void SetAnimationState (string stateName, bool state ) {
+            animator.SetBool(stateName, state);
+        }
+                        
+        public void SetRecovering (int active) {            
+            characterManager.SetRecovering(active>0);
         }
 
+        public void SetGravity (int active) {
+            characterManager.SetGravity(active>0);
+        }
 
+        void Update() {
+
+            SetAnimationState("isCrouching", characterManager.isCrouching);
+            SetAnimationState("isGrounded", characterManager.isGrounded);
+
+        }
 
     }
 }

@@ -14,7 +14,7 @@ namespace Paperticket {
 
         [SerializeField] string defaultAnimationTrigger;
 
-        [SerializeField] bool _Recovering;
+        //[SerializeField] bool _Recovering;
 
 
         [Header("Misc")]
@@ -130,17 +130,20 @@ namespace Paperticket {
 
         void CheckCommands() {
             //if (_Debug) Debug.Log("[CommandManager] Checking for commands!");
-            if (_Recovering) return;
+            if (characterManager.isRecovering) return;
             
 
             // Go through each command in the command list
             Command[] commandList = _CommandList.commandList;
             for (int i = 0; i < commandList.Length; i++) {
 
-                // Make sure this command is enabled
-                if (!commandList[i].commandEnabled) continue;
+                // Make sure this command is enabled and it's other requirements are met
+                if ((!commandList[i].commandEnabled) ||
+                    (commandList[i].requireGrounded && !characterManager.isGrounded) ||
+                        (commandList[i].requireAirborne && characterManager.isGrounded) ||
+                        (commandList[i].requireCrouching && !characterManager.isCrouching)) continue;
                 if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] Checking Command(" + commandList[i].commandName + ")...");
-
+                
                 // Grab the steps for this command
                 commandSteps = commandList[i].commandSteps;
 
@@ -206,6 +209,7 @@ namespace Paperticket {
 
                 // Register a successful command, or move to next one
                 if (commandSuccess) {
+                    
                     RegisterCommand(i, frameCount);
                     break;
                 } else {
@@ -228,36 +232,44 @@ namespace Paperticket {
             //StartCoroutine(WaitForRecovery(_CommandList.commandList[commandIndex].recoveryLength));
 
 
+            // Move the character if so stated
+            if (_CommandList.commandList[commandIndex].moveCharacter) {
+                characterManager.AddForce(_CommandList.commandList[commandIndex].moveForce,
+                                            _CommandList.commandList[commandIndex].forceMulltiplier, true);
+            }
+
             // Clear the cache of frames held in the Native Input Table
             if (_DontClearInputBuffer) {
                 Debug.LogWarning("[InputSystem] NOTE -> You aren't clearing the input buffer! This could be bad!");
                 return;
-            }
-            InputSystem.instance.ClearNativeInputTable();
+            } else {
+                if (_Debug) Debug.LogWarning("[InputSystem] NOTE -> You aren't clearing the input buffer! This could be bad!");
+                InputSystem.instance.ClearNativeInputTable();
+            }           
 
         }
 
 
 
-        public void SetRecovering(bool active ) {
-            _Recovering = active;
-        }
+        //public void SetRecovering(bool active ) {
+        //    _Recovering = active;
+        //}
 
 
 
 
-        IEnumerator WaitForRecovery( int recoveryLength ) {
-            _Recovering = true;
+        //IEnumerator WaitForRecovery( int recoveryLength ) {
+        //    _Recovering = true;
 
-            // Wait for the recovery length
-            int frame = recoveryLength;
-            while (frame > 0) {
-                yield return null;
-                frame--;
-            }
+        //    // Wait for the recovery length
+        //    int frame = recoveryLength;
+        //    while (frame > 0) {
+        //        yield return null;
+        //        frame--;
+        //    }
 
-            _Recovering = false;
-        }
+        //    _Recovering = false;
+        //}
 
 
 
