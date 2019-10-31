@@ -23,11 +23,17 @@ namespace Paperticket
         [SerializeField] BoxCollider2D boxCollider;
 
 
+        [Header("Move Settings")]
+
+        [SerializeField] float moveSpeed;
+        
+
+
         [Header("Ground Settings")]
 
         public float gravityScale;
-        public float groundedAllowance;
-        public LayerMask groundLayers;
+        [SerializeField] float groundedAllowance;
+        [SerializeField] LayerMask groundLayers;
 
 
         [Header("Read Only")]
@@ -40,6 +46,9 @@ namespace Paperticket
 
         [Tooltip("Whether the player is recovering or not")]
         public bool isRecovering;
+
+        [Tooltip("The last saved move frame")]
+        [SerializeField] Vector2 nextMoveFrame;
 
 
         void Awake() {
@@ -81,18 +90,71 @@ namespace Paperticket
             
         }
 
-
-
-
-
-
-
-        void FixedUpdate() {
-            isGrounded = rigidbody2D.IsTouchingLayers(groundLayers);
+        [ContextMenu("TranslateCharacter")]
+        public void TestTranslate() {
+            TranslateCharacter(nextMoveFrame.normalized, nextMoveFrame.magnitude);
         }
 
+
+        public void TranslateCharacter(Vector2 direction, float speed) {
+
+            nextMoveFrame = direction * speed * Time.deltaTime;
+
+        }
+
+
+
+
+        Vector2 direction;
+        float moveSpeedAdjusted;
+        void FixedUpdate() {
+        
+            // Update whether the player is grounded or not
+            isGrounded = rigidbody2D.IsTouchingLayers(groundLayers);
+
+            if (isGrounded && !isRecovering) {
+
+                if (inputSystem.InputPresentInFrame("LeftStickRight", 1)) {
+                    direction = Vector2.right;
+                } else if (inputSystem.InputPresentInFrame("LeftStickLeft", 1)) {
+                    direction = Vector2.left;
+                } else {
+                    direction = Vector2.zero;
+                }               
+
+                if (direction.magnitude != 0) {
+
+                    if (isCrouching) {
+                        moveSpeedAdjusted = moveSpeed / 2;
+                    } else {
+                        moveSpeedAdjusted = moveSpeed;
+                    }
+                    
+                    rigidbody2D.MovePosition((Vector2)transform.position + (direction * moveSpeedAdjusted * Time.deltaTime));
+                }
+
+            }
+
+        }
+
+
+        Vector2 move;
         void Update() {
             isCrouching = isGrounded && inputSystem.InputPresentInFrame("LeftStickDown", 1);
+
+            
+            if (false /*!isRecovering*/) {
+                
+                if (inputSystem.InputPresentInFrame("LeftStickRight", 1)){
+                    move = new Vector2(inputSystem.InputPresentInFrame("LeftStickRight", 1) ? 1 : 0, 0);
+                    TranslateCharacter(move, moveSpeed);
+
+                } else if (inputSystem.InputPresentInFrame("LeftStickLeft", 1)){
+                    move = new Vector2(inputSystem.InputPresentInFrame("LeftStickLeft", 1) ? -1 : 0, 0);
+                    TranslateCharacter(move, moveSpeed);
+                }
+                
+            }
         }
 
 

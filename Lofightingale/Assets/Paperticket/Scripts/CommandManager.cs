@@ -199,7 +199,16 @@ namespace Paperticket {
                             break;
                         } else if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] There are still more inputs tho...");
                     } else {
-                        if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] Required input missing!");
+
+                        // Break out of command if the first step is missed
+                        if (stepIndex == commandSteps.Length - 1) {
+                            if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] First input not found! Cancelling check");
+                            break;
+                        } else {
+                            if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] Required input missing! Moving to next input");
+                        }
+                                               
+                        
                     }
 
                     // Goto the next frame

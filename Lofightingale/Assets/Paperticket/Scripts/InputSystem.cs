@@ -316,7 +316,7 @@ namespace Paperticket {
             if (debug) debugLog = "[InputManager] Checking InputIndex(" + inputIndex + ") at frameNo(" + frameNo + ")";
             
             // Match the provided index to the current frame in the NTI    
-            int frame = (frameIterator - frameNo + _InputBuffer + 1) % _InputBuffer;       // maybe +1 to brackets
+            int frame = (frameIterator - frameNo + _InputBuffer) % _InputBuffer;       // maybe +1 to brackets
             
             if (debug) {
                 debugLog += "\n [InputManager] Adjusted frame(" + frame + ") = [iterator(" + frameIterator + ") - unadjusted frame(" + frameNo + ")] % input buffer(" + _InputBuffer + ")";

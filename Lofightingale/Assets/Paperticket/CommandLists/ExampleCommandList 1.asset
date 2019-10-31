@@ -30,8 +30,6 @@ MonoBehaviour:
     forceMulltiplier: 0
     debug: 1
     commandSteps:
-    - rawInputs: 0000000001000000000000000000000000000000000000000000000000000000
-      combinedInputs: LeftStickDown
     - rawInputs: 0000000000000000000000000100000000000000000000000000000000000000
       combinedInputs: LeftStickRight
     - rawInputs: 0000000000000000000000000000000000000000000000000100000000000000
@@ -100,7 +98,7 @@ MonoBehaviour:
     moveCharacter: 0
     moveForce: {x: 0, y: 0}
     forceMulltiplier: 0
-    debug: 0
+    debug: 1
     commandSteps:
     - rawInputs: 0000000000000000000000000000000000000000010000000000000000000000
       combinedInputs: X

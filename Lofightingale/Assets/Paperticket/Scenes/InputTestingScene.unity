@@ -373,6 +373,7 @@ MonoBehaviour:
   animationManager: {fileID: 190728552}
   rigidbody2D: {fileID: 528964570}
   boxCollider: {fileID: 528964569}
+  moveSpeed: 25
   gravityScale: 3.5
   groundedAllowance: 0.25
   groundLayers:
@@ -381,6 +382,7 @@ MonoBehaviour:
   isGrounded: 0
   isCrouching: 0
   isRecovering: 0
+  nextMoveFrame: {x: 0, y: 0}
 --- !u!4 &528964568
 Transform:
   m_ObjectHideFlags: 0
