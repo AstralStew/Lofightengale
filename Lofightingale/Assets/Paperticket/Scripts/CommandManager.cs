@@ -176,7 +176,7 @@ namespace Paperticket {
                             if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] Required input for (" + InputSystem.instance._InputList[j] + ") = " + requiredInput);
 
                             // Check the state of the input at the frame we're up to
-                            inputState = InputSystem.instance.InputStateInFrame(j, frameCount);
+                            inputState = InputSystem.instance.InputStateInFrame(j, frameCount, _Debug && commandList[i].debug);
 
                             // Move on if the required input is the same as the input state
                             if (requiredInput == inputState || (requiredInput == 1 && inputState == 2)) {

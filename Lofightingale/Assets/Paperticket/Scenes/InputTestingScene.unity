@@ -442,10 +442,10 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &586421144
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,8 +477,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CommandList: {fileID: 11400000, guid: 413b1a6ff6945744694058119acc6fe7, type: 2}
   defaultAnimationTrigger: 
-  _Debug: 0
-  _DontClearInputBuffer: 0
+  _Debug: 1
+  _DontClearInputBuffer: 1
 --- !u!4 &586421146
 Transform:
   m_ObjectHideFlags: 0

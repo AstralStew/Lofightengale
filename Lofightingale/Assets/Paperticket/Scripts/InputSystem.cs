@@ -312,6 +312,21 @@ namespace Paperticket {
             return InputStateInFrame(InputIndexFromName(input), frameNo);
 
         }
+        public int InputStateInFrame( int inputIndex, int frameNo, bool debug ) {
+            if (debug) debugLog = "[InputManager] Checking InputIndex(" + inputIndex + ") at frameNo(" + frameNo + ")";
+            
+            // Match the provided index to the current frame in the NTI    
+            int frame = (frameIterator - frameNo + _InputBuffer + 1) % _InputBuffer;       // maybe +1 to brackets
+            
+            if (debug) {
+                debugLog += "\n [InputManager] Adjusted frame(" + frame + ") = [iterator(" + frameIterator + ") - unadjusted frame(" + frameNo + ")] % input buffer(" + _InputBuffer + ")";
+                debugLog += "\n [InputManager] InputIndex(" + inputIndex + ") = " + _NativeInputTable[frame].rawInputs[inputIndex] + " at frameNo(" + frame + ")";
+                Debug.Log(debugLog);
+            }
+
+            // Check state of input during frame
+            return _NativeInputTable[frame].rawInputs[inputIndex];
+        }
 
         
 
