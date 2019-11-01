@@ -25,15 +25,21 @@ namespace Paperticket
 
         [Header("Move Settings")]
 
-        [SerializeField] float moveSpeed;
-        
-
+        [SerializeField] [Min(0.1f)] float moveSpeed;
+        [SerializeField] [Min(0.1f)] float maxSpeed;
+        [SerializeField] [Min(0.1f)] float minSpeed;
+        Vector2 currentVelocity;
 
         [Header("Ground Settings")]
 
         public float gravityScale;
         [SerializeField] float groundedAllowance;
         [SerializeField] LayerMask groundLayers;
+
+
+        [Header("Misc")]
+
+        [SerializeField] bool _Debug;
 
 
         [Header("Read Only")]
@@ -46,6 +52,9 @@ namespace Paperticket
 
         [Tooltip("Whether the player is recovering or not")]
         public bool isRecovering;
+
+        //[Tooltip("Whether the player can be directly controlled (moved etc)")]
+        //public bool isControllable;
 
         [Tooltip("The last saved move frame")]
         [SerializeField] Vector2 nextMoveFrame;
@@ -112,28 +121,31 @@ namespace Paperticket
             // Update whether the player is grounded or not
             isGrounded = rigidbody2D.IsTouchingLayers(groundLayers);
 
-            if (isGrounded && !isRecovering) {
+            rigidbody2D.velocity = currentVelocity;
 
-                if (inputSystem.InputPresentInFrame("LeftStickRight", 1)) {
-                    direction = Vector2.right;
-                } else if (inputSystem.InputPresentInFrame("LeftStickLeft", 1)) {
-                    direction = Vector2.left;
-                } else {
-                    direction = Vector2.zero;
-                }               
+            //if (isGrounded && isControllable) {
 
-                if (direction.magnitude != 0) {
+            //    if (inputSystem.InputPresentInFrame("LeftStickRight", 1)) {
+            //        direction = Vector2.right;
+            //    } else if (inputSystem.InputPresentInFrame("LeftStickLeft", 1)) {
+            //        direction = Vector2.left;
+            //    } else {
+            //        direction = Vector2.zero;
+            //    }               
 
-                    if (isCrouching) {
-                        moveSpeedAdjusted = moveSpeed / 2;
-                    } else {
-                        moveSpeedAdjusted = moveSpeed;
-                    }
-                    
-                    rigidbody2D.MovePosition((Vector2)transform.position + (direction * moveSpeedAdjusted * Time.deltaTime));
-                }
+            //    if (direction.magnitude != 0) {
 
-            }
+            //        if (isCrouching) {
+            //            moveSpeedAdjusted = Mathf.Clamp(moveSpeed / 2, minSpeed, maxSpeed);
+            //        } else {
+            //            moveSpeedAdjusted = Mathf.Clamp(moveSpeed, minSpeed, maxSpeed);
+            //        }
+
+            //        SetVelocity(direction, moveSpeedAdjusted, false);
+
+            //    }
+
+            //}
 
         }
 
@@ -143,18 +155,6 @@ namespace Paperticket
             isCrouching = isGrounded && inputSystem.InputPresentInFrame("LeftStickDown", 1);
 
             
-            if (false /*!isRecovering*/) {
-                
-                if (inputSystem.InputPresentInFrame("LeftStickRight", 1)){
-                    move = new Vector2(inputSystem.InputPresentInFrame("LeftStickRight", 1) ? 1 : 0, 0);
-                    TranslateCharacter(move, moveSpeed);
-
-                } else if (inputSystem.InputPresentInFrame("LeftStickLeft", 1)){
-                    move = new Vector2(inputSystem.InputPresentInFrame("LeftStickLeft", 1) ? -1 : 0, 0);
-                    TranslateCharacter(move, moveSpeed);
-                }
-                
-            }
         }
 
 
@@ -169,6 +169,23 @@ namespace Paperticket
 
 
 
+
+        Vector2 newVelocity;
+        public void SetVelocity (Vector2 direction, float magnitude, bool additive ) {
+
+            if (_Debug) Debug.Log("[CharacterManager] Setting new velocity! Vector2 = "+direction*magnitude+", additive = "+additive);
+
+            // If not additive, reset the current velocity before setting new one
+            if (!additive) {
+                currentVelocity = Vector2.zero;
+            }
+            
+            // Save the new velocity
+            currentVelocity += (direction * magnitude);
+
+            if (_Debug) Debug.Log("[CharacterManager] New velocity = "+ currentVelocity);            
+
+        }
 
 
 

@@ -47,10 +47,14 @@ namespace Paperticket {
             CompileCommands();
 
             InputSystem.onInputRegistered += CheckCommands;
+            characterManager.animationManager.onAnimationFinished += CheckCommands;
+            characterManager.animationManager.onAnimationStarted += CheckCommands;
         }
 
         void OnDisable() {
             InputSystem.onInputRegistered -= CheckCommands;
+            characterManager.animationManager.onAnimationFinished -= CheckCommands;
+            characterManager.animationManager.onAnimationStarted -= CheckCommands;
         }
 
 
@@ -97,8 +101,14 @@ namespace Paperticket {
 
                             if (_Debug) Debug.Log("[CommandManager] Saving command step input (" + seperateInputs[k] + ") in native input table");
 
-                            // Set the raw input for this command step 
-                            _CommandList.commandList[i].commandSteps[j].rawInputs[inputSystem._InputList.IndexOf(seperateInputs[k].Substring(1))] = 3;
+                            // Set the appropriate raw input for this command step 
+                            if (seperateInputs[k].StartsWith("^")) {
+                                _CommandList.commandList[i].commandSteps[j].rawInputs[inputSystem._InputList.IndexOf(seperateInputs[k].Substring(1))] = 3;
+                            } else if (seperateInputs[k].StartsWith("v")) {
+                                _CommandList.commandList[i].commandSteps[j].rawInputs[inputSystem._InputList.IndexOf(seperateInputs[k].Substring(1))] = 2;
+                            } else {
+                                Debug.LogError("[CommandManager] ERROR -> Bad input qualifier (" + seperateInputs[k] + ")!");
+                            }                            
 
                         } else if (inputSystem._InputList.Contains(seperateInputs[k])) {
 
@@ -179,7 +189,10 @@ namespace Paperticket {
                             inputState = InputSystem.instance.InputStateInFrame(j, frameCount, _Debug && commandList[i].debug);
 
                             // Move on if the required input is the same as the input state
-                            if (requiredInput == inputState || (requiredInput == 1 && inputState == 2)) {
+                            if (requiredInput == inputState
+                                // Also if it's a lazy input, consider pressed and held down inputs the same
+                                || (commandList[i].lazyInput && requiredInput == 1 && inputState == 2)) {
+
                                 if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] Getting there! Input found!");
 
                             // If required input not present, break to goto the next frames
@@ -217,13 +230,18 @@ namespace Paperticket {
                 }
 
                 // Register a successful command, or move to next one
-                if (commandSuccess) {
-                    
+                if (commandSuccess) {                    
                     RegisterCommand(i, frameCount);
                     break;
                 } else {
                     if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] Ran out of frames, giving up on Command(" + commandList[i].commandName + ")");
                 }
+            }
+
+            // Ran out of commands, goto default animation trigger
+            if (!commandSuccess) {
+                if (_Debug) Debug.Log("[CommandManager] Ran out of commands! Playing default animation...");
+                characterManager.animationManager.PlayCommandAnimation(defaultAnimationTrigger);
             }
         }
 
@@ -241,11 +259,13 @@ namespace Paperticket {
             //StartCoroutine(WaitForRecovery(_CommandList.commandList[commandIndex].recoveryLength));
 
 
-            // Move the character if so stated
-            if (_CommandList.commandList[commandIndex].moveCharacter) {
-                characterManager.AddForce(_CommandList.commandList[commandIndex].moveForce,
-                                            _CommandList.commandList[commandIndex].forceMulltiplier, true);
-            }
+            //// Move the character if so stated
+            //if (_CommandList.commandList[commandIndex].moveCharacter) {
+            //    //characterManager.AddForce(_CommandList.commandList[commandIndex].moveForce,
+            //    //                            _CommandList.commandList[commandIndex].forceMulltiplier, true);
+            //    characterManager.SetVelocity(_CommandList.commandList[commandIndex].moveForce,
+            //                                _CommandList.commandList[commandIndex].forceMulltiplier, true);
+            //}
 
             // Clear the cache of frames held in the Native Input Table
             if (_DontClearInputBuffer) {

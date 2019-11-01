@@ -36,13 +36,17 @@ namespace Paperticket
         [Tooltip("The animation parametre that triggers the animation of the command")]
         public string animationTrigger;
 
-                     
+        [Tooltip("If this is true, the command doesn't differentiate between pressed inputs (v) and held down inputs")]
+        public bool lazyInput;
 
-        [Header("Movement Options")]
 
-        public bool moveCharacter;
-        public Vector2 moveForce;
-        public float forceMulltiplier;
+
+
+        //[Header("Movement Options")]
+
+        //public bool moveCharacter;
+        //public Vector2 moveForce;
+        //public float forceMulltiplier;
 
         
 

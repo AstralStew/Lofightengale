@@ -25,9 +25,7 @@ MonoBehaviour:
     inputAllowance: 0
     recoveryLength: 55
     animationTrigger: Sweep
-    moveCharacter: 0
-    moveForce: {x: 0, y: 0}
-    forceMulltiplier: 0
+    lazyInput: 1
     debug: 1
     commandSteps:
     - rawInputs: 0000000000000000000000000100000000000000000000000000000000000000
@@ -44,9 +42,7 @@ MonoBehaviour:
     inputAllowance: 0
     recoveryLength: 30
     animationTrigger: MediumKick
-    moveCharacter: 0
-    moveForce: {x: 0, y: 0}
-    forceMulltiplier: 0
+    lazyInput: 1
     debug: 0
     commandSteps:
     - rawInputs: 0000000000000000000000000000000000000000010000000000000000000000
@@ -61,9 +57,7 @@ MonoBehaviour:
     inputAllowance: 0
     recoveryLength: 55
     animationTrigger: StabSlashDown
-    moveCharacter: 0
-    moveForce: {x: 0, y: 0}
-    forceMulltiplier: 0
+    lazyInput: 1
     debug: 0
     commandSteps:
     - rawInputs: 0000000000000000000000000000000000000000000000000100000000000000
@@ -78,9 +72,7 @@ MonoBehaviour:
     inputAllowance: 0
     recoveryLength: 30
     animationTrigger: Overhead
-    moveCharacter: 0
-    moveForce: {x: 0, y: 0}
-    forceMulltiplier: 0
+    lazyInput: 1
     debug: 0
     commandSteps:
     - rawInputs: 0000000000000000000000000100000000000000010000000000000000000000
@@ -95,9 +87,7 @@ MonoBehaviour:
     inputAllowance: 0
     recoveryLength: 20
     animationTrigger: MediumPunch
-    moveCharacter: 0
-    moveForce: {x: 0, y: 0}
-    forceMulltiplier: 0
+    lazyInput: 1
     debug: 1
     commandSteps:
     - rawInputs: 0000000000000000000000000000000000000000010000000000000000000000
@@ -112,9 +102,7 @@ MonoBehaviour:
     inputAllowance: 0
     recoveryLength: 50
     animationTrigger: HeavySwing
-    moveCharacter: 0
-    moveForce: {x: 0, y: 0}
-    forceMulltiplier: 0
+    lazyInput: 1
     debug: 0
     commandSteps:
     - rawInputs: 0000000000000000000000000000000000000000000000000100000000000000
@@ -129,9 +117,7 @@ MonoBehaviour:
     inputAllowance: 0
     recoveryLength: 60
     animationTrigger: 
-    moveCharacter: 1
-    moveForce: {x: 0.25, y: 1}
-    forceMulltiplier: 1500
+    lazyInput: 1
     debug: 0
     commandSteps:
     - rawInputs: 0100000000000000000000000100000000000000000000000000000000000000
@@ -146,9 +132,7 @@ MonoBehaviour:
     inputAllowance: 0
     recoveryLength: 60
     animationTrigger: 
-    moveCharacter: 1
-    moveForce: {x: -0.25, y: 1}
-    forceMulltiplier: 1500
+    lazyInput: 1
     debug: 0
     commandSteps:
     - rawInputs: 0100000000000000010000000000000000000000000000000000000000000000
@@ -163,9 +147,7 @@ MonoBehaviour:
     inputAllowance: 0
     recoveryLength: 60
     animationTrigger: 
-    moveCharacter: 1
-    moveForce: {x: 0, y: 1}
-    forceMulltiplier: 1550
+    lazyInput: 1
     debug: 0
     commandSteps:
     - rawInputs: 0100000000000000000000000000000000000000000000000000000000000000
@@ -182,9 +164,7 @@ MonoBehaviour:
     inputAllowance: 0
     recoveryLength: 28
     animationTrigger: BackDash
-    moveCharacter: 1
-    moveForce: {x: -1, y: 0}
-    forceMulltiplier: 800
+    lazyInput: 1
     debug: 0
     commandSteps:
     - rawInputs: 0000000000000000010000000000000000000000000000000000000000000000
@@ -205,9 +185,7 @@ MonoBehaviour:
     inputAllowance: 0
     recoveryLength: 28
     animationTrigger: ForwardDash
-    moveCharacter: 1
-    moveForce: {x: 1, y: 0}
-    forceMulltiplier: 800
+    lazyInput: 1
     debug: 0
     commandSteps:
     - rawInputs: 0000000000000000000000000100000000000000000000000000000000000000
@@ -216,54 +194,48 @@ MonoBehaviour:
       combinedInputs: ^LeftStickRight
     - rawInputs: 0000000000000000000000000100000000000000000000000000000000000000
       combinedInputs: LeftStickRight
-  - commandName: Medium Ranged Anti Air
-    commandEnabled: 0
+  - commandName: CrouchingIdle
+    commandEnabled: 1
+    requireGrounded: 1
+    requireAirborne: 0
+    requireCrouching: 1
+    commandInputs:
+    - LeftStickDown
+    inputAllowance: 0
+    recoveryLength: 0
+    animationTrigger: CrouchingIdle
+    lazyInput: 1
+    debug: 0
+    commandSteps:
+    - rawInputs: 0000000001000000000000000000000000000000000000000000000000000000
+      combinedInputs: LeftStickDown
+  - commandName: WalkForward
+    commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 0
     commandInputs:
-    - LeftStickLeft+Y
+    - LeftStickRight
     inputAllowance: 0
-    recoveryLength: 50
-    animationTrigger: 
-    moveCharacter: 0
-    moveForce: {x: 0, y: 0}
-    forceMulltiplier: 0
+    recoveryLength: 0
+    animationTrigger: WalkForward
+    lazyInput: 1
     debug: 0
     commandSteps:
-    - rawInputs: 0000000000000000010000000000000000000000000000000100000000000000
-      combinedInputs: LeftStickLeft+Y
-  - commandName: Heavyranged Throw
-    commandEnabled: 0
+    - rawInputs: 0000000000000000000000000100000000000000000000000000000000000000
+      combinedInputs: LeftStickRight
+  - commandName: WalkBack
+    commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 0
     commandInputs:
-    - LeftStickRight+Y
+    - LeftStickLeft
     inputAllowance: 0
-    recoveryLength: 55
-    animationTrigger: 
-    moveCharacter: 0
-    moveForce: {x: 0, y: 0}
-    forceMulltiplier: 0
+    recoveryLength: 0
+    animationTrigger: WalkBack
+    lazyInput: 1
     debug: 0
     commandSteps:
-    - rawInputs: 0000000000000000000000000100000000000000000000000100000000000000
-      combinedInputs: LeftStickRight+Y
-  - commandName: Anti Air
-    commandEnabled: 0
-    requireGrounded: 1
-    requireAirborne: 0
-    requireCrouching: 0
-    commandInputs:
-    - LeftStickLeft+X
-    inputAllowance: 0
-    recoveryLength: 35
-    animationTrigger: 
-    moveCharacter: 0
-    moveForce: {x: 0, y: 0}
-    forceMulltiplier: 0
-    debug: 0
-    commandSteps:
-    - rawInputs: 0000000000000000010000000000000000000000010000000000000000000000
-      combinedInputs: LeftStickLeft+X
+    - rawInputs: 0000000000000000010000000000000000000000000000000000000000000000
+      combinedInputs: LeftStickLeft

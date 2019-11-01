@@ -1664,6 +1664,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0
+    functionName: SetVelocity
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 1f17285a686f29a47b0cb1d173cef1ca,
+      type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.05
     functionName: SetRecovering
     data: 

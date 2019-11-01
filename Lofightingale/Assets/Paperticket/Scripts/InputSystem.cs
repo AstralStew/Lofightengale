@@ -194,7 +194,7 @@ namespace Paperticket {
             _NativeInputTable[frameIterator].combinedInputs = combinedInputs;
 
             // Send event if inputs have been registered this frame
-            if (System.Array.IndexOf(rawInputList, 2) != -1) {
+            if ((System.Array.IndexOf(rawInputList, 2) != -1) || (System.Array.IndexOf(rawInputList, 3) != -1)) {
                 onInputRegistered?.Invoke();
             }
             

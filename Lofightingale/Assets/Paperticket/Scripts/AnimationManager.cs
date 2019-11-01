@@ -10,8 +10,19 @@ namespace Paperticket
         CharacterManager characterManager;
         [SerializeField] Animator animator;
 
+        [Header("Controls")]
+               
         [SerializeField] bool _Debug;
-        
+
+
+        public delegate void OnAnimationStarted();
+        public event OnAnimationStarted onAnimationStarted;
+        public delegate void OnAnimationFinished();
+        public event OnAnimationFinished onAnimationFinished;
+
+
+
+
         void Awake() {
 
             // Save reference to and disable the script if cannot find character manager
@@ -58,19 +69,45 @@ namespace Paperticket
 
                 // Fire off the given trigger parametre
                 animator.SetTrigger(animationTrigger);
+
+
             }
         }
 
         public void SetAnimationState (string stateName, bool state ) {
             animator.SetBool(stateName, state);
         }
-                        
+
         public void SetRecovering (int active) {            
             characterManager.SetRecovering(active>0);
         }
 
         public void SetGravity (int active) {
             characterManager.SetGravity(active>0);
+        }
+
+
+
+        public void RegisterAnimationStateEnter() {
+            onAnimationStarted?.Invoke();
+        }
+        public void RegisterAnimationStateExit() {
+            onAnimationFinished?.Invoke();
+        }
+
+
+
+        AnimationPackage animPackage;
+        public void SetVelocity (AnimationEvent animationEvent ) {
+
+            if (animationEvent.objectReferenceParameter) {
+
+                animPackage = (AnimationPackage)animationEvent.objectReferenceParameter;
+
+                characterManager.SetVelocity(animPackage.newVelocity.normalized, animPackage.newVelocity.magnitude, false);
+
+            }
+
         }
 
         void Update() {
