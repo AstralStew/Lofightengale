@@ -36,6 +36,9 @@ namespace Paperticket
         [Tooltip("The animation parametre that triggers the animation of the command")]
         public string animationTrigger;
 
+        [Tooltip("The animation parametre that triggers the animation of the command")]
+        public AnimParametre[] animationParametres;
+
         [Tooltip("If this is true, the command doesn't differentiate between pressed inputs (v) and held down inputs")]
         public bool lazyInput;
 

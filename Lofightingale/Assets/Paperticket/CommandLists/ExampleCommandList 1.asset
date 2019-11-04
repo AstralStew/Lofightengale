@@ -21,92 +21,116 @@ MonoBehaviour:
     requireCrouching: 1
     commandInputs:
     - LeftStickRight
-    - Y
+    - vY
     inputAllowance: 0
     recoveryLength: 55
     animationTrigger: Sweep
-    lazyInput: 1
-    debug: 1
+    animationParametres:
+    - parameterType: 9
+      parameterName: Sweep
+      parameterValue: 0
+    lazyInput: 0
+    debug: 0
     commandSteps:
     - rawInputs: 0000000000000000000000000100000000000000000000000000000000000000
       combinedInputs: LeftStickRight
-    - rawInputs: 0000000000000000000000000000000000000000000000000100000000000000
-      combinedInputs: Y
+    - rawInputs: 0000000000000000000000000000000000000000000000000200000000000000
+      combinedInputs: vY
   - commandName: Medium Kick
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 1
     commandInputs:
-    - X
+    - vX
     inputAllowance: 0
     recoveryLength: 30
     animationTrigger: MediumKick
+    animationParametres:
+    - parameterType: 9
+      parameterName: MediumKick
+      parameterValue: 0
     lazyInput: 1
     debug: 0
     commandSteps:
-    - rawInputs: 0000000000000000000000000000000000000000010000000000000000000000
-      combinedInputs: X
+    - rawInputs: 0000000000000000000000000000000000000000020000000000000000000000
+      combinedInputs: vX
   - commandName: Stab Slash Down
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 1
     commandInputs:
-    - Y
+    - vY
     inputAllowance: 0
     recoveryLength: 55
     animationTrigger: StabSlashDown
+    animationParametres:
+    - parameterType: 9
+      parameterName: StabSlashDown
+      parameterValue: 0
     lazyInput: 1
     debug: 0
     commandSteps:
-    - rawInputs: 0000000000000000000000000000000000000000000000000100000000000000
-      combinedInputs: Y
+    - rawInputs: 0000000000000000000000000000000000000000000000000200000000000000
+      combinedInputs: vY
   - commandName: Overhead
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 0
     commandInputs:
-    - LeftStickRight+X
+    - LeftStickRight+vX
     inputAllowance: 0
     recoveryLength: 30
     animationTrigger: Overhead
+    animationParametres:
+    - parameterType: 9
+      parameterName: Overhead
+      parameterValue: 0
     lazyInput: 1
     debug: 0
     commandSteps:
-    - rawInputs: 0000000000000000000000000100000000000000010000000000000000000000
-      combinedInputs: LeftStickRight+X
+    - rawInputs: 0000000000000000000000000100000000000000020000000000000000000000
+      combinedInputs: LeftStickRight+vX
   - commandName: Medium Punch
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 0
     commandInputs:
-    - X
+    - vX
     inputAllowance: 0
     recoveryLength: 20
     animationTrigger: MediumPunch
+    animationParametres:
+    - parameterType: 9
+      parameterName: MediumPunch
+      parameterValue: 0
     lazyInput: 1
-    debug: 1
+    debug: 0
     commandSteps:
-    - rawInputs: 0000000000000000000000000000000000000000010000000000000000000000
-      combinedInputs: X
+    - rawInputs: 0000000000000000000000000000000000000000020000000000000000000000
+      combinedInputs: vX
   - commandName: Heavy Swing
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 0
     commandInputs:
-    - Y
+    - vY
     inputAllowance: 0
     recoveryLength: 50
     animationTrigger: HeavySwing
+    animationParametres:
+    - parameterType: 9
+      parameterName: HeavySwing
+      parameterValue: 0
     lazyInput: 1
     debug: 0
     commandSteps:
-    - rawInputs: 0000000000000000000000000000000000000000000000000100000000000000
-      combinedInputs: Y
+    - rawInputs: 0000000000000000000000000000000000000000000000000200000000000000
+      combinedInputs: vY
   - commandName: Forward Jump
     commandEnabled: 1
     requireGrounded: 1
@@ -117,6 +141,10 @@ MonoBehaviour:
     inputAllowance: 0
     recoveryLength: 60
     animationTrigger: 
+    animationParametres:
+    - parameterType: 9
+      parameterName: ForwardJump
+      parameterValue: 0
     lazyInput: 1
     debug: 0
     commandSteps:
@@ -132,6 +160,10 @@ MonoBehaviour:
     inputAllowance: 0
     recoveryLength: 60
     animationTrigger: 
+    animationParametres:
+    - parameterType: 9
+      parameterName: BackJump
+      parameterValue: 0
     lazyInput: 1
     debug: 0
     commandSteps:
@@ -147,6 +179,10 @@ MonoBehaviour:
     inputAllowance: 0
     recoveryLength: 60
     animationTrigger: 
+    animationParametres:
+    - parameterType: 9
+      parameterName: NeutralJump
+      parameterValue: 0
     lazyInput: 1
     debug: 0
     commandSteps:
@@ -164,6 +200,10 @@ MonoBehaviour:
     inputAllowance: 0
     recoveryLength: 28
     animationTrigger: BackDash
+    animationParametres:
+    - parameterType: 9
+      parameterName: BackDash
+      parameterValue: 0
     lazyInput: 1
     debug: 0
     commandSteps:
@@ -185,6 +225,10 @@ MonoBehaviour:
     inputAllowance: 0
     recoveryLength: 28
     animationTrigger: ForwardDash
+    animationParametres:
+    - parameterType: 9
+      parameterName: ForwardDash
+      parameterValue: 0
     lazyInput: 1
     debug: 0
     commandSteps:
@@ -203,7 +247,8 @@ MonoBehaviour:
     - LeftStickDown
     inputAllowance: 0
     recoveryLength: 0
-    animationTrigger: CrouchingIdle
+    animationTrigger: 
+    animationParametres: []
     lazyInput: 1
     debug: 0
     commandSteps:
@@ -218,7 +263,11 @@ MonoBehaviour:
     - LeftStickRight
     inputAllowance: 0
     recoveryLength: 0
-    animationTrigger: WalkForward
+    animationTrigger: 
+    animationParametres:
+    - parameterType: 3
+      parameterName: 
+      parameterValue: 1
     lazyInput: 1
     debug: 0
     commandSteps:
@@ -233,7 +282,8 @@ MonoBehaviour:
     - LeftStickLeft
     inputAllowance: 0
     recoveryLength: 0
-    animationTrigger: WalkBack
+    animationTrigger: 
+    animationParametres: []
     lazyInput: 1
     debug: 0
     commandSteps:

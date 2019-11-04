@@ -151,6 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 190728553}
+  _WipeTriggersOnAnimationStarted: 0
+  _WipeTriggersOnAnimationFinished: 1
   _Debug: 0
 --- !u!95 &190728553
 Animator:
@@ -376,15 +378,16 @@ MonoBehaviour:
   moveSpeed: 60
   maxSpeed: 5
   minSpeed: 0.1
-  gravityScale: 3.5
+  gravityScale: 20
   groundedAllowance: 0.025
   groundLayers:
     serializedVersion: 2
     m_Bits: 256
   _Debug: 0
+  isRecovering: 0
   isGrounded: 0
   isCrouching: 0
-  isRecovering: 0
+  isWalking: 0
   nextMoveFrame: {x: 0, y: 0}
 --- !u!4 &528964568
 Transform:

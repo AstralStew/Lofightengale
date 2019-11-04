@@ -241,7 +241,7 @@ namespace Paperticket {
             // Ran out of commands, goto default animation trigger
             if (!commandSuccess) {
                 if (_Debug) Debug.Log("[CommandManager] Ran out of commands! Playing default animation...");
-                characterManager.animationManager.PlayCommandAnimation(defaultAnimationTrigger);
+                //characterManager.animationManager.PlayCommandAnimation(defaultAnimationTrigger);
             }
         }
 

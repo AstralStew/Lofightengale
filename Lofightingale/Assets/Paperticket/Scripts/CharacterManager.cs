@@ -44,17 +44,18 @@ namespace Paperticket
 
         [Header("Read Only")]
 
+        [Tooltip("Whether the player is recovering or not")]
+        public bool isRecovering;
+
         [Tooltip("Whether the player is grounded or not")]
         public bool isGrounded;
 
         [Tooltip("Whether the player is crouching or not")]
         public bool isCrouching;
 
-        [Tooltip("Whether the player is recovering or not")]
-        public bool isRecovering;
+        [Tooltip("Whether the player is idle (0) or walking left (-1) or right (1)")]
+        public int isWalking;
 
-        //[Tooltip("Whether the player can be directly controlled (moved etc)")]
-        //public bool isControllable;
 
         [Tooltip("The last saved move frame")]
         [SerializeField] Vector2 nextMoveFrame;
@@ -121,40 +122,23 @@ namespace Paperticket
             // Update whether the player is grounded or not
             isGrounded = rigidbody2D.IsTouchingLayers(groundLayers);
 
-            rigidbody2D.velocity = currentVelocity;
-
-            //if (isGrounded && isControllable) {
-
-            //    if (inputSystem.InputPresentInFrame("LeftStickRight", 1)) {
-            //        direction = Vector2.right;
-            //    } else if (inputSystem.InputPresentInFrame("LeftStickLeft", 1)) {
-            //        direction = Vector2.left;
-            //    } else {
-            //        direction = Vector2.zero;
-            //    }               
-
-            //    if (direction.magnitude != 0) {
-
-            //        if (isCrouching) {
-            //            moveSpeedAdjusted = Mathf.Clamp(moveSpeed / 2, minSpeed, maxSpeed);
-            //        } else {
-            //            moveSpeedAdjusted = Mathf.Clamp(moveSpeed, minSpeed, maxSpeed);
-            //        }
-
-            //        SetVelocity(direction, moveSpeedAdjusted, false);
-
-            //    }
-
-            //}
+            rigidbody2D.velocity = currentVelocity;                      
 
         }
 
 
         Vector2 move;
         void Update() {
+
             isCrouching = isGrounded && inputSystem.InputPresentInFrame("LeftStickDown", 1);
 
-            
+            // If grounded, check the whether the player is walking
+            if (isGrounded) {
+                if (inputSystem.InputPresentInFrame("LeftStickRight", 1)) { isWalking = 1; }
+                else if (inputSystem.InputPresentInFrame("LeftStickLeft", 1)) { isWalking = -1; }
+                else { isWalking = 0; }
+            }
+
         }
 
 
