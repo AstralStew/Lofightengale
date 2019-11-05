@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3ff129975a2de4993837e5825f4cec, type: 3}
   m_Name: ForwardJump
   m_EditorClassIdentifier: 
-  newVelocity: {x: 12, y: 25}
+  newVelocity: {x: 10, y: 20}

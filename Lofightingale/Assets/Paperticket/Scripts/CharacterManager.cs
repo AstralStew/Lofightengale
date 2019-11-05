@@ -28,7 +28,7 @@ namespace Paperticket
         [SerializeField] [Min(0.1f)] float moveSpeed;
         [SerializeField] [Min(0.1f)] float maxSpeed;
         [SerializeField] [Min(0.1f)] float minSpeed;
-        Vector2 currentVelocity;
+        
 
         [Header("Ground Settings")]
 
@@ -56,9 +56,10 @@ namespace Paperticket
         [Tooltip("Whether the player is idle (0) or walking left (-1) or right (1)")]
         public int isWalking;
 
+        [SerializeField] Vector2 realVelocity;
+        [SerializeField] Vector2 currentVelocity;
+        [SerializeField] Vector2 oldVelocity;
 
-        [Tooltip("The last saved move frame")]
-        [SerializeField] Vector2 nextMoveFrame;
 
 
         void Awake() {
@@ -100,17 +101,6 @@ namespace Paperticket
             
         }
 
-        [ContextMenu("TranslateCharacter")]
-        public void TestTranslate() {
-            TranslateCharacter(nextMoveFrame.normalized, nextMoveFrame.magnitude);
-        }
-
-
-        public void TranslateCharacter(Vector2 direction, float speed) {
-
-            nextMoveFrame = direction * speed * Time.deltaTime;
-
-        }
 
 
 
@@ -118,17 +108,20 @@ namespace Paperticket
         Vector2 direction;
         float moveSpeedAdjusted;
         void FixedUpdate() {
-        
+
             // Update whether the player is grounded or not
             isGrounded = rigidbody2D.IsTouchingLayers(groundLayers);
 
-            rigidbody2D.velocity = currentVelocity;                      
-
+            if (oldVelocity != currentVelocity) {
+                rigidbody2D.velocity = currentVelocity;
+                oldVelocity = currentVelocity;                
+            }
+            realVelocity = rigidbody2D.velocity;
         }
 
 
         Vector2 move;
-        void Update() {
+        void Update() {            
 
             isCrouching = isGrounded && inputSystem.InputPresentInFrame("LeftStickDown", 1);
 
@@ -151,7 +144,9 @@ namespace Paperticket
             rigidbody2D.gravityScale = active ? gravityScale : 0;
         }
 
-
+        public void SetGrounded (bool active) {
+            isGrounded = active;
+        }
 
 
         Vector2 newVelocity;
@@ -170,7 +165,6 @@ namespace Paperticket
             if (_Debug) Debug.Log("[CharacterManager] New velocity = "+ currentVelocity);            
 
         }
-
 
 
 

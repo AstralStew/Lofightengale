@@ -145,6 +145,10 @@ namespace Paperticket
             characterManager.SetGravity(active>0);
         }
 
+        public void SetGrounded (int active ) {
+            characterManager.SetGrounded(active > 0);
+        }
+
         AnimationPackage animPackage;
         public void SetVelocity( AnimationEvent animationEvent ) {
 
