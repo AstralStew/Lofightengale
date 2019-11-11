@@ -74,6 +74,28 @@ MonoBehaviour:
     commandSteps:
     - rawInputs: 0000000000000000000000000000000000000000000000000200000000000000
       combinedInputs: vY
+  - commandName: DashPunch
+    commandEnabled: 1
+    requireGrounded: 1
+    requireAirborne: 0
+    requireCrouching: 0
+    commandInputs:
+    - LeftStickLeft
+    - LeftStickRight+vX
+    inputAllowance: 0
+    recoveryLength: 0
+    animationTrigger: DashPunch
+    animationParametres:
+    - parameterType: 9
+      parameterName: DashPunch
+      parameterValue: 0
+    lazyInput: 1
+    debug: 1
+    commandSteps:
+    - rawInputs: 0000000000000000010000000000000000000000000000000000000000000000
+      combinedInputs: LeftStickLeft
+    - rawInputs: 0000000000000000000000000100000000000000020000000000000000000000
+      combinedInputs: LeftStickRight+vX
   - commandName: Overhead
     commandEnabled: 1
     requireGrounded: 1
