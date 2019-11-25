@@ -14,7 +14,7 @@
         <entry file="file://$PROJECT_DIR$/Assets/Paperticket/Scripts/AnimationManager.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="158" column="38" lean-forward="true" selection-start-line="158" selection-start-column="38" selection-end-line="158" selection-end-column="38" />
+              <caret line="158" column="38" selection-start-line="158" selection-start-column="38" selection-end-line="158" selection-end-column="38" />
               <folding>
                 <marker date="1573436644471" expanded="true" signature="6:108" ph="..." />
                 <marker date="1573436644471" expanded="true" signature="131:6222" ph="{...}" />
@@ -56,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/Assets/Paperticket/Scripts/CharacterManager.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="309">
-              <caret line="122" column="47" lean-forward="true" selection-start-line="122" selection-start-column="47" selection-end-line="122" selection-end-column="47" />
+              <caret line="122" column="47" selection-start-line="122" selection-start-column="47" selection-end-line="122" selection-end-column="47" />
               <folding>
                 <marker date="1574645261672" expanded="false" signature="6:111" ph="..." />
                 <marker date="1574645261672" expanded="true" signature="135:7924" ph="{...}" />
@@ -98,7 +98,7 @@
         <entry file="file://$PROJECT_DIR$/Assets/Paperticket/Scripts/CommandManager.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
-              <caret line="182" column="24" lean-forward="true" selection-start-line="182" selection-start-column="24" selection-end-line="182" selection-end-column="24" />
+              <caret line="182" column="24" selection-start-line="182" selection-start-column="24" selection-end-line="182" selection-end-column="24" />
               <folding>
                 <marker date="1574646669448" expanded="true" signature="6:78" ph="..." />
                 <marker date="1574646669448" expanded="true" signature="102:15720" ph="{...}" />
@@ -260,7 +260,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4890000" />
+    <option name="totallyTimeSpent" value="5494000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -360,7 +360,7 @@
     <entry file="file://$PROJECT_DIR$/Assets/Paperticket/Scripts/AnimationManager.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="158" column="38" lean-forward="true" selection-start-line="158" selection-start-column="38" selection-end-line="158" selection-end-column="38" />
+          <caret line="158" column="38" selection-start-line="158" selection-start-column="38" selection-end-line="158" selection-end-column="38" />
           <folding>
             <marker date="1573436644471" expanded="true" signature="6:108" ph="..." />
             <marker date="1573436644471" expanded="true" signature="131:6222" ph="{...}" />
@@ -400,7 +400,7 @@
     <entry file="file://$PROJECT_DIR$/Assets/Paperticket/Scripts/CharacterManager.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
-          <caret line="122" column="47" lean-forward="true" selection-start-line="122" selection-start-column="47" selection-end-line="122" selection-end-column="47" />
+          <caret line="122" column="47" selection-start-line="122" selection-start-column="47" selection-end-line="122" selection-end-column="47" />
           <folding>
             <marker date="1574645261672" expanded="false" signature="6:111" ph="..." />
             <marker date="1574645261672" expanded="true" signature="135:7924" ph="{...}" />
@@ -440,7 +440,7 @@
     <entry file="file://$PROJECT_DIR$/Assets/Paperticket/Scripts/CommandManager.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
-          <caret line="182" column="24" lean-forward="true" selection-start-line="182" selection-start-column="24" selection-end-line="182" selection-end-column="24" />
+          <caret line="182" column="24" selection-start-line="182" selection-start-column="24" selection-end-line="182" selection-end-column="24" />
           <folding>
             <marker date="1574646669448" expanded="true" signature="6:78" ph="..." />
             <marker date="1574646669448" expanded="true" signature="102:15720" ph="{...}" />

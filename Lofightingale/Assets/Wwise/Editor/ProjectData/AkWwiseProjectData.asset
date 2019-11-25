@@ -12,14 +12,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9067b2a6bc149bab7792105e0ae98d, type: 3}
   m_Name: AkWwiseProjectData
   m_EditorClassIdentifier: 
-  AcousticTextureWwu: []
-  AuxBusWwu: []
-  BankWwu: []
-  EventWwu: []
-  RtpcWwu: []
-  StateWwu: []
-  SwitchWwu: []
-  TriggerWwu: []
-  ExpandedItems: []
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 499cb324a63a164e847912b1320037ab
+    GuidInternal: 
+    m_lastTime: -8586269535934125738
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 93689afb593eb94582493e3ef29ebb81
+    GuidInternal: 
+    m_lastTime: -8586269535934320545
+    List: []
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 5de566f4db66f24bbdfba52834885292
+    GuidInternal: 
+    m_lastTime: -8586269535934300610
+    List: []
+  EventWwu:
+  - PhysicalPath: Events\Character 1 Placeholder Files.wwu
+    ParentPhysicalPath: 
+    guid: 4fd16582c3ac1d4b8de8faedb7d7a72d
+    GuidInternal: 
+    m_lastTime: -8586269535934480133
+    List: []
+  - PhysicalPath: Events\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: b5199e304cd62b4c9e19dcb9f1231cd1
+    GuidInternal: 
+    m_lastTime: -8586269535934480133
+    List: []
+  RtpcWwu:
+  - PhysicalPath: Game Parameters\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: c4774a95d7bbcf42b97785f33925a38f
+    GuidInternal: 
+    m_lastTime: -8586269535934480133
+    List: []
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 39b7f44e54194a4d8bba55a3b4305f8e
+    GuidInternal: 
+    m_lastTime: -8586269535934135714
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 4640a533a3efcf4ebd2aa31c36a9e5e3
+    GuidInternal: 
+    m_lastTime: -8586269535934125738
+    List: []
+  TriggerWwu:
+  - PhysicalPath: Triggers\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 9fef1f6fc8a1de47a371f2812c08a1e9
+    GuidInternal: 
+    m_lastTime: -8586269535934125738
+    List: []
+  ExpandedItems:
+  - /Lofightingale_WwiseProject
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

@@ -18,6 +18,7 @@
     <explicitExcludes>
       <Path>.idea</Path>
       <Path>Library</Path>
+      <Path>Lofightingale_WwiseProject</Path>
       <Path>Logs</Path>
       <Path>Temp</Path>
       <Path>obj</Path>
