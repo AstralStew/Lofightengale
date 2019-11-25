@@ -11,10 +11,19 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1198705325" Language="SFX">
-			<ObjectPath>\SoundBanks\Default Work Unit\Testing_Soundbank</ObjectPath>
-			<ShortName>Testing_Soundbank</ShortName>
-			<Path>Testing_Soundbank.bnk</Path>
+		<SoundBank Id="602044599" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Soundbank_Test_1</ObjectPath>
+			<ShortName>Soundbank_Test_1</ShortName>
+			<Path>Soundbank_Test_1.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2013560080" Name="ForwardDash" ObjectPath="\Events\Default Work Unit\Character_1_Test\ForwardDash" DurationType="OneShot" DurationMin="1.787063" DurationMax="1.787063"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="779664305" Language="SFX">
+					<ShortName>325261__adam-n__whoosh.wav</ShortName>
+					<Path>SFX/325261__adam-n__whoosh_10C4C929.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
 		</SoundBank>
 		<SoundBank Id="1355168291" Language="SFX">
 			<ObjectPath>Init</ObjectPath>

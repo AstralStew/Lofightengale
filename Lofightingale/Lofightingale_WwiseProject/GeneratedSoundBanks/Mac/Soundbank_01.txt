@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2013560080	ForwardDash			\Default Work Unit\Character_1_Test\ForwardDash	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	779664305	ForwardDash	Y:\Sound Design\Game Sound Design\Lofightengale\Lofightengale\Lofightingale\Lofightingale_WwiseProject\.cache\Mac\SFX\325261__adam-n__whoosh_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Character_1_Test\ForwardDash		171622
+
