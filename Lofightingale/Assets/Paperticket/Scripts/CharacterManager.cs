@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.CorgiEngine;
 using UnityEngine;
 
 
@@ -110,17 +111,28 @@ namespace Paperticket
                 enabled = false;
             }
         }
-                        
-        void FixedUpdate() {
+
+        private Vector2 adjustedVelocity;
+        void FixedUpdate()
+        {
 
             // Update whether the player is grounded or not
             isGrounded = groundChecker.IsTouchingLayers;
 
-            
-            if (oldVelocity != currentVelocity) {
-                rigidbody2D.velocity = currentVelocity;
-                oldVelocity = currentVelocity;                
+
+            if (oldVelocity != currentVelocity)
+            {
+                adjustedVelocity = new Vector2(transform.right.x * currentVelocity.x, currentVelocity.y);
+                rigidbody2D.velocity = adjustedVelocity;
+                oldVelocity = currentVelocity;
             }
+
+            if(Input.GetKeyDown(KeyCode.Tab))
+            {
+                transform.rotation *= Quaternion.Euler(Vector2.down*180);
+                Debug.Log("Forward = " + transform.right);
+            }
+            
         }
 
         void Update() {            
@@ -168,10 +180,10 @@ namespace Paperticket
             }
             
             // Save the new velocity
+            //currentVelocity += ((Vector2)transform.InverseTransformDirection(direction) * magnitude);
             currentVelocity += (direction * magnitude);
 
             if (_DebugEvents) Debug.Log("[CharacterManager] New velocity = "+ currentVelocity);            
-
         }
 
         public void AddForce( Vector2 direction, float magnitude, bool wipeVelocity ) {

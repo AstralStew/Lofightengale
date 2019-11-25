@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="888bb021-707f-4e77-b1eb-b46395d34a2b" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Paperticket/Scripts/AnimationManager.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="158" column="38" lean-forward="true" selection-start-line="158" selection-start-column="38" selection-end-line="158" selection-end-column="38" />
+              <folding>
+                <marker date="1573436644471" expanded="true" signature="6:108" ph="..." />
+                <marker date="1573436644471" expanded="true" signature="131:6222" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="184:6220" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="751:1546" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="978:1159" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="1355:1535" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="1572:1655" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="1681:1764" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="1791:2023" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="2089:3706" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="2207:3696" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="2367:3682" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="2505:3664" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="3818:3876" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="3949:4009" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="4076:4136" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="4200:4400" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="4464:4901" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="4573:4890" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="4667:4876" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="4990:5067" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="5113:5175" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="5223:5288" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="5393:5695" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="5453:5684" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="5793:5964" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="5887:5953" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="6014:6187" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="6110:6176" ph="{...}" />
+                <marker date="1573436644471" expanded="true" signature="6291:6912" ph="/* Cancel if there's no animation trigger set ... */" />
+                <marker date="1573436644471" expanded="true" signature="6915:6926" ph="/* } ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Paperticket/Scripts/CharacterManager.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="122" column="47" lean-forward="true" selection-start-line="122" selection-start-column="47" selection-end-line="122" selection-end-column="47" />
+              <folding>
+                <marker date="1574645261672" expanded="false" signature="6:111" ph="..." />
+                <marker date="1574645261672" expanded="true" signature="135:7924" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="254:7921" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="1106:1252" ph="/* [Header(&quot;Ground Settings&quot;)] ... */" />
+                <marker date="1574645261672" expanded="true" signature="1435:1533" ph="/* [SerializeField] float groundGizmoThickness; ... */" />
+                <marker date="1574645261672" expanded="true" signature="2129:2333" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="2144:2323" ph="/* groundedCornerThreshold = Mathf.Clamp(groundedCornerThreshold, 0, boxCollider.bounds.extents.x - 0.01f); ... */" />
+                <marker date="1574645261672" expanded="true" signature="2366:2508" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="2548:4325" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="2894:3079" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="3296:3487" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="3714:3909" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="4128:4315" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="4395:5042" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="4573:4811" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="4858:5019" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="5066:5528" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="5271:5517" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="5463:5503" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="5595:5641" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="5688:5765" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="5813:5857" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="5974:6620" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="6228:6291" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="6317:6445" ph="/* Save the new velocity ... */" />
+                <marker date="1574645261672" expanded="true" signature="6708:6969" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="7010:7914" ph="{...}" />
+                <marker date="1574645261672" expanded="true" signature="7025:7903" ph="/* if (_DebugGizmos) { ... */" />
+                <marker date="1574645261672" expanded="true" signature="7932:8176" ph="/* Update whether the player is grounded or not ... */" />
+                <marker date="1574645261672" expanded="true" signature="8179:9602" ph="/* Check if the player is intersecting any ground layers ... */" />
+                <marker date="1574645261672" expanded="true" signature="9605:10210" ph="/* Make sure the contacts are with the bottom collider bounds, and aren't too close to the side corners ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Paperticket/Scripts/CommandManager.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="182" column="24" lean-forward="true" selection-start-line="182" selection-start-column="24" selection-end-line="182" selection-end-column="24" />
+              <folding>
+                <marker date="1574646669448" expanded="true" signature="6:78" ph="..." />
+                <marker date="1574646669448" expanded="true" signature="102:15720" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="206:15718" ph="{...}" />
+                <marker date="1574646669448" expanded="false" signature="733:1605" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="870:1051" ph="{...}" />
+                <marker date="1574646669448" expanded="false" signature="1178:1323" ph="{...}" />
+                <marker date="1574646669448" expanded="false" signature="1632:1870" ph="{...}" />
+                <marker date="1574646669448" expanded="false" signature="1905:5453" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="2107:5442" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="2633:5428" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="3076:3165" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="3597:5410" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="3823:4760" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="4125:4311" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="4356:4542" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="4822:5209" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="6340:12158" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="6669:11823" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="7483:7629" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="8313:11395" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="8537:10216" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="8879:10194" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="9639:9891" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="10358:10682" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="10440:10553" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="10833:11030" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="11503:11621" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="11925:12148" ph="{...}" />
+                <marker date="1574646669448" expanded="false" signature="12226:13776" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="12548:12719" ph="/* Start recovery time for command ... */" />
+                <marker date="1574646669448" expanded="true" signature="12734:13348" ph="/* Move the character if so stated ... */" />
+                <marker date="1574646669448" expanded="true" signature="13388:13543" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="13788:13879" ph="/* public void SetRecovering(bool active ) { ... */" />
+                <marker date="1574646669448" expanded="true" signature="13892:14230" ph="/* IEnumerator WaitForRecovery( int recoveryLength ) { ... */" />
+                <marker date="1574646669448" expanded="true" signature="14341:14612" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="14477:14602" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="14694:14967" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="14831:14957" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="15050:15338" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="15212:15328" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="15421:15711" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="15584:15701" ph="{...}" />
+                <marker date="1574646669448" expanded="true" signature="15727:18835" ph="/* NUMBERED INPUTS ... */" />
+                <marker date="1574646669448" expanded="true" signature="18838:18849" ph="/* } ... */" />
+                <marker date="1574646669448" expanded="true" signature="18852:19358" ph="/* void RegisterCommand( int commandIndex, int frameCount ) { ... */" />
+                <marker date="1574646669448" expanded="true" signature="19361:19655" ph="/* Clear the cache of frames held in the Native Input Table ... */" />
+                <marker date="1574646669448" expanded="true" signature="19659:19925" ph="/* IEnumerator WaitForRecovery( int recoveryLength ) { ... */" />
+                <marker date="1574646669448" expanded="true" signature="19932:22227" ph="/* void CompileCommands() { ... */" />
+                <marker date="1574646669448" expanded="true" signature="22253:23078" ph="/* Check the state of the input for this frame ... */" />
+                <marker date="1574646669448" expanded="true" signature="23086:23567" ph="/* Check the state of this input for this frame ... */" />
+                <marker date="1574646669448" expanded="true" signature="23576:25556" ph="/* Iterate backwards through each of the frames ... */" />
+                <marker date="1574646669448" expanded="true" signature="25570:28596" ph="/* void CheckCommands() { ... */" />
+                <marker date="1574646669448" expanded="true" signature="28599:29105" ph="/* void RegisterCommand( int commandIndex, int frameCount ) { ... */" />
+                <marker date="1574646669448" expanded="true" signature="29108:29401" ph="/* Clear the cache of frames held in the Native Input Table ... */" />
+                <marker date="1574646669448" expanded="true" signature="29405:29671" ph="/* IEnumerator WaitForRecovery( int recoveryLength ) { ... */" />
+                <marker date="1574646669448" expanded="true" signature="29678:29888" ph="/* void CompileCommands() { ... */" />
+                <marker date="1574646669448" expanded="true" signature="29891:31964" ph="/* Command command = _CommandList.commandList[i]; ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>setvel</find>
+      <find>newVel</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Paperticket/Scripts/CommandManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Paperticket/Scripts/CharacterManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Paperticket/Scripts/AnimationManager.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Paperticket/Scripts/CharacterManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Paperticket/Scripts/CommandManager.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="UnityExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="UnityExplorer">
+        <option name="show-hidden-items" value="false" />
+        <option name="show-project-names" value="true" />
+      </pane>
+      <pane id="FileSystemExplorer" />
+      <pane id="SolutionExplorer">
+        <option name="show-all-files" value="false" />
+      </pane>
+      <pane id="AssemblyExplorer" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="userSelectedPid" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="userSelectedPid" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="888bb021-707f-4e77-b1eb-b46395d34a2b" name="Default Changelist" comment="" />
+      <created>1574642360628</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574642360628</updated>
+      <workItem from="1574642365244" duration="4890000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="4890000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24986681" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="NuGet" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unity" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Unit Tests" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Performance Profiler" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Errors In Solution" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Unit Tests Coverage" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Paperticket/Scripts/CommandManager.cs</url>
+          <line>61</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Paperticket/Scripts/CommandManager.cs" initialLine="61">
+            <startOffsets>
+              <option value="1905" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1906" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Paperticket/Scripts/CommandManager.cs</url>
+          <line>53</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Paperticket/Scripts/CommandManager.cs" initialLine="53">
+            <startOffsets>
+              <option value="1632" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1633" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Paperticket/Scripts/CommandManager.cs</url>
+          <line>140</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Paperticket/Scripts/CommandManager.cs" initialLine="140">
+            <startOffsets>
+              <option value="6340" />
+            </startOffsets>
+            <endOffsets>
+              <option value="6341" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/Paperticket/Scripts/AnimationManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="158" column="38" lean-forward="true" selection-start-line="158" selection-start-column="38" selection-end-line="158" selection-end-column="38" />
+          <folding>
+            <marker date="1573436644471" expanded="true" signature="6:108" ph="..." />
+            <marker date="1573436644471" expanded="true" signature="131:6222" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="184:6220" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="751:1546" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="978:1159" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="1355:1535" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="1572:1655" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="1681:1764" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="1791:2023" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="2089:3706" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="2207:3696" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="2367:3682" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="2505:3664" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="3818:3876" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="3949:4009" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="4076:4136" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="4200:4400" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="4464:4901" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="4573:4890" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="4667:4876" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="4990:5067" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="5113:5175" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="5223:5288" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="5393:5695" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="5453:5684" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="5793:5964" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="5887:5953" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="6014:6187" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="6110:6176" ph="{...}" />
+            <marker date="1573436644471" expanded="true" signature="6291:6912" ph="/* Cancel if there's no animation trigger set ... */" />
+            <marker date="1573436644471" expanded="true" signature="6915:6926" ph="/* } ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Paperticket/Scripts/CharacterManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="122" column="47" lean-forward="true" selection-start-line="122" selection-start-column="47" selection-end-line="122" selection-end-column="47" />
+          <folding>
+            <marker date="1574645261672" expanded="false" signature="6:111" ph="..." />
+            <marker date="1574645261672" expanded="true" signature="135:7924" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="254:7921" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="1106:1252" ph="/* [Header(&quot;Ground Settings&quot;)] ... */" />
+            <marker date="1574645261672" expanded="true" signature="1435:1533" ph="/* [SerializeField] float groundGizmoThickness; ... */" />
+            <marker date="1574645261672" expanded="true" signature="2129:2333" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="2144:2323" ph="/* groundedCornerThreshold = Mathf.Clamp(groundedCornerThreshold, 0, boxCollider.bounds.extents.x - 0.01f); ... */" />
+            <marker date="1574645261672" expanded="true" signature="2366:2508" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="2548:4325" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="2894:3079" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="3296:3487" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="3714:3909" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="4128:4315" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="4395:5042" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="4573:4811" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="4858:5019" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="5066:5528" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="5271:5517" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="5463:5503" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="5595:5641" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="5688:5765" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="5813:5857" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="5974:6620" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="6228:6291" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="6317:6445" ph="/* Save the new velocity ... */" />
+            <marker date="1574645261672" expanded="true" signature="6708:6969" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="7010:7914" ph="{...}" />
+            <marker date="1574645261672" expanded="true" signature="7025:7903" ph="/* if (_DebugGizmos) { ... */" />
+            <marker date="1574645261672" expanded="true" signature="7932:8176" ph="/* Update whether the player is grounded or not ... */" />
+            <marker date="1574645261672" expanded="true" signature="8179:9602" ph="/* Check if the player is intersecting any ground layers ... */" />
+            <marker date="1574645261672" expanded="true" signature="9605:10210" ph="/* Make sure the contacts are with the bottom collider bounds, and aren't too close to the side corners ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Paperticket/Scripts/CommandManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="182" column="24" lean-forward="true" selection-start-line="182" selection-start-column="24" selection-end-line="182" selection-end-column="24" />
+          <folding>
+            <marker date="1574646669448" expanded="true" signature="6:78" ph="..." />
+            <marker date="1574646669448" expanded="true" signature="102:15720" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="206:15718" ph="{...}" />
+            <marker date="1574646669448" expanded="false" signature="733:1605" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="870:1051" ph="{...}" />
+            <marker date="1574646669448" expanded="false" signature="1178:1323" ph="{...}" />
+            <marker date="1574646669448" expanded="false" signature="1632:1870" ph="{...}" />
+            <marker date="1574646669448" expanded="false" signature="1905:5453" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="2107:5442" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="2633:5428" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="3076:3165" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="3597:5410" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="3823:4760" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="4125:4311" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="4356:4542" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="4822:5209" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="6340:12158" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="6669:11823" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="7483:7629" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="8313:11395" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="8537:10216" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="8879:10194" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="9639:9891" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="10358:10682" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="10440:10553" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="10833:11030" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="11503:11621" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="11925:12148" ph="{...}" />
+            <marker date="1574646669448" expanded="false" signature="12226:13776" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="12548:12719" ph="/* Start recovery time for command ... */" />
+            <marker date="1574646669448" expanded="true" signature="12734:13348" ph="/* Move the character if so stated ... */" />
+            <marker date="1574646669448" expanded="true" signature="13388:13543" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="13788:13879" ph="/* public void SetRecovering(bool active ) { ... */" />
+            <marker date="1574646669448" expanded="true" signature="13892:14230" ph="/* IEnumerator WaitForRecovery( int recoveryLength ) { ... */" />
+            <marker date="1574646669448" expanded="true" signature="14341:14612" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="14477:14602" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="14694:14967" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="14831:14957" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="15050:15338" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="15212:15328" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="15421:15711" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="15584:15701" ph="{...}" />
+            <marker date="1574646669448" expanded="true" signature="15727:18835" ph="/* NUMBERED INPUTS ... */" />
+            <marker date="1574646669448" expanded="true" signature="18838:18849" ph="/* } ... */" />
+            <marker date="1574646669448" expanded="true" signature="18852:19358" ph="/* void RegisterCommand( int commandIndex, int frameCount ) { ... */" />
+            <marker date="1574646669448" expanded="true" signature="19361:19655" ph="/* Clear the cache of frames held in the Native Input Table ... */" />
+            <marker date="1574646669448" expanded="true" signature="19659:19925" ph="/* IEnumerator WaitForRecovery( int recoveryLength ) { ... */" />
+            <marker date="1574646669448" expanded="true" signature="19932:22227" ph="/* void CompileCommands() { ... */" />
+            <marker date="1574646669448" expanded="true" signature="22253:23078" ph="/* Check the state of the input for this frame ... */" />
+            <marker date="1574646669448" expanded="true" signature="23086:23567" ph="/* Check the state of this input for this frame ... */" />
+            <marker date="1574646669448" expanded="true" signature="23576:25556" ph="/* Iterate backwards through each of the frames ... */" />
+            <marker date="1574646669448" expanded="true" signature="25570:28596" ph="/* void CheckCommands() { ... */" />
+            <marker date="1574646669448" expanded="true" signature="28599:29105" ph="/* void RegisterCommand( int commandIndex, int frameCount ) { ... */" />
+            <marker date="1574646669448" expanded="true" signature="29108:29401" ph="/* Clear the cache of frames held in the Native Input Table ... */" />
+            <marker date="1574646669448" expanded="true" signature="29405:29671" ph="/* IEnumerator WaitForRecovery( int recoveryLength ) { ... */" />
+            <marker date="1574646669448" expanded="true" signature="29678:29888" ph="/* void CompileCommands() { ... */" />
+            <marker date="1574646669448" expanded="true" signature="29891:31964" ph="/* Command command = _CommandList.commandList[i]; ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

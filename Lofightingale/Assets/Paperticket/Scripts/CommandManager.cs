@@ -172,7 +172,7 @@ namespace Paperticket {
                 if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] Checking for Input(" + commandSteps[stepIndex].combinedInputs + ")");
 
                 // Iterate backwards through each of the frames, as long as there are command steps left
-                while (frameCount < numberOfFramesToSearch && stepIndex >= 0) {
+                while (frameCount < numberOfFramesToSearch && stepIndex >= 0) {    
 
                     // Go through the required input list for this command step
                     requiredInputMissing = false;
