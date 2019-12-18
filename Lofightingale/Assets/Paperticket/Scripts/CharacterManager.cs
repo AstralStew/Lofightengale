@@ -60,6 +60,9 @@ namespace Paperticket
         [Tooltip("Whether the player is idle (0) or walking left (-1) or right (1)")]
         public int isWalking;
 
+        [Tooltip("Whether the player has flipped and is currently facing left")]
+        public bool facingLeft;
+
         [SerializeField] Vector2 currentVelocity;
         [SerializeField] Vector2 oldVelocity;
 
@@ -128,20 +131,19 @@ namespace Paperticket
 
             if(Input.GetKeyDown(KeyCode.Tab))
             {
-                transform.rotation *= Quaternion.Euler(Vector2.down*180);
-                Debug.Log("Forward = " + transform.right);
+                SetFacing(!facingLeft);
             }
             
         }
 
         void Update() {            
 
-            isCrouching = isGrounded && inputSystem.InputPresentInFrame("LeftStickDown", 1);
+            isCrouching = isGrounded && inputSystem.InputPresentInFrame("Down", 1);
 
             // If grounded, check the whether the player is walking
             if (isGrounded) {
-                if (inputSystem.InputPresentInFrame("LeftStickRight", 1)) { isWalking = 1; }
-                else if (inputSystem.InputPresentInFrame("LeftStickLeft", 1)) { isWalking = -1; }
+                if (inputSystem.InputPresentInFrame("Forward", 1)) { isWalking = 1; }
+                else if (inputSystem.InputPresentInFrame("Back", 1)) { isWalking = -1; }
                 else { isWalking = 0; }
             }
 
@@ -185,6 +187,22 @@ namespace Paperticket
             if (_DebugEvents) Debug.Log("[CharacterManager] New velocity = "+ currentVelocity);            
         }
 
+        public void SetFacing (bool faceLeft) {
+
+            transform.rotation *= Quaternion.Euler(Vector2.down * 180);
+            facingLeft = faceLeft;
+
+            Debug.Log("[CharacterManager] Now facing " + (facingLeft ? "left" : "right"));
+
+        }
+
+
+
+
+
+
+
+
         public void AddForce( Vector2 direction, float magnitude, bool wipeVelocity ) {
 
             // Wipe the existing velocity of the character if applicable
@@ -196,7 +214,7 @@ namespace Paperticket
         }
 
 
-
+        
 
         void OnDrawGizmosSelected() {
 

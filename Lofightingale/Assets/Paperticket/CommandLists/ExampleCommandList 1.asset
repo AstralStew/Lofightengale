@@ -20,8 +20,8 @@ MonoBehaviour:
     requireAirborne: 0
     requireCrouching: 1
     commandInputs:
-    - LeftStickRight
-    - vY
+    - Forward
+    - vHeavy
     inputAllowance: 0
     recoveryLength: 55
     animationTrigger: Sweep
@@ -32,17 +32,17 @@ MonoBehaviour:
     lazyInput: 0
     debug: 0
     commandSteps:
-    - rawInputs: 0000000000000000000000000100000000000000000000000000000000000000
-      combinedInputs: LeftStickRight
-    - rawInputs: 0000000000000000000000000000000000000000000000000200000000000000
-      combinedInputs: vY
+    - rawInputs: 000000000100000000000000000000000000000000000000
+      combinedInputs: Forward
+    - rawInputs: 000000000000000000000000000000000000000002000000
+      combinedInputs: vHeavy
   - commandName: Medium Kick
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 1
     commandInputs:
-    - vX
+    - vLight
     inputAllowance: 0
     recoveryLength: 30
     animationTrigger: MediumKick
@@ -53,15 +53,15 @@ MonoBehaviour:
     lazyInput: 1
     debug: 0
     commandSteps:
-    - rawInputs: 0000000000000000000000000000000000000000020000000000000000000000
-      combinedInputs: vX
+    - rawInputs: 000000000000000000000000000000000200000000000000
+      combinedInputs: vLight
   - commandName: Stab Slash Down
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 1
     commandInputs:
-    - vY
+    - vHeavy
     inputAllowance: 0
     recoveryLength: 55
     animationTrigger: StabSlashDown
@@ -72,16 +72,16 @@ MonoBehaviour:
     lazyInput: 1
     debug: 0
     commandSteps:
-    - rawInputs: 0000000000000000000000000000000000000000000000000200000000000000
-      combinedInputs: vY
+    - rawInputs: 000000000000000000000000000000000000000002000000
+      combinedInputs: vHeavy
   - commandName: DashPunch
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 0
     commandInputs:
-    - LeftStickLeft
-    - LeftStickRight+vX
+    - Back
+    - Forward+vLight
     inputAllowance: 0
     recoveryLength: 0
     animationTrigger: DashPunch
@@ -92,17 +92,17 @@ MonoBehaviour:
     lazyInput: 1
     debug: 1
     commandSteps:
-    - rawInputs: 0000000000000000010000000000000000000000000000000000000000000000
-      combinedInputs: LeftStickLeft
-    - rawInputs: 0000000000000000000000000100000000000000020000000000000000000000
-      combinedInputs: LeftStickRight+vX
+    - rawInputs: 010000000000000000000000000000000000000000000000
+      combinedInputs: Back
+    - rawInputs: 000000000100000000000000000000000200000000000000
+      combinedInputs: Forward+vLight
   - commandName: Overhead
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 0
     commandInputs:
-    - LeftStickRight+vX
+    - Forward+vLight
     inputAllowance: 0
     recoveryLength: 30
     animationTrigger: Overhead
@@ -113,15 +113,15 @@ MonoBehaviour:
     lazyInput: 1
     debug: 0
     commandSteps:
-    - rawInputs: 0000000000000000000000000100000000000000020000000000000000000000
-      combinedInputs: LeftStickRight+vX
+    - rawInputs: 000000000100000000000000000000000200000000000000
+      combinedInputs: Forward+vLight
   - commandName: Medium Punch
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 0
     commandInputs:
-    - vX
+    - vLight
     inputAllowance: 0
     recoveryLength: 20
     animationTrigger: MediumPunch
@@ -132,15 +132,15 @@ MonoBehaviour:
     lazyInput: 1
     debug: 0
     commandSteps:
-    - rawInputs: 0000000000000000000000000000000000000000020000000000000000000000
-      combinedInputs: vX
+    - rawInputs: 000000000000000000000000000000000200000000000000
+      combinedInputs: vLight
   - commandName: Heavy Swing
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 0
     commandInputs:
-    - vY
+    - vHeavy
     inputAllowance: 0
     recoveryLength: 50
     animationTrigger: HeavySwing
@@ -151,15 +151,15 @@ MonoBehaviour:
     lazyInput: 1
     debug: 0
     commandSteps:
-    - rawInputs: 0000000000000000000000000000000000000000000000000200000000000000
-      combinedInputs: vY
+    - rawInputs: 000000000000000000000000000000000000000002000000
+      combinedInputs: vHeavy
   - commandName: Forward Jump
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 0
     commandInputs:
-    - LeftStickUp+LeftStickRight
+    - Up+Forward
     inputAllowance: 0
     recoveryLength: 60
     animationTrigger: 
@@ -170,15 +170,15 @@ MonoBehaviour:
     lazyInput: 1
     debug: 0
     commandSteps:
-    - rawInputs: 0100000000000000000000000100000000000000000000000000000000000000
-      combinedInputs: LeftStickUp+LeftStickRight
+    - rawInputs: 000000000100000001000000000000000000000000000000
+      combinedInputs: Up+Forward
   - commandName: Back Jump
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 0
     commandInputs:
-    - LeftStickUp+LeftStickLeft
+    - Up+Back
     inputAllowance: 0
     recoveryLength: 60
     animationTrigger: 
@@ -189,15 +189,15 @@ MonoBehaviour:
     lazyInput: 1
     debug: 0
     commandSteps:
-    - rawInputs: 0100000000000000010000000000000000000000000000000000000000000000
-      combinedInputs: LeftStickUp+LeftStickLeft
+    - rawInputs: 010000000000000001000000000000000000000000000000
+      combinedInputs: Up+Back
   - commandName: Neutral Jump
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 0
     commandInputs:
-    - LeftStickUp
+    - Up
     inputAllowance: 0
     recoveryLength: 60
     animationTrigger: 
@@ -208,17 +208,17 @@ MonoBehaviour:
     lazyInput: 1
     debug: 0
     commandSteps:
-    - rawInputs: 0100000000000000000000000000000000000000000000000000000000000000
-      combinedInputs: LeftStickUp
+    - rawInputs: 000000000000000001000000000000000000000000000000
+      combinedInputs: Up
   - commandName: Back Dash
     commandEnabled: 1
     requireGrounded: 0
     requireAirborne: 0
     requireCrouching: 0
     commandInputs:
-    - LeftStickLeft
-    - ^LeftStickLeft
-    - LeftStickLeft
+    - Back
+    - ^Back
+    - Back
     inputAllowance: 0
     recoveryLength: 28
     animationTrigger: BackDash
@@ -227,23 +227,23 @@ MonoBehaviour:
       parameterName: BackDash
       parameterValue: 0
     lazyInput: 1
-    debug: 0
+    debug: 1
     commandSteps:
-    - rawInputs: 0000000000000000010000000000000000000000000000000000000000000000
-      combinedInputs: LeftStickLeft
-    - rawInputs: 0000000000000000030000000000000000000000000000000000000000000000
-      combinedInputs: ^LeftStickLeft
-    - rawInputs: 0000000000000000010000000000000000000000000000000000000000000000
-      combinedInputs: LeftStickLeft
+    - rawInputs: 010000000000000000000000000000000000000000000000
+      combinedInputs: Back
+    - rawInputs: 030000000000000000000000000000000000000000000000
+      combinedInputs: ^Back
+    - rawInputs: 010000000000000000000000000000000000000000000000
+      combinedInputs: Back
   - commandName: Forward Dash
     commandEnabled: 1
     requireGrounded: 0
     requireAirborne: 0
     requireCrouching: 0
     commandInputs:
-    - LeftStickRight
-    - ^LeftStickRight
-    - LeftStickRight
+    - Forward
+    - ^Forward
+    - Forward
     inputAllowance: 0
     recoveryLength: 28
     animationTrigger: ForwardDash
@@ -254,19 +254,19 @@ MonoBehaviour:
     lazyInput: 1
     debug: 0
     commandSteps:
-    - rawInputs: 0000000000000000000000000100000000000000000000000000000000000000
-      combinedInputs: LeftStickRight
-    - rawInputs: 0000000000000000000000000300000000000000000000000000000000000000
-      combinedInputs: ^LeftStickRight
-    - rawInputs: 0000000000000000000000000100000000000000000000000000000000000000
-      combinedInputs: LeftStickRight
+    - rawInputs: 000000000100000000000000000000000000000000000000
+      combinedInputs: Forward
+    - rawInputs: 000000000300000000000000000000000000000000000000
+      combinedInputs: ^Forward
+    - rawInputs: 000000000100000000000000000000000000000000000000
+      combinedInputs: Forward
   - commandName: CrouchingIdle
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 1
     commandInputs:
-    - LeftStickDown
+    - Down
     inputAllowance: 0
     recoveryLength: 0
     animationTrigger: 
@@ -274,34 +274,15 @@ MonoBehaviour:
     lazyInput: 1
     debug: 0
     commandSteps:
-    - rawInputs: 0000000001000000000000000000000000000000000000000000000000000000
-      combinedInputs: LeftStickDown
+    - rawInputs: 000000000000000000000000010000000000000000000000
+      combinedInputs: Down
   - commandName: WalkForward
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 0
     commandInputs:
-    - LeftStickRight
-    inputAllowance: 0
-    recoveryLength: 0
-    animationTrigger: 
-    animationParametres:
-    - parameterType: 3
-      parameterName: 
-      parameterValue: 1
-    lazyInput: 1
-    debug: 0
-    commandSteps:
-    - rawInputs: 0000000000000000000000000100000000000000000000000000000000000000
-      combinedInputs: LeftStickRight
-  - commandName: WalkBack
-    commandEnabled: 1
-    requireGrounded: 1
-    requireAirborne: 0
-    requireCrouching: 0
-    commandInputs:
-    - LeftStickLeft
+    - Forward
     inputAllowance: 0
     recoveryLength: 0
     animationTrigger: 
@@ -309,5 +290,21 @@ MonoBehaviour:
     lazyInput: 1
     debug: 0
     commandSteps:
-    - rawInputs: 0000000000000000010000000000000000000000000000000000000000000000
-      combinedInputs: LeftStickLeft
+    - rawInputs: 000000000100000000000000000000000000000000000000
+      combinedInputs: Forward
+  - commandName: WalkBack
+    commandEnabled: 1
+    requireGrounded: 1
+    requireAirborne: 0
+    requireCrouching: 0
+    commandInputs:
+    - Back
+    inputAllowance: 0
+    recoveryLength: 0
+    animationTrigger: 
+    animationParametres: []
+    lazyInput: 1
+    debug: 0
+    commandSteps:
+    - rawInputs: 010000000000000000000000000000000000000000000000
+      combinedInputs: Back

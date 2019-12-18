@@ -10,21 +10,11 @@ namespace Paperticket {
         public CommandList _CommandList;
 
         
-        [Header("Read Only")]
-
-        [SerializeField] string defaultAnimationTrigger;
-
-        //[SerializeField] bool _Recovering;
-
-
         [Header("Misc")]
 
         [SerializeField] bool _Debug;
-
         [SerializeField] bool _DontClearInputBuffer;
-
-
-        
+                       
 
         public delegate void OnCommandRegistered( Command command );
         public static event OnCommandRegistered onCommandRegistered;
@@ -241,7 +231,6 @@ namespace Paperticket {
             // Ran out of commands, goto default animation trigger
             if (!commandSuccess) {
                 if (_Debug) Debug.Log("[CommandManager] Ran out of commands! Playing default animation...");
-                //characterManager.animationManager.PlayCommandAnimation(defaultAnimationTrigger);
             }
         }
 
@@ -254,22 +243,9 @@ namespace Paperticket {
             // Send an event
             onCommandRegistered?.Invoke(_CommandList.commandList[commandIndex]);
 
-            // Start recovery time for command
-            //StopAllCoroutines();
-            //StartCoroutine(WaitForRecovery(_CommandList.commandList[commandIndex].recoveryLength));
-
-
-            //// Move the character if so stated
-            //if (_CommandList.commandList[commandIndex].moveCharacter) {
-            //    //characterManager.AddForce(_CommandList.commandList[commandIndex].moveForce,
-            //    //                            _CommandList.commandList[commandIndex].forceMulltiplier, true);
-            //    characterManager.SetVelocity(_CommandList.commandList[commandIndex].moveForce,
-            //                                _CommandList.commandList[commandIndex].forceMulltiplier, true);
-            //}
-
             // Clear the cache of frames held in the Native Input Table
             if (_DontClearInputBuffer) {
-                Debug.LogWarning("[InputSystem] NOTE -> You aren't clearing the input buffer! This could be bad!");
+                if (_Debug) Debug.LogWarning("[InputSystem] NOTE -> You aren't clearing the input buffer! This could be bad!");
                 return;
             } else {
                 if (_Debug) Debug.LogWarning("[InputSystem] NOTE -> You aren't clearing the input buffer! This could be bad!");

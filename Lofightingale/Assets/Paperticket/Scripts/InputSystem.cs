@@ -9,19 +9,26 @@ namespace Paperticket {
 
         public static InputSystem instance;
 
+        CharacterManager characterManager;
+
         [Header("Raw Inputs")]
+        
+        public List<string> _UnityInputNames = new List<string>();
 
         public List<string> _InputList = new List<string>();
 
-        [SerializeField] bool[] axisInputList; // Is this input an axis (true) or a button (false)
-        int[] rawInputList; // A list populated by the raw (0/1) input registered in the current frame 
-        int frameIterator; // A number representing which frame is the current one to write to
-        string combinedInputs; // A single string that notes all the inputs registered in the current frame
+        [SerializeField] bool[] axisInputList;  // Is this input an axis (true) or a button (false)
+        int[] rawInputList;                     // A list populated by the raw (0/1) input registered in the current frame 
+
+        int frameIterator;                      // A number representing which frame is the current one to write to
+        string combinedInputs;                  // A single string that notes all the inputs registered in the current frame
         
 
         [Space(10)]
         
         [SerializeField] float _AxisDeadzone;
+
+
 
         [Header("Native Inputs")]
 
@@ -31,15 +38,17 @@ namespace Paperticket {
         [SerializeField] int _InputDelay = 5;
 
 
+
         [Header("Misc")]
 
         [SerializeField] bool _EnableGUI;
 
         [SerializeField] bool _Debug;
         string debugLog;
-
-
+               
         int delay;
+
+        // Events
 
         public delegate void OnInputRegistered();
         public static event OnInputRegistered onInputRegistered;
@@ -47,6 +56,13 @@ namespace Paperticket {
 
         // Start is called before the first frame update
         void Awake() {
+
+            // Save reference to and disable the script if cannot find character manager
+            characterManager = characterManager ?? GetComponentInParent<CharacterManager>();
+            if (characterManager == null) {
+                Debug.LogError("[InputSystem] ERROR -> No character manager found! Child this object to the character manager!");
+                enabled = false;
+            }
 
             // Ensure there is only one Input System instance
             if (instance == null) {
@@ -79,7 +95,6 @@ namespace Paperticket {
                 frameIterator = 0;
             }
 
-
         }
 
         void OnGUI() {
@@ -99,9 +114,7 @@ namespace Paperticket {
                     GUI.Label(new Rect(400, 50 + (10 * i), 800, 20), 
                         (i == (frameIterator-1) ? "*" : " ") + "f" + (i<10 ? "0"+i : ""+i) + ": " + 
                         _NativeInputTable[i].combinedInputs); 
-                }
-
-                
+                }                
 
             }
 
@@ -115,11 +128,18 @@ namespace Paperticket {
 
             string inputName = "";
             combinedInputs = " ";
-            
-            // Iterate through the input names
-            for (int i = 0; i < _InputList.Count; i++) {
-                inputName = _InputList[i];
+                                                               
 
+            // Iterate through the input names
+            for (int i = 0; i < _UnityInputNames.Count; i++) {
+
+                // Swap left and right if the character is facing the other way
+                if (i <= 1 && characterManager.facingLeft) {
+                    inputName = _UnityInputNames[Mathf.Abs(i - 1)];
+                } else {
+                    inputName = _UnityInputNames[i];
+                }
+                
                 // If it is an axis, check raw input against deadzone and previous state 
                 if (axisInputList[i]) {                    
 
@@ -129,12 +149,12 @@ namespace Paperticket {
                         // If the input was not previously held (down)
                         if (rawInputList[i] == 0 || rawInputList[i] == 3) {
                             rawInputList[i] = 2;
-                            combinedInputs += "v" + inputName + ",";
+                            combinedInputs += "v" + _InputList[i] + ",";
 
                         // If the input was previously held (on)
                         } else if (rawInputList[i] == 1 || rawInputList[i] == 2) {
                             rawInputList[i] = 1;
-                            combinedInputs += " " + inputName + ",";
+                            combinedInputs += " " + _InputList[i] + ",";
                         }
                         
                     // If the input is not currently held 
@@ -143,10 +163,11 @@ namespace Paperticket {
                         // If the input was not previously held (off)
                         if (rawInputList[i] == 0 || rawInputList[i] == 3) {
                             rawInputList[i] = 0;
-                            // If the input was previously held (up)
+
+                        // If the input was previously held (up)
                         } else if (rawInputList[i] == 1 || rawInputList[i] == 2) {
                             rawInputList[i] = 3;
-                            combinedInputs += "^" + inputName + ",";
+                            combinedInputs += "^" + _InputList[i] + ",";
                         }
                     }                    
 
@@ -156,7 +177,7 @@ namespace Paperticket {
                     if (Input.GetButtonUp(inputName)) {
 
                         rawInputList[i] = 3;
-                        combinedInputs += "^" + inputName + ",";
+                        combinedInputs += "^" + _InputList[i] + ",";
 
                     } else if (Input.GetButtonDown(inputName)) {
 
@@ -166,7 +187,7 @@ namespace Paperticket {
                     } else if (Input.GetButton(inputName)) {
 
                         rawInputList[i] = 1;
-                        combinedInputs += " " + inputName + ",";
+                        combinedInputs += " " + _InputList[i] + ",";
 
                     } else {
 

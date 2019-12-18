@@ -41,7 +41,7 @@ namespace Paperticket
                 Debug.LogError("[AnimationManager] ERROR -> No animator component found! Please add one to Animator variable.");
                 enabled = false;
             }
-
+            // Save reference to and disable the script if cannot find wwise/akgameobj component
             wwiseEmitter = wwiseEmitter ?? GetComponentInChildren<AkGameObj>();
             if (characterManager == null) {
                 Debug.LogError("[AnimationManager] ERROR -> No AkGameObj component found! Please add one to WwiseEmitter variable.");
