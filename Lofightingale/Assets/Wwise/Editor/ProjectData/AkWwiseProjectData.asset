@@ -13,25 +13,25 @@ MonoBehaviour:
   m_Name: AkWwiseProjectData
   m_EditorClassIdentifier: 
   AcousticTextureWwu:
-  - PhysicalPath: Virtual Acoustics/Default Work Unit.wwu
+  - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 499cb324a63a164e847912b1320037ab
     GuidInternal: 
-    m_lastTime: -8586269554264775808
+    m_lastTime: -8586249629142490377
     List: []
   AuxBusWwu:
-  - PhysicalPath: Master-Mixer Hierarchy/Default Work Unit.wwu
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 93689afb593eb94582493e3ef29ebb81
     GuidInternal: 
-    m_lastTime: -8586269554264775808
+    m_lastTime: -8586249629142669897
     List: []
   BankWwu:
-  - PhysicalPath: SoundBanks/Default Work Unit.wwu
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 5de566f4db66f24bbdfba52834885292
     GuidInternal: 
-    m_lastTime: -8586269518174775808
+    m_lastTime: -8586249629142550211
     List:
     - name: Soundbank_Test_1
       guid: dd1cbde133a5874596158f43de903259
@@ -41,13 +41,13 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Soundbank_Test_1
         ObjectType: 7
-      Path: Default Work Unit/Soundbank_Test_1
+      Path: Default Work Unit\Soundbank_Test_1
   EventWwu:
-  - PhysicalPath: Events/Character_1_Test.wwu
-    ParentPhysicalPath: Events/Default Work Unit.wwu
+  - PhysicalPath: Events\Character_1_Test.wwu
+    ParentPhysicalPath: Events\Default Work Unit.wwu
     guid: cdf5cca04dbde043a994c8c643f64f77
     GuidInternal: 
-    m_lastTime: -8586269518174775808
+    m_lastTime: -8586249629142869363
     List:
     - name: ForwardDash
       guid: 02746d1c6cb72b41bbcd0c7804b18e8f
@@ -59,48 +59,50 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: ForwardDash
         ObjectType: 3
-      Path: Default Work Unit/Character_1_Test/ForwardDash
+      Path: Default Work Unit\Character_1_Test\ForwardDash
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-  - PhysicalPath: Events/Default Work Unit.wwu
+      maxDuration: 1.787063
+      minDuration: 1.787063
+  - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: b5199e304cd62b4c9e19dcb9f1231cd1
     GuidInternal: 
-    m_lastTime: -8586269518174775808
+    m_lastTime: -8586249629142859389
     List: []
   RtpcWwu:
-  - PhysicalPath: Game Parameters/Default Work Unit.wwu
+  - PhysicalPath: Game Parameters\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: c4774a95d7bbcf42b97785f33925a38f
     GuidInternal: 
-    m_lastTime: -8586269554264775808
+    m_lastTime: -8586249629142849411
     List: []
   StateWwu:
-  - PhysicalPath: States/Default Work Unit.wwu
+  - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 39b7f44e54194a4d8bba55a3b4305f8e
     GuidInternal: 
-    m_lastTime: -8586269554264775808
+    m_lastTime: -8586249629142530265
     List: []
   SwitchWwu:
-  - PhysicalPath: Switches/Default Work Unit.wwu
+  - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 4640a533a3efcf4ebd2aa31c36a9e5e3
     GuidInternal: 
-    m_lastTime: -8586269554264775808
+    m_lastTime: -8586249629142520295
     List: []
   TriggerWwu:
-  - PhysicalPath: Triggers/Default Work Unit.wwu
+  - PhysicalPath: Triggers\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 9fef1f6fc8a1de47a371f2812c08a1e9
     GuidInternal: 
-    m_lastTime: -8586269554264775808
+    m_lastTime: -8586249629142500343
     List: []
   ExpandedItems:
   - /Lofightingale_WwiseProject
   - /Lofightingale_WwiseProject/Events
   - /Lofightingale_WwiseProject/Events/Default Work Unit
   - /Lofightingale_WwiseProject/Events/Default Work Unit/Character_1_Test
+  - /Lofightingale_WwiseProject/SoundBanks
+  - /Lofightingale_WwiseProject/SoundBanks/Default Work Unit
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

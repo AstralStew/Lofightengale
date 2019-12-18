@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3ff129975a2de4993837e5825f4cec, type: 3}
   m_Name: WalkBack
   m_EditorClassIdentifier: 
-  newVelocity: {x: -4, y: 0}
+  newVelocity: {x: -8, y: 0}

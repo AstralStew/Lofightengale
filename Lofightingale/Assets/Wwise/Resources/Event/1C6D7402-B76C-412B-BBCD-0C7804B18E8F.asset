@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc3ff129975a2de4993837e5825f4cec, type: 3}
-  m_Name: WalkForward
+  m_Script: {fileID: 11500000, guid: 7e43e335221dc42cd9223034fbda37f4, type: 3}
+  m_Name: 1C6D7402-B76C-412B-BBCD-0C7804B18E8F
   m_EditorClassIdentifier: 
-  newVelocity: {x: 8, y: 0}
+  objectName: ForwardDash
+  id: 2013560080
+  guid: 1C6D7402-B76C-412B-BBCD-0C7804B18E8F

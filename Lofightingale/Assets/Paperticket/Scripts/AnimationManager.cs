@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using AK.Wwise;
 
 namespace Paperticket
 {
@@ -9,6 +10,7 @@ namespace Paperticket
 
         CharacterManager characterManager;
         [SerializeField] Animator animator;
+        [SerializeField] AkGameObj wwiseEmitter;
 
         [Header("Controls")]
 
@@ -16,6 +18,7 @@ namespace Paperticket
         [SerializeField] bool _WipeTriggersOnAnimationFinished;
                
         [SerializeField] bool _Debug;
+               
 
 
         public delegate void OnAnimationStarted();
@@ -29,16 +32,21 @@ namespace Paperticket
             // Save reference to and disable the script if cannot find character manager
             characterManager = characterManager ?? GetComponentInParent<CharacterManager>();
             if (characterManager == null) {
-                Debug.LogError("[CommandManager] ERROR -> No character manager found! Child this object to the character manager!");
+                Debug.LogError("[AnimationManager] ERROR -> No character manager found! Child this object to the character manager!");
                 enabled = false;
             }
             // Save reference to and disable the script if cannot find animator component
             animator = animator ?? GetComponentInChildren<Animator>();
             if (animator == null) {
-                Debug.LogError("[CharacterController] ERROR -> No animator component found! Please add one to Animator variable.");
+                Debug.LogError("[AnimationManager] ERROR -> No animator component found! Please add one to Animator variable.");
                 enabled = false;
             }
 
+            wwiseEmitter = wwiseEmitter ?? GetComponentInChildren<AkGameObj>();
+            if (characterManager == null) {
+                Debug.LogError("[AnimationManager] ERROR -> No AkGameObj component found! Please add one to WwiseEmitter variable.");
+                enabled = false;
+            }
         }
 
         void OnEnable() {
@@ -159,6 +167,12 @@ namespace Paperticket
                 characterManager.SetVelocity(animPackage.newVelocity.normalized, animPackage.newVelocity.magnitude, false);
 
             }
+
+        }
+
+        public void PlaySound (string eventName) {
+
+            AkSoundEngine.PostEvent(eventName, wwiseEmitter.gameObject);
 
         }
 

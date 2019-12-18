@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc3ff129975a2de4993837e5825f4cec, type: 3}
-  m_Name: WalkForward
+  m_Script: {fileID: 11500000, guid: 0a9eb9a0c00a045f09aeb50b44706c30, type: 3}
+  m_Name: E1BD1CDD-A533-4587-9615-8F43DE903259
   m_EditorClassIdentifier: 
-  newVelocity: {x: 8, y: 0}
+  objectName: Soundbank_Test_1
+  id: 602044599
+  guid: E1BD1CDD-A533-4587-9615-8F43DE903259
