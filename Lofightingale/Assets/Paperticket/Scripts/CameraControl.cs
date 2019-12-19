@@ -11,15 +11,15 @@ public class CameraControl : MonoBehaviour
     public Collider2D leftCollider;
     public Collider2D rightCollider;
     public Collider2D topCollider;
-    public Collider2D bottomCollider;  
 
-    
     [Header("Camera Controls")]
 
     public float dampTime = 0.2f;           // Approximate time for the camera to refocus.
     public float screenEdgeBuffer = 4f;     // Space between the top/bottom most target and the screen edge.
     public float minSize = 6.5f;            // The smallest orthographic size the camera can be.
-    public float maxSize = 20f;            // The smallest orthographic size the camera can be.
+    public float maxSize = 20f;             // The smallest orthographic size the camera can be.
+
+    public Vector2 finalOffset;             // An additional offset of the camera added after all other calculations 
 
     float zoomSpeed;                        // Reference speed for the smooth damping of the orthographic size.
     Vector3 moveVelocity;                   // Reference velocity for the smooth damping of the position.
@@ -31,7 +31,6 @@ public class CameraControl : MonoBehaviour
     public Vector2 leftColliderPos = new Vector2 (0, 0.5f);
     public Vector2 rightColliderPos = new Vector2(1, 0.5f);
     public Vector2 topColliderPos = new Vector2(0.5f, 1);
-    public Vector2 bottomColliderPos = new Vector2(0.5f, 0);
 
        
 
@@ -39,7 +38,7 @@ public class CameraControl : MonoBehaviour
 
         camera = GetComponent<Camera>();
 
-        if (!leftCollider || !rightCollider || !topCollider || !bottomCollider) {
+        if (!leftCollider || !rightCollider) {
             Debug.LogError("[CameraControl] A bounding collider missing from camera!");
         } 
     }
@@ -64,7 +63,6 @@ public class CameraControl : MonoBehaviour
         leftCollider.transform.position = camera.ViewportToWorldPoint(new Vector3(leftColliderPos.x, leftColliderPos.y, camera.nearClipPlane));
         rightCollider.transform.position = camera.ViewportToWorldPoint(new Vector3(rightColliderPos.x, rightColliderPos.y, camera.nearClipPlane));
         topCollider.transform.position = camera.ViewportToWorldPoint(new Vector3(topColliderPos.x, topColliderPos.y, camera.nearClipPlane));
-        bottomCollider.transform.position = camera.ViewportToWorldPoint(new Vector3(bottomColliderPos.x, bottomColliderPos.y, camera.nearClipPlane));
 
     }
 
@@ -101,8 +99,12 @@ public class CameraControl : MonoBehaviour
         if (numTargets > 0)
             averagePos /= numTargets;
 
-        // Keep the same y value.
+        // Keep the same z value.
         averagePos.z = transform.position.z;
+
+        // Add the final offset
+        averagePos.x += finalOffset.x;
+        averagePos.y += finalOffset.y;
 
         // The desired position is the average position;
         desiredPosition = averagePos;

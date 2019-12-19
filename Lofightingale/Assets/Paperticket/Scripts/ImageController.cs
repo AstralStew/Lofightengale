@@ -8,6 +8,8 @@ public class ImageController : MonoBehaviour
 {
 
     [Header("Controls")]
+
+    [SerializeField] int _Duration;
     
     [SerializeField] Image _Image;
     [SerializeField] Text _Text;
@@ -32,7 +34,7 @@ public class ImageController : MonoBehaviour
         //_Image.sprite = command.commandImage;
         _Text.text = command.commandName;
 
-        StartCoroutine(ImageActive(command.recoveryLength));
+        StartCoroutine(ImageActive(_Duration));
 
     }
 

@@ -30,10 +30,8 @@ namespace Paperticket
         [SerializeField] [Min(0.1f)] float maxSpeed;
         [SerializeField] [Min(0.1f)] float minSpeed;
         public float gravityScale;
+        public int maxAirActions;
 
-        //[Header("Ground Settings")]        
-        //[SerializeField] float groundedCornerThreshold;
-        //[SerializeField] LayerMask groundLayers;
 
 
         [Header("Debugging Options")]
@@ -41,10 +39,10 @@ namespace Paperticket
         [SerializeField] bool _DebugUpdates;
         [SerializeField] bool _DebugEvents;
         [SerializeField] bool _DebugGizmos;
-        //[SerializeField] float groundGizmoThickness;
-        //[SerializeField] Color groundGizmoColour;
 
-        ContactPoint2D groundedPoint;
+        //ContactPoint2D groundedPoint;
+
+
 
         [Header("Read Only")]
 
@@ -62,6 +60,9 @@ namespace Paperticket
 
         [Tooltip("Whether the player has flipped and is currently facing left")]
         public bool facingLeft;
+
+        [Tooltip("The number of commands marked as Air Actions that the player can perform before having to return to the ground")]
+        public int airActions;
 
         [SerializeField] Vector2 currentVelocity;
         [SerializeField] Vector2 oldVelocity;
@@ -128,11 +129,7 @@ namespace Paperticket
                 rigidbody2D.velocity = adjustedVelocity;
                 oldVelocity = currentVelocity;
             }
-
-            if(Input.GetKeyDown(KeyCode.Tab))
-            {
-                SetFacing(!facingLeft);
-            }
+                        
             
         }
 
@@ -142,9 +139,14 @@ namespace Paperticket
 
             // If grounded, check the whether the player is walking
             if (isGrounded) {
+                airActions = maxAirActions;
                 if (inputSystem.InputPresentInFrame("Forward", 1)) { isWalking = 1; }
                 else if (inputSystem.InputPresentInFrame("Back", 1)) { isWalking = -1; }
                 else { isWalking = 0; }
+            }
+
+            if (Input.GetButtonDown("RightStickButton")) {
+                SetFacing(!facingLeft);
             }
 
         }
@@ -158,6 +160,12 @@ namespace Paperticket
 
 
         public void SetRecovering( bool active ) {
+            
+            // Turn input buffer back on if we are coming out of recovery
+            if (isRecovering && !active) {
+                inputSystem.ActivateInputBuffer(true);
+            }
+
             isRecovering = active;
         }
 

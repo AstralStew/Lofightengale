@@ -12,8 +12,10 @@ namespace Paperticket {
         
         [Header("Misc")]
 
-        [SerializeField] bool _Debug;
-        [SerializeField] bool _DontClearInputBuffer;
+        [SerializeField] bool _DebugManager;
+        [SerializeField] bool _DebugCommands;
+
+        //[SerializeField] bool _DontClearInputBuffer;
                        
 
         public delegate void OnCommandRegistered( Command command );
@@ -60,7 +62,7 @@ namespace Paperticket {
                 Command command = _CommandList.commandList[i];
                 string[] commandInputs = command.commandInputs;
 
-                if (_Debug) Debug.Log("[CommandManager] Checking Command (" + command.commandName + ")");
+                if (_DebugCommands) Debug.Log("[CommandManager] Checking Command (" + command.commandName + ")");
 
                 // Create an array of native inputs, each representing a command step
                 command.commandSteps = new NativeInput[commandInputs.Length];
@@ -68,7 +70,7 @@ namespace Paperticket {
                 // Go through each command step one-by-one
                 for (int j = 0; j < commandInputs.Length; j++) {
 
-                    if (_Debug) Debug.Log("[CommandManager] Checking command step (" + commandInputs[j] + ")");
+                    if (_DebugManager) Debug.Log("[CommandManager] Checking command step (" + commandInputs[j] + ")");
 
                     // Create a native input entry for the current command step
                     command.commandSteps[j] = new NativeInput();
@@ -89,7 +91,7 @@ namespace Paperticket {
                         // Check the string input is preceded by ^ (meaning the input must be released)
                         if (inputSystem._InputList.Contains(seperateInputs[k].Substring(1))) {
 
-                            if (_Debug) Debug.Log("[CommandManager] Saving command step input (" + seperateInputs[k] + ") in native input table");
+                            if (_DebugManager) Debug.Log("[CommandManager] Saving command step input (" + seperateInputs[k] + ") in native input table");
 
                             // Set the appropriate raw input for this command step 
                             if (seperateInputs[k].StartsWith("^")) {
@@ -102,7 +104,7 @@ namespace Paperticket {
 
                         } else if (inputSystem._InputList.Contains(seperateInputs[k])) {
 
-                            if (_Debug) Debug.Log("[CommandManager] Saving command step input (" + seperateInputs[k] + ") in native input table");
+                            if (_DebugManager) Debug.Log("[CommandManager] Saving command step input (" + seperateInputs[k] + ") in native input table");
 
                             // Set the raw input for this command step 
                             _CommandList.commandList[i].commandSteps[j].rawInputs[inputSystem._InputList.IndexOf(seperateInputs[k])] = 1;
@@ -140,9 +142,11 @@ namespace Paperticket {
                 // Make sure this command is enabled and it's other requirements are met
                 if ((!commandList[i].commandEnabled) ||
                     (commandList[i].requireGrounded && !characterManager.isGrounded) ||
-                        (commandList[i].requireAirborne && characterManager.isGrounded) ||
-                        (commandList[i].requireCrouching && !characterManager.isCrouching)) continue;
-                if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] Checking Command(" + commandList[i].commandName + ")...");
+                    (commandList[i].requireAirborne && characterManager.isGrounded) ||
+                    (commandList[i].requireCrouching && !characterManager.isCrouching) ||
+                    (commandList[i].requireAirActions && characterManager.airActions == 0)) continue;
+
+                if (_DebugCommands && commandList[i].debug) Debug.Log("[CommandManager] Checking Command(" + commandList[i].commandName + ")...");
                 
                 // Grab the steps for this command
                 commandSteps = commandList[i].commandSteps;
@@ -159,7 +163,7 @@ namespace Paperticket {
                 stepIndex = commandSteps.Length - 1;
                 commandSuccess = false;
 
-                if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] Checking for Input(" + commandSteps[stepIndex].combinedInputs + ")");
+                if (_DebugCommands && commandList[i].debug) Debug.Log("[CommandManager] Checking for Input(" + commandSteps[stepIndex].combinedInputs + ")");
 
                 // Iterate backwards through each of the frames, as long as there are command steps left
                 while (frameCount < numberOfFramesToSearch && stepIndex >= 0) {    
@@ -173,21 +177,21 @@ namespace Paperticket {
                         
                         // Only check inputs that are assigned to
                         if (requiredInput != 0) {
-                            if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] Required input for (" + InputSystem.instance._InputList[j] + ") = " + requiredInput);
+                            if (_DebugCommands && commandList[i].debug) Debug.Log("[CommandManager] Required input for (" + InputSystem.instance._InputList[j] + ") = " + requiredInput);
 
                             // Check the state of the input at the frame we're up to
-                            inputState = InputSystem.instance.InputStateInFrame(j, frameCount, _Debug && commandList[i].debug);
+                            inputState = InputSystem.instance.InputStateInFrame(j, frameCount, _DebugCommands && commandList[i].debug);
 
                             // Move on if the required input is the same as the input state
                             if (requiredInput == inputState
                                 // Also if it's a lazy input, consider pressed and held down inputs the same
                                 || (commandList[i].lazyInput && requiredInput == 1 && inputState == 2)) {
 
-                                if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] Getting there! Input found!");
+                                if (_DebugCommands && commandList[i].debug) Debug.Log("[CommandManager] Getting there! Input found!");
 
                             // If required input not present, break to goto the next frames
                             } else {
-                                if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] Input NOT found, moving to next frame...");
+                                if (_DebugCommands && commandList[i].debug) Debug.Log("[CommandManager] Input NOT found, moving to next frame...");
                                 requiredInputMissing = true;
                                 break;
                             }
@@ -197,21 +201,16 @@ namespace Paperticket {
                     // Register command if the last input was successful                    
                     if (!requiredInputMissing) {
                         stepIndex--;
-                        if (stepIndex < 0) {
-                            commandSuccess = true;
+                        if (stepIndex < 0) {                            
+                            commandSuccess = true;                            
                             break;
-                        } else if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] There are still more inputs tho...");
+                        } else if (_DebugCommands && commandList[i].debug) Debug.Log("[CommandManager] There are still more inputs tho...");
                     } else {
-
                         // Break out of command if the first step is missed
                         if (stepIndex == commandSteps.Length - 1) {
-                            if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] First input not found! Cancelling check");
+                            if (_DebugCommands && commandList[i].debug) Debug.Log("[CommandManager] First input not found! Cancelling check");
                             break;
-                        } else {
-                            if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] Required input missing! Moving to next input");
-                        }
-                                               
-                        
+                        } else if (_DebugCommands && commandList[i].debug) Debug.Log("[CommandManager] Required input missing! Moving to next input");                        
                     }
 
                     // Goto the next frame
@@ -220,17 +219,17 @@ namespace Paperticket {
                 }
 
                 // Register a successful command, or move to next one
-                if (commandSuccess) {                    
+                if (commandSuccess) {
                     RegisterCommand(i, frameCount);
                     break;
                 } else {
-                    if (_Debug && commandList[i].debug) Debug.Log("[CommandManager] Ran out of frames, giving up on Command(" + commandList[i].commandName + ")");
+                    if (_DebugCommands && commandList[i].debug) Debug.Log("[CommandManager] Ran out of frames, giving up on Command(" + commandList[i].commandName + ")");
                 }
             }
 
             // Ran out of commands, goto default animation trigger
             if (!commandSuccess) {
-                if (_Debug) Debug.Log("[CommandManager] Ran out of commands! Playing default animation...");
+                if (_DebugManager) Debug.Log("[CommandManager] Ran out of commands! Playing default animation...");
             }
         }
 
@@ -238,43 +237,36 @@ namespace Paperticket {
         void RegisterCommand( int commandIndex, int frameCount ) {
 
             // Do stuff because the command was successful
-            if (_Debug) Debug.Log("[CommandManager] Command (" + _CommandList.commandList[commandIndex].commandName + ") registered!");
+            if (_DebugManager) Debug.Log("[CommandManager] Command (" + _CommandList.commandList[commandIndex].commandName + ") registered!");
+
+            // Mark off air actions if applicable
+            if (_CommandList.commandList[commandIndex].requireAirActions) {
+                characterManager.airActions = Mathf.Max(characterManager.airActions - 1, 0);
+            }
+
+            // Clear the input buffer if applicable
+            if (_CommandList.commandList[commandIndex].clearInputBuffer) {
+                if (_DebugManager) Debug.Log("[CommandManager] Clearing the input buffer!");
+                InputSystem.instance.ActivateInputBuffer(false);
+            }
 
             // Send an event
             onCommandRegistered?.Invoke(_CommandList.commandList[commandIndex]);
 
-            // Clear the cache of frames held in the Native Input Table
-            if (_DontClearInputBuffer) {
-                if (_Debug) Debug.LogWarning("[InputSystem] NOTE -> You aren't clearing the input buffer! This could be bad!");
-                return;
-            } else {
-                if (_Debug) Debug.LogWarning("[InputSystem] NOTE -> You aren't clearing the input buffer! This could be bad!");
-                InputSystem.instance.ClearNativeInputTable();
-            }           
+            // NOTE -> this is probably not necessary anymore
+                // Clear the cache of frames held in the Native Input Table
+                //if (_DontClearInputBuffer) {
+                //    if (_Debug) Debug.LogWarning("[InputSystem] NOTE -> You aren't clearing the input buffer! This could be bad!");
+                //    return;
+                //} else {
+                //    if (_Debug) Debug.LogWarning("[InputSystem] NOTE -> You aren't clearing the input buffer! This could be bad!");
+                //    InputSystem.instance.ClearNativeInputTable();
+                //}           
 
         }
 
 
-
-        //public void SetRecovering(bool active ) {
-        //    _Recovering = active;
-        //}
-
-
-
-
-        //IEnumerator WaitForRecovery( int recoveryLength ) {
-        //    _Recovering = true;
-
-        //    // Wait for the recovery length
-        //    int frame = recoveryLength;
-        //    while (frame > 0) {
-        //        yield return null;
-        //        frame--;
-        //    }
-
-        //    _Recovering = false;
-        //}
+               
 
 
 

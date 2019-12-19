@@ -35,18 +35,21 @@ namespace Paperticket {
         public NativeInput[] _NativeInputTable;
 
         public int _InputBuffer = 9;
-        [SerializeField] int _InputDelay = 5;
 
 
 
-        [Header("Misc")]
+        [Header("Debug")]
 
         [SerializeField] bool _EnableGUI;
 
         [SerializeField] bool _Debug;
         string debugLog;
+
+        [Space(20)]
+        [Header("Read Only")]
+
+        [SerializeField] bool bufferActive;
                
-        int delay;
 
         // Events
 
@@ -73,8 +76,8 @@ namespace Paperticket {
             }
 
             // Setup the initial raw input list and native input table
-            rawInputList = new int[_InputList.Count];
-            combinedInputs = " ";
+            //rawInputList = new int[_InputList.Count];
+            //combinedInputs = " ";
             ClearNativeInputTable();
 
 
@@ -83,16 +86,20 @@ namespace Paperticket {
         // Update is called once per frame
         void Update() {
 
-            //Retrieve the current inputs and save them as variables
-            RetrieveInputs();
+            if (bufferActive) {
 
-            //Save the inputs into the Native Input Table
-            SaveInputs();
+                //Retrieve the current inputs and save them as variables
+                RetrieveInputs();
 
-            //Increment the current frame of the NTI(wrap - around if necesary)
-            frameIterator++;
-            if (frameIterator >= _NativeInputTable.Length) {
-                frameIterator = 0;
+                //Save the inputs into the Native Input Table
+                SaveInputs();
+
+                //Increment the current frame of the NTI(wrap - around if necesary)
+                frameIterator++;
+                if (frameIterator >= _NativeInputTable.Length) {
+                    frameIterator = 0;
+                }
+
             }
 
         }
@@ -200,26 +207,18 @@ namespace Paperticket {
 
 
         void SaveInputs() {
-
-            // Do a delay if there is one       <- (this is shit)
-            if (_InputDelay > 0) {
-                if (delay > 0) {
-                    delay -= 1;
-                    return;
-                }
-                delay = _InputDelay;
-            }
-            
+                        
             // Save the raw input data
             System.Array.Copy(rawInputList, _NativeInputTable[frameIterator].rawInputs, rawInputList.Length);
             _NativeInputTable[frameIterator].combinedInputs = combinedInputs;
 
             // Send event if inputs have been registered this frame
-           // if ((System.Array.IndexOf(rawInputList, 2) != -1) || (System.Array.IndexOf(rawInputList, 3) != -1)) {
-                onInputRegistered?.Invoke();
-           // }
-            
-            
+            // if ((System.Array.IndexOf(rawInputList, 2) != -1) || (System.Array.IndexOf(rawInputList, 3) != -1)) {
+            //    onInputRegistered?.Invoke();
+            // }
+
+            // Send event
+            onInputRegistered?.Invoke();
 
         }
 
@@ -351,7 +350,12 @@ namespace Paperticket {
 
         
 
+        public void ActivateInputBuffer(bool activate) {
 
+            bufferActive = activate;
+            ClearNativeInputTable();            
+
+        } 
 
 
         public void ClearNativeInputTable() {
@@ -369,6 +373,8 @@ namespace Paperticket {
             }
 
             frameIterator = 0;
+            rawInputList = new int[_InputList.Count];
+            combinedInputs = " ";
 
         }
 

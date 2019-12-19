@@ -19,6 +19,7 @@ namespace Paperticket
         public bool requireGrounded;
         public bool requireAirborne;
         public bool requireCrouching;
+        public bool requireAirActions;
 
 
 
@@ -29,28 +30,18 @@ namespace Paperticket
 
         [Tooltip("The command must be executed within this number of frames. A value of (0) will look through the entire buffer.")]
         public int inputAllowance;
+        
+        [Tooltip("If this is true, the command doesn't differentiate between pressed inputs (v) and held down inputs")]
+        public bool lazyInput;
 
-        [Tooltip("The amount of recovery frames in this command.\n\nNOTE: This is in frames, not seconds")]
-        public int recoveryLength;
-
-        [Tooltip("The animation parametre that triggers the animation of the command")]
-        public string animationTrigger;
+        [Tooltip("If this is true, the command will clear the input buffer if it is successful")]
+        public bool clearInputBuffer;
 
         [Tooltip("The animation parametre that triggers the animation of the command")]
         public AnimParametre[] animationParametres;
 
-        [Tooltip("If this is true, the command doesn't differentiate between pressed inputs (v) and held down inputs")]
-        public bool lazyInput;
 
-
-
-
-        //[Header("Movement Options")]
-
-        //public bool moveCharacter;
-        //public Vector2 moveForce;
-        //public float forceMulltiplier;
-
+        
         
 
         [Header("Misc")]
