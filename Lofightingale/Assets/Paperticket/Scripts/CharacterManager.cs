@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Paperticket
 {
-    [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
+    [RequireComponent(typeof(Rigidbody2D))]
     public class CharacterManager : MonoBehaviour
     {
         [Header("References")]
@@ -20,7 +20,7 @@ namespace Paperticket
         public AnimationManager animationManager;
         
         [SerializeField] Rigidbody2D rigidbody2D;
-        [SerializeField] BoxCollider2D boxCollider;
+        [SerializeField] BoxCollider2D physicsCollider;
         [SerializeField] TriggerBoxChecker groundChecker;
 
 
@@ -87,7 +87,7 @@ namespace Paperticket
         }
         void CheckRequiredComponents() {
             rigidbody2D = rigidbody2D ?? GetComponent<Rigidbody2D>();
-            boxCollider = boxCollider ?? GetComponent<BoxCollider2D>();
+            physicsCollider = physicsCollider ?? GetComponentInChildren<BoxCollider2D>();
 
             // Save reference to and disable the script if cannot find input system
             inputSystem = inputSystem ?? GetComponentInChildren<InputSystem>();

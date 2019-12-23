@@ -1,0 +1,310 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14eda10a191c92f4698ffc1bc2eaa61a, type: 3}
+  m_Name: WarriorList
+  m_EditorClassIdentifier: 
+  listName: WarriorList
+  commandList:
+  - commandName: Sweep
+    commandEnabled: 1
+    requireGrounded: 1
+    requireAirborne: 0
+    requireCrouching: 1
+    requireAirActions: 0
+    commandInputs:
+    - Forward
+    - vHeavy
+    inputAllowance: 0
+    lazyInput: 0
+    clearInputBuffer: 0
+    animationParametres:
+    - parameterType: 9
+      parameterName: Sweep
+      parameterValue: 0
+    debug: 0
+    commandSteps:
+    - rawInputs: 000000000100000000000000000000000000000000000000
+      combinedInputs: Forward
+    - rawInputs: 000000000000000000000000000000000000000002000000
+      combinedInputs: vHeavy
+  - commandName: Low Kick
+    commandEnabled: 1
+    requireGrounded: 1
+    requireAirborne: 0
+    requireCrouching: 1
+    requireAirActions: 0
+    commandInputs:
+    - vLight
+    inputAllowance: 0
+    lazyInput: 1
+    clearInputBuffer: 0
+    animationParametres:
+    - parameterType: 9
+      parameterName: WLowKick
+      parameterValue: 0
+    debug: 0
+    commandSteps:
+    - rawInputs: 000000000000000000000000000000000200000000000000
+      combinedInputs: vLight
+  - commandName: Stab Slash Down
+    commandEnabled: 1
+    requireGrounded: 1
+    requireAirborne: 0
+    requireCrouching: 1
+    requireAirActions: 0
+    commandInputs:
+    - vHeavy
+    inputAllowance: 0
+    lazyInput: 1
+    clearInputBuffer: 0
+    animationParametres:
+    - parameterType: 9
+      parameterName: StabSlashDown
+      parameterValue: 0
+    debug: 0
+    commandSteps:
+    - rawInputs: 000000000000000000000000000000000000000002000000
+      combinedInputs: vHeavy
+  - commandName: DashPunch
+    commandEnabled: 1
+    requireGrounded: 1
+    requireAirborne: 0
+    requireCrouching: 0
+    requireAirActions: 0
+    commandInputs:
+    - Back
+    - Forward+vLight
+    inputAllowance: 0
+    lazyInput: 1
+    clearInputBuffer: 0
+    animationParametres:
+    - parameterType: 9
+      parameterName: DashPunch
+      parameterValue: 0
+    debug: 0
+    commandSteps:
+    - rawInputs: 010000000000000000000000000000000000000000000000
+      combinedInputs: Back
+    - rawInputs: 000000000100000000000000000000000200000000000000
+      combinedInputs: Forward+vLight
+  - commandName: Overhead
+    commandEnabled: 1
+    requireGrounded: 1
+    requireAirborne: 0
+    requireCrouching: 0
+    requireAirActions: 0
+    commandInputs:
+    - Forward+vLight
+    inputAllowance: 0
+    lazyInput: 1
+    clearInputBuffer: 0
+    animationParametres:
+    - parameterType: 9
+      parameterName: Overhead
+      parameterValue: 0
+    debug: 0
+    commandSteps:
+    - rawInputs: 000000000100000000000000000000000200000000000000
+      combinedInputs: Forward+vLight
+  - commandName: Light Punch
+    commandEnabled: 1
+    requireGrounded: 1
+    requireAirborne: 0
+    requireCrouching: 0
+    requireAirActions: 0
+    commandInputs:
+    - vLight
+    inputAllowance: 0
+    lazyInput: 1
+    clearInputBuffer: 0
+    animationParametres:
+    - parameterType: 9
+      parameterName: WLightPunch
+      parameterValue: 0
+    debug: 0
+    commandSteps:
+    - rawInputs: 000000000000000000000000000000000200000000000000
+      combinedInputs: vLight
+  - commandName: Heavy Swing
+    commandEnabled: 1
+    requireGrounded: 1
+    requireAirborne: 0
+    requireCrouching: 0
+    requireAirActions: 0
+    commandInputs:
+    - vHeavy
+    inputAllowance: 0
+    lazyInput: 1
+    clearInputBuffer: 0
+    animationParametres:
+    - parameterType: 9
+      parameterName: HeavySwing
+      parameterValue: 0
+    debug: 0
+    commandSteps:
+    - rawInputs: 000000000000000000000000000000000000000002000000
+      combinedInputs: vHeavy
+  - commandName: Jump Forward
+    commandEnabled: 1
+    requireGrounded: 1
+    requireAirborne: 0
+    requireCrouching: 0
+    requireAirActions: 0
+    commandInputs:
+    - Up+Forward
+    inputAllowance: 0
+    lazyInput: 1
+    clearInputBuffer: 0
+    animationParametres:
+    - parameterType: 9
+      parameterName: WJumpForward
+      parameterValue: 0
+    debug: 0
+    commandSteps:
+    - rawInputs: 000000000100000001000000000000000000000000000000
+      combinedInputs: Up+Forward
+  - commandName: Jump Back
+    commandEnabled: 1
+    requireGrounded: 1
+    requireAirborne: 0
+    requireCrouching: 0
+    requireAirActions: 0
+    commandInputs:
+    - Up+Back
+    inputAllowance: 0
+    lazyInput: 1
+    clearInputBuffer: 0
+    animationParametres:
+    - parameterType: 9
+      parameterName: WJumpBack
+      parameterValue: 0
+    debug: 0
+    commandSteps:
+    - rawInputs: 010000000000000001000000000000000000000000000000
+      combinedInputs: Up+Back
+  - commandName: Jump Neutral
+    commandEnabled: 1
+    requireGrounded: 1
+    requireAirborne: 0
+    requireCrouching: 0
+    requireAirActions: 0
+    commandInputs:
+    - Up
+    inputAllowance: 0
+    lazyInput: 1
+    clearInputBuffer: 0
+    animationParametres:
+    - parameterType: 9
+      parameterName: WJumpNeutral
+      parameterValue: 0
+    debug: 0
+    commandSteps:
+    - rawInputs: 000000000000000001000000000000000000000000000000
+      combinedInputs: Up
+  - commandName: Back Dash
+    commandEnabled: 1
+    requireGrounded: 0
+    requireAirborne: 0
+    requireCrouching: 0
+    requireAirActions: 1
+    commandInputs:
+    - Back
+    - ^Back
+    - Back
+    inputAllowance: 0
+    lazyInput: 1
+    clearInputBuffer: 1
+    animationParametres:
+    - parameterType: 9
+      parameterName: BackDash
+      parameterValue: 0
+    debug: 1
+    commandSteps:
+    - rawInputs: 010000000000000000000000000000000000000000000000
+      combinedInputs: Back
+    - rawInputs: 030000000000000000000000000000000000000000000000
+      combinedInputs: ^Back
+    - rawInputs: 010000000000000000000000000000000000000000000000
+      combinedInputs: Back
+  - commandName: Forward Dash
+    commandEnabled: 1
+    requireGrounded: 0
+    requireAirborne: 0
+    requireCrouching: 0
+    requireAirActions: 1
+    commandInputs:
+    - Forward
+    - ^Forward
+    - Forward
+    inputAllowance: 0
+    lazyInput: 1
+    clearInputBuffer: 1
+    animationParametres:
+    - parameterType: 9
+      parameterName: ForwardDash
+      parameterValue: 0
+    debug: 0
+    commandSteps:
+    - rawInputs: 000000000100000000000000000000000000000000000000
+      combinedInputs: Forward
+    - rawInputs: 000000000300000000000000000000000000000000000000
+      combinedInputs: ^Forward
+    - rawInputs: 000000000100000000000000000000000000000000000000
+      combinedInputs: Forward
+  - commandName: ToCrouch
+    commandEnabled: 1
+    requireGrounded: 1
+    requireAirborne: 0
+    requireCrouching: 1
+    requireAirActions: 0
+    commandInputs:
+    - Down
+    inputAllowance: 0
+    lazyInput: 1
+    clearInputBuffer: 0
+    animationParametres: []
+    debug: 0
+    commandSteps:
+    - rawInputs: 000000000000000000000000010000000000000000000000
+      combinedInputs: Down
+  - commandName: Walk Forward
+    commandEnabled: 1
+    requireGrounded: 1
+    requireAirborne: 0
+    requireCrouching: 0
+    requireAirActions: 0
+    commandInputs:
+    - Forward
+    inputAllowance: 0
+    lazyInput: 1
+    clearInputBuffer: 0
+    animationParametres: []
+    debug: 0
+    commandSteps:
+    - rawInputs: 000000000100000000000000000000000000000000000000
+      combinedInputs: Forward
+  - commandName: WalkBack
+    commandEnabled: 1
+    requireGrounded: 1
+    requireAirborne: 0
+    requireCrouching: 0
+    requireAirActions: 0
+    commandInputs:
+    - Back
+    inputAllowance: 0
+    lazyInput: 1
+    clearInputBuffer: 0
+    animationParametres: []
+    debug: 0
+    commandSteps:
+    - rawInputs: 010000000000000000000000000000000000000000000000
+      combinedInputs: Back
