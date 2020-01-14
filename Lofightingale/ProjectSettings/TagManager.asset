@@ -7,6 +7,9 @@ TagManager:
   - LevelBounds
   - Music
   - Background
+  - Hurtbox
+  - Enemy
+  - Activebox
   layers:
   - Default
   - TransparentFX
@@ -19,23 +22,23 @@ TagManager:
   - Platforms
   - Player
   - Volumes
-  - OneWayPlatforms
-  - Projectiles
   - Enemies
+  - Projectiles
+  - PlayerProjectiles
   - LevelBounds
   - Ladders
-  - PlayerProjectiles
   - MovingObjects
-  - MovingPlatforms
   - Foreground
-  - MovingOneWayPlatforms
-  - NoCollision
+  - MovingPlatforms
   - Background
+  - NoCollision
   - Friendlies
   - Invulnerable
-  - PlatformsPlayerOnly
-  - MidHeightOneWayPlatforms
-  - Pushables
+  - Hitbox
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

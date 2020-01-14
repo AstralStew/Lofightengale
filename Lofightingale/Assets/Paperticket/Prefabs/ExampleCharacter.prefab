@@ -1,41 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &909569284692491828
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 909569284692491829}
-  m_Layer: 0
-  m_Name: Triggers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &909569284692491829
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909569284692491828}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 909569285133788702}
-  - {fileID: 909569285893336263}
-  - {fileID: 909569285204836015}
-  - {fileID: 909569285505965941}
-  - {fileID: 909569285754513162}
-  - {fileID: 909569284952658218}
-  m_Father: {fileID: 909569286570281116}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &909569284708998151
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,10 +89,9 @@ GameObject:
   m_Component:
   - component: {fileID: 909569284952658218}
   - component: {fileID: 909569284952658219}
-  - component: {fileID: 909569284952658216}
   m_Layer: 0
-  m_Name: HurtTrigger04
-  m_TagString: Untagged
+  m_Name: Hitbox04
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,8 +107,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 909569284692491829}
-  m_RootOrder: 5
+  m_Father: {fileID: 4520141547775481081}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &909569284952658219
 BoxCollider2D:
@@ -173,21 +136,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &909569284952658216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909569284952658221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95d1d4eccbcae9446a096cc60e219227, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxCollider: {fileID: 909569284952658219}
-  gizmoColour: {r: 0, g: 1, b: 0, a: 0}
-  gizmoOpacity: 0.5
 --- !u!1 &909569285133788689
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,10 +146,9 @@ GameObject:
   m_Component:
   - component: {fileID: 909569285133788702}
   - component: {fileID: 909569285133788703}
-  - component: {fileID: 909569285133788700}
   m_Layer: 0
-  m_Name: BodyTrigger01
-  m_TagString: Untagged
+  m_Name: Hurtbox01
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,7 +164,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 909569284692491829}
+  m_Father: {fileID: 5116074189939023829}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &909569285133788703
@@ -246,21 +193,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 2.6}
   m_EdgeRadius: 0
---- !u!114 &909569285133788700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909569285133788689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95d1d4eccbcae9446a096cc60e219227, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxCollider: {fileID: 909569285133788703}
-  gizmoColour: {r: 1, g: 0, b: 0.06326771, a: 1}
-  gizmoOpacity: 0.4
 --- !u!1 &909569285204836014
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,10 +203,9 @@ GameObject:
   m_Component:
   - component: {fileID: 909569285204836015}
   - component: {fileID: 909569285204836012}
-  - component: {fileID: 909569285204836013}
   m_Layer: 0
-  m_Name: HurtTrigger01
-  m_TagString: Untagged
+  m_Name: Hitbox01
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -290,8 +221,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 909569284692491829}
-  m_RootOrder: 2
+  m_Father: {fileID: 4520141547775481081}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &909569285204836012
 BoxCollider2D:
@@ -319,21 +250,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &909569285204836013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909569285204836014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95d1d4eccbcae9446a096cc60e219227, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxCollider: {fileID: 909569285204836012}
-  gizmoColour: {r: 0, g: 1, b: 0, a: 0}
-  gizmoOpacity: 0.5
 --- !u!1 &909569285437494187
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,10 +340,9 @@ GameObject:
   m_Component:
   - component: {fileID: 909569285505965941}
   - component: {fileID: 909569285505965938}
-  - component: {fileID: 909569285505965939}
   m_Layer: 0
-  m_Name: HurtTrigger02
-  m_TagString: Untagged
+  m_Name: Hitbox02
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -443,8 +358,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 909569284692491829}
-  m_RootOrder: 3
+  m_Father: {fileID: 4520141547775481081}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &909569285505965938
 BoxCollider2D:
@@ -472,21 +387,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &909569285505965939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909569285505965940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95d1d4eccbcae9446a096cc60e219227, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxCollider: {fileID: 909569285505965938}
-  gizmoColour: {r: 0, g: 1, b: 0, a: 0}
-  gizmoOpacity: 0.5
 --- !u!1 &909569285711825019
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +416,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 909569286570281116}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &909569285711825016
 MonoBehaviour:
@@ -550,10 +450,9 @@ GameObject:
   m_Component:
   - component: {fileID: 909569285754513162}
   - component: {fileID: 909569285754513163}
-  - component: {fileID: 909569285754513160}
   m_Layer: 0
-  m_Name: HurtTrigger03
-  m_TagString: Untagged
+  m_Name: Hitbox03
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -569,8 +468,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 909569284692491829}
-  m_RootOrder: 4
+  m_Father: {fileID: 4520141547775481081}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &909569285754513163
 BoxCollider2D:
@@ -598,21 +497,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &909569285754513160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909569285754513165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95d1d4eccbcae9446a096cc60e219227, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxCollider: {fileID: 909569285754513163}
-  gizmoColour: {r: 0, g: 1, b: 0, a: 0}
-  gizmoOpacity: 0.5
 --- !u!1 &909569285755559582
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,10 +571,9 @@ GameObject:
   m_Component:
   - component: {fileID: 909569285893336263}
   - component: {fileID: 909569285893336260}
-  - component: {fileID: 909569285893336261}
   m_Layer: 0
-  m_Name: BodyTrigger02
-  m_TagString: Untagged
+  m_Name: Hurtbox02
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -706,7 +589,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 909569284692491829}
+  m_Father: {fileID: 5116074189939023829}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &909569285893336260
@@ -735,21 +618,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &909569285893336261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909569285893336262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95d1d4eccbcae9446a096cc60e219227, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxCollider: {fileID: 909569285893336260}
-  gizmoColour: {r: 1, g: 0, b: 0.06326771, a: 1}
-  gizmoOpacity: 0.4
 --- !u!1 &909569286174593646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1221,7 +1089,8 @@ Transform:
   m_Children:
   - {fileID: 909569285437494185}
   - {fileID: 6041530694901388177}
-  - {fileID: 909569284692491829}
+  - {fileID: 5116074189939023829}
+  - {fileID: 4520141547775481081}
   - {fileID: 909569285711825017}
   m_Father: {fileID: 909569286366403118}
   m_RootOrder: 0
@@ -1262,6 +1131,143 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &2839559574634811651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5116074189939023829}
+  - component: {fileID: 1130671359987906687}
+  m_Layer: 23
+  m_Name: Hurtboxes
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5116074189939023829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2839559574634811651}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 909569285133788702}
+  - {fileID: 909569285893336263}
+  m_Father: {fileID: 909569286570281116}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1130671359987906687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2839559574634811651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d1d4eccbcae9446a096cc60e219227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxColliders:
+  - {fileID: 909569285133788703}
+  - {fileID: 909569285893336260}
+  hitLayers:
+    serializedVersion: 2
+    m_Bits: 8388608
+  activeColour: {r: 1, g: 0.6039734, b: 0, a: 1}
+  inactiveColour: {r: 0.0073930025, g: 1, b: 0, a: 1}
+  gizmoOpacity: 0.545
+  _DebugUpdates: 0
+  _DebugEvents: 0
+  _DebugGizmos: 0
+  successfulCheckThisFrame: 0
+  SuccessEvents:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &3861892071594388140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4520141547775481081}
+  - component: {fileID: 962488976671173394}
+  m_Layer: 23
+  m_Name: Hitboxes
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4520141547775481081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3861892071594388140}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 909569285204836015}
+  - {fileID: 909569285505965941}
+  - {fileID: 909569285754513162}
+  - {fileID: 909569284952658218}
+  m_Father: {fileID: 909569286570281116}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &962488976671173394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3861892071594388140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d1d4eccbcae9446a096cc60e219227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxColliders:
+  - {fileID: 909569285204836012}
+  - {fileID: 909569285505965938}
+  - {fileID: 909569285754513163}
+  - {fileID: 909569284952658219}
+  hitLayers:
+    serializedVersion: 2
+    m_Bits: 8388608
+  activeColour: {r: 1, g: 0, b: 0.8950033, a: 1}
+  inactiveColour: {r: 1, g: 0.00969137, b: 0, a: 1}
+  gizmoOpacity: 0.545
+  _DebugUpdates: 0
+  _DebugEvents: 0
+  _DebugGizmos: 0
+  successfulCheckThisFrame: 0
+  SuccessEvents:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 909569286570281105}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6441976788003875342
 GameObject:
   m_ObjectHideFlags: 0
