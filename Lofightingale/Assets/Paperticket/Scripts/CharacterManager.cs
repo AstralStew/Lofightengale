@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Video;
 
 namespace Paperticket
 {
@@ -46,22 +46,28 @@ namespace Paperticket
 
         [Header("Read Only")]
 
-        [Tooltip("Whether the player is recovering or not")]
+        [Tooltip("How many hit points the character has")]
+        public int HitPoints;
+
+        [Tooltip("The multiplier of damage recieved by the character")]
+        public float DefenseMultiplier;
+                
+        [Tooltip("Whether the character is recovering or not")]
         public bool isRecovering;
 
-        [Tooltip("Whether the player is grounded or not")]
+        [Tooltip("Whether the character is grounded or not")]
         public bool isGrounded;
 
-        [Tooltip("Whether the player is crouching or not")]
+        [Tooltip("Whether the character is crouching or not")]
         public bool isCrouching;
 
-        [Tooltip("Whether the player is idle (0) or walking left (-1) or right (1)")]
+        [Tooltip("Whether the character is idle (0) or walking left (-1) or right (1)")]
         public int isWalking;
 
-        [Tooltip("Whether the player has flipped and is currently facing left")]
+        [Tooltip("Whether the character has flipped and is currently facing left")]
         public bool facingLeft;
 
-        [Tooltip("The number of commands marked as Air Actions that the player can perform before having to return to the ground")]
+        [Tooltip("The number of commands marked as Air Actions that the character can perform before having to return to the ground")]
         public int airActions;
 
         [SerializeField] Vector2 currentVelocity;
@@ -177,8 +183,7 @@ namespace Paperticket
             isGrounded = active;
         }
 
-
-        Vector2 newVelocity;
+                
         public void SetVelocity (Vector2 direction, float magnitude, bool additive ) {
 
             if (_DebugEvents) Debug.Log("[CharacterManager] Setting new velocity! Vector2 = "+direction*magnitude+", additive = "+additive);
@@ -204,9 +209,26 @@ namespace Paperticket
 
         }
 
+        public void ApplyHitProperties(HitProperties hitProperties ) {
+
+            if (!hitProperties) {
+                Debug.LogError("[Charactermanager] ERROR -> No hit properties provided to ApplyHitProperties!");
+                return;
+            }
+
+            hitProperties.hitDamage
 
 
+        }
 
+
+        public void ChangeHealth( int modifier) {
+            HitPoints = Mathf.Max(0, HitPoints + modifier);
+        }
+
+        public void SetDefenseMultiplier( int value ) {
+            DefenseMultiplier = value;
+        }
 
 
 

@@ -13,8 +13,8 @@ namespace Paperticket
         public bool commandEnabled;
 
 
-
-        [Header("Requirements")]
+        
+        [Header("Command Requirements")]
                 
         public bool requireGrounded;
         public bool requireAirborne;
@@ -22,8 +22,8 @@ namespace Paperticket
         public bool requireAirActions;
 
 
-
-        [Header("Command Values")]
+        
+        [Header("Input Values")]
 
         [Tooltip("The inputs of the command.\n\nUse '+' to include mutliple inputs required on the same frame.\n\nUse '^' to designate that the input must be released as part of the command")]
         public string[] commandInputs;
@@ -37,13 +37,15 @@ namespace Paperticket
         [Tooltip("If this is true, the command will clear the input buffer if it is successful")]
         public bool clearInputBuffer;
 
+                     
+        
+        [Header("Command Values")]
+
         [Tooltip("The animation parametre that triggers the animation of the command")]
         public AnimParametre[] animationParametres;
 
 
         
-        
-
         [Header("Misc")]
 
         [Tooltip("Output debug logs in the console.\n\nEnable All Commands / Disable All Commands buttons at the bottom of this component")]

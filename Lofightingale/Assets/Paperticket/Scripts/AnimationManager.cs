@@ -18,7 +18,8 @@ namespace Paperticket
         [SerializeField] bool _WipeTriggersOnAnimationFinished;
                
         [SerializeField] bool _Debug;
-               
+
+        AnimationPackage animPackage;
 
 
         public delegate void OnAnimationStarted();
@@ -157,7 +158,7 @@ namespace Paperticket
             characterManager.SetGrounded(active > 0);
         }
 
-        AnimationPackage animPackage;
+        
         public void SetVelocity( AnimationEvent animationEvent ) {
 
             if (animationEvent.objectReferenceParameter) {
@@ -169,6 +170,41 @@ namespace Paperticket
             }
 
         }
+
+        /// <summary>
+        /// Set the hit properties of the active/hurt hitboxes
+        /// </summary>
+        /// <param name="hitProperties"> The hit properties provided in the animation event</param>
+        public void SetHitProperties ( HitProperties hitProperties ) {
+
+            if (!hitProperties) {
+                Debug.LogError("[AnimationManager] ERROR -> No hit properties provided to SetHitProperties. Did you forget to add the object to the animation event?");
+                return;
+            }
+
+            // Set the active properties of all the active hitboxes 
+            foreach (Hitbox hitbox in GetComponentsInChildren<Hitbox>()) {
+                if (hitbox.hitboxState == HitboxStates.Active) {
+                    hitbox.activeProperties = hitProperties;
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// Receive the hit properties from the external hitbox 
+        /// </summary>
+        /// <param name="hitProperties"> The hit properties provided by the external hitbox</param>
+        public void TakeHitProperties( HitProperties hitProperties ) {
+
+            if (!hitProperties) {
+                Debug.LogError("[AnimationManager] ERROR -> No hit properties provided to TakeHitProperties!");
+                return;
+            }
+
+
+        }
+
 
         public void PlaySound (string eventName) {
 
