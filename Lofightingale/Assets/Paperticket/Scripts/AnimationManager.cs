@@ -12,12 +12,20 @@ namespace Paperticket
         [SerializeField] Animator animator;
         [SerializeField] AkGameObj wwiseEmitter;
 
+        
+
         [Header("Controls")]
 
         [SerializeField] bool _WipeTriggersOnAnimationStarted;
         [SerializeField] bool _WipeTriggersOnAnimationFinished;
                
         [SerializeField] bool _Debug;
+
+        [Header("Read Only")]
+
+        [SerializeField] List<Hitbox> activeboxes;
+        [SerializeField] List<Hitbox> hurtboxes;
+
 
         AnimationPackage animPackage;
 
@@ -48,13 +56,40 @@ namespace Paperticket
                 Debug.LogError("[AnimationManager] ERROR -> No AkGameObj component found! Please add one to WwiseEmitter variable.");
                 enabled = false;
             }
+
+            // Save reference to and disable the script if cannot find hitboxes and hurtboxes 
+            foreach (Hitbox hitbox in GetComponentsInChildren<Hitbox>()) {
+                if (hitbox.hitboxState == HitboxStates.Active) {
+                    activeboxes.Add(hitbox);
+                } else {
+                    hurtboxes.Add(hitbox);
+                }
+            }
+            if (activeboxes.Count == 0 || hurtboxes.Count == 0) {
+                Debug.LogError("[AnimationManager] ERROR -> Active/hurtboxes seem to be missing! Please add at least one of each as children to this object.");
+            }
+
+
+
         }
 
         void OnEnable() {
+
+            // Subscribe to commands being registered
             CommandManager.onCommandRegistered += PlayCommandAnimation;
+
+            // Subscribe to hitboxes registering a hit
+            foreach (Hitbox hitbox in activeboxes) hitbox.onSuccessfulCheck += TakeHitProperties;
+            foreach (Hitbox hitbox in hurtboxes) hitbox.onSuccessfulCheck += TakeHitProperties;
         }
         void OnDisable() {
+
+            // Unsubscribe to commands being registered
             CommandManager.onCommandRegistered -= PlayCommandAnimation;
+
+            // Unsubscribe to hitboxes registering a hit
+            foreach (Hitbox hitbox in activeboxes) hitbox.onSuccessfulCheck -= TakeHitProperties;
+            foreach (Hitbox hitbox in hurtboxes) hitbox.onSuccessfulCheck -= TakeHitProperties;
         }
 
 
@@ -183,12 +218,9 @@ namespace Paperticket
             }
 
             // Set the active properties of all the active hitboxes 
-            foreach (Hitbox hitbox in GetComponentsInChildren<Hitbox>()) {
-                if (hitbox.hitboxState == HitboxStates.Active) {
-                    hitbox.activeProperties = hitProperties;
-                }
-            }
-
+            foreach (Hitbox hitbox in activeboxes) hitbox.activeProperties = hitProperties;
+            foreach (Hitbox hitbox in hurtboxes) hitbox.activeProperties = null;
+            
         }
 
         /// <summary>
@@ -198,9 +230,35 @@ namespace Paperticket
         public void TakeHitProperties( HitProperties hitProperties ) {
 
             if (!hitProperties) {
-                Debug.LogError("[AnimationManager] ERROR -> No hit properties provided to TakeHitProperties!");
+                if (_Debug) Debug.Log("[AnimationManager] No HitProperties received = We hit something else");
+
+                // Turn off hitboxes (they will reenable as part of the animation track)
+                foreach (Hitbox hitbox in activeboxes) {
+                    hitbox.SetHitboxActive(false);
+                }
+
+                // Set isRecovering off
+                characterManager.SetRecovering(false);
+
                 return;
             }
+
+
+            if (_Debug) Debug.Log("[AnimationManager] HitProperties received = We were hit by something");
+
+            SetAnimationTrigger("WHurt");
+
+            // Apply the damage of the hit properties
+            if (hitProperties.hitDamage != 0) characterManager.ChangeHealth(-hitProperties.hitDamage);
+
+            // Apply the hit stun of the hit properties
+            // This will apply to this script, and change the length of the WarriorHurt 
+
+            // Apply the proration of the hit properties
+            // The damage multiplier, this may not be a thing yet
+
+            // Apply the velocity of the hit properties
+            if (hitProperties.hitVelocity != Vector2.zero) characterManager.SetVelocity(hitProperties.hitVelocity, false);
 
 
         }

@@ -16,15 +16,17 @@ namespace Paperticket
         [SerializeField] LayerMask hitLayers;
         [SerializeField] string[] hitTags;
 
-        public HitProperties activeProperties;
+        [SerializeField] int concurrentHitsAllowed;
 
         [Header("Read Only")]
 
         [SerializeField] bool successfulCheckThisFrame;
 
+        public HitProperties activeProperties;
+
         ContactFilter2D overlapContactFilter;
-        Collider2D[] overlapContacts;
-        Collider2D dummyTarget;
+        [SerializeField] Collider2D[] overlapContacts;
+        Hitbox targetHitbox;
 
 
         [Header("Debugging")]
@@ -49,7 +51,7 @@ namespace Paperticket
             get { return successfulCheckThisFrame; }
         }
 
-        public delegate void OnSuccessfulCheck();
+        public delegate void OnSuccessfulCheck( HitProperties hitProperties);
         public event OnSuccessfulCheck onSuccessfulCheck;
 
 
@@ -66,6 +68,7 @@ namespace Paperticket
             overlapContactFilter.layerMask = hitLayers;
             overlapContactFilter.useTriggers = true;
             overlapContactFilter.useLayerMask = true;
+            overlapContacts = new Collider2D[concurrentHitsAllowed];
         }
 
 
@@ -81,34 +84,23 @@ namespace Paperticket
                 if (!hitbox.gameObject.activeInHierarchy) continue;
 
                 //hitbox.IsTouchingLayers(hitLayers) && 
-                if (IsTouchingHitbox(hitbox, out dummyTarget)) {
+                if (IsTouchingHitbox(hitbox, out targetHitbox)) {
 
                     // Cancel if my state is the same as the dummy targets state
-                    if (hitboxState != dummyTarget.GetComponentInParent<Hitbox>().hitboxState) {
+                    if (hitboxState != targetHitbox.hitboxState) {
 
-                        // If I am the active hitbox
-                        if (hitboxState == HitboxStates.Active) {
-
-                            // Send event to all listeners if any hitbox is successful
-                            successfulCheckThisFrame = true;
-                            onSuccessfulCheck?.Invoke();
-                            break;
-
-                        }
-                        // If I am the hurtbox
-                        else if (dummyTarget.GetComponentInParent<Hitbox>().activeProperties) {
-
-                            // Set the damage, stun, proration, velocity
-
-
-                        } else Debug.LogError("[Hitbox] ERROR -> No active properties set in hitbox target!");    
+                        // Send event to all listeners if any hitbox is successful
+                        successfulCheckThisFrame = true;
+                        onSuccessfulCheck?.Invoke(targetHitbox.activeProperties);
+                        if (_DebugEvents) Debug.Log("[Hitbox] Hitbox ('" + gameObject.name + "') was successfully triggered!");
+                        break;   
                     }
                 }
             }
         }
 
        
-        bool IsTouchingHitbox(BoxCollider2D hitbox, out Collider2D targetHitbox) {
+        bool IsTouchingHitbox(BoxCollider2D hitbox, out Hitbox targetHitbox) {
 
             // Return if there are no overlap results
             if (hitbox.OverlapCollider(overlapContactFilter, overlapContacts) > 0) {
@@ -117,8 +109,9 @@ namespace Paperticket
                     // Check against each hit tag
                     for (int j = 0; j < hitTags.Length; j++) {
                         // Return the target if it matches one of the hit tags
+                        if (_DebugEvents) Debug.Log("myname = "+gameObject.name+", overlapped name = "+overlapContacts[i].gameObject.name+", overlapped contact's tag ="+overlapContacts[i].tag+", hit tag = " + hitTags[j]);
                         if (overlapContacts[i].tag == hitTags[j]) {
-                            targetHitbox = overlapContacts[i];
+                            targetHitbox = overlapContacts[i].GetComponentInParent<Hitbox>();
                             return true;
                         }
                     }
@@ -127,6 +120,15 @@ namespace Paperticket
             targetHitbox = null;
             return false;            
 
+        }
+
+
+
+
+        public void SetHitboxActive (bool active) {
+            foreach (BoxCollider2D hitbox in boxColliders) {
+                hitbox.gameObject.SetActive(active);
+            }
         }
 
 

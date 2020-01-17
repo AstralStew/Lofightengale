@@ -70,6 +70,9 @@ namespace Paperticket
         [Tooltip("The number of commands marked as Air Actions that the character can perform before having to return to the ground")]
         public int airActions;
 
+        [Tooltip("The number of consecutive moves that have been performed withj")]
+        public int comboCounter;
+
         [SerializeField] Vector2 currentVelocity;
         [SerializeField] Vector2 oldVelocity;
 
@@ -183,22 +186,26 @@ namespace Paperticket
             isGrounded = active;
         }
 
-                
-        public void SetVelocity (Vector2 direction, float magnitude, bool additive ) {
 
-            if (_DebugEvents) Debug.Log("[CharacterManager] Setting new velocity! Vector2 = "+direction*magnitude+", additive = "+additive);
+        public void SetVelocity( Vector2 velocity, bool additive ) {
+
+            if (_DebugEvents) Debug.Log("[CharacterManager] Setting new velocity! Vector2 = " + velocity + ", additive = " + additive);
 
             // If not additive, reset the current velocity before setting new one
             if (!additive) {
                 currentVelocity = Vector2.zero;
             }
-            
-            // Save the new velocity
-            //currentVelocity += ((Vector2)transform.InverseTransformDirection(direction) * magnitude);
-            currentVelocity += (direction * magnitude);
 
-            if (_DebugEvents) Debug.Log("[CharacterManager] New velocity = "+ currentVelocity);            
+            // Save the new velocity
+            currentVelocity += velocity;
+
+            if (_DebugEvents) Debug.Log("[CharacterManager] New velocity = " + currentVelocity);
+
         }
+        public void SetVelocity (Vector2 direction, float magnitude, bool additive ) {
+            SetVelocity(direction * magnitude, additive);
+        }
+        
 
         public void SetFacing (bool faceLeft) {
 
@@ -209,18 +216,7 @@ namespace Paperticket
 
         }
 
-        public void ApplyHitProperties(HitProperties hitProperties ) {
-
-            if (!hitProperties) {
-                Debug.LogError("[Charactermanager] ERROR -> No hit properties provided to ApplyHitProperties!");
-                return;
-            }
-
-            hitProperties.hitDamage
-
-
-        }
-
+        
 
         public void ChangeHealth( int modifier) {
             HitPoints = Mathf.Max(0, HitPoints + modifier);
