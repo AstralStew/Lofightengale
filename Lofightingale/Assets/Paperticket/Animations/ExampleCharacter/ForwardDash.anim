@@ -615,7 +615,7 @@ AnimationClip:
     messageOptions: 0
   - time: 0
     functionName: PlaySound
-    data: ForwardDash
+    data: WarriorDash
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

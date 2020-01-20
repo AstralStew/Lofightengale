@@ -14,29 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listName: WarriorList
   commandList:
-  - commandName: Sweep
+  - commandName: Crouch Forward Heavy
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
     requireCrouching: 1
     requireAirActions: 0
     commandInputs:
-    - Forward
-    - vHeavy
+    - Forward+vHeavy
     inputAllowance: 0
-    lazyInput: 0
+    lazyInput: 1
     clearInputBuffer: 0
     animationParametres:
     - parameterType: 9
-      parameterName: Sweep
+      parameterName: WCrouchForwardHeavy
       parameterValue: 0
     debug: 0
     commandSteps:
-    - rawInputs: 000000000100000000000000000000000000000000000000
-      combinedInputs: Forward
-    - rawInputs: 000000000000000000000000000000000000000002000000
-      combinedInputs: vHeavy
-  - commandName: Low Kick
+    - rawInputs: 000000000100000000000000000000000000000002000000
+      combinedInputs: Forward+vHeavy
+  - commandName: Crouch Light
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
@@ -49,13 +46,13 @@ MonoBehaviour:
     clearInputBuffer: 0
     animationParametres:
     - parameterType: 9
-      parameterName: WLowKick
+      parameterName: WCrouchLight
       parameterValue: 0
     debug: 0
     commandSteps:
     - rawInputs: 000000000000000000000000000000000200000000000000
       combinedInputs: vLight
-  - commandName: Stab Slash Down
+  - commandName: Crouch Heavy
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
@@ -68,13 +65,13 @@ MonoBehaviour:
     clearInputBuffer: 0
     animationParametres:
     - parameterType: 9
-      parameterName: StabSlashDown
+      parameterName: WCrouchForwardHeavy
       parameterValue: 0
     debug: 0
     commandSteps:
     - rawInputs: 000000000000000000000000000000000000000002000000
       combinedInputs: vHeavy
-  - commandName: DashPunch
+  - commandName: Special
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
@@ -88,7 +85,7 @@ MonoBehaviour:
     clearInputBuffer: 0
     animationParametres:
     - parameterType: 9
-      parameterName: DashPunch
+      parameterName: WSpecial
       parameterValue: 0
     debug: 0
     commandSteps:
@@ -96,7 +93,7 @@ MonoBehaviour:
       combinedInputs: Back
     - rawInputs: 000000000100000000000000000000000200000000000000
       combinedInputs: Forward+vLight
-  - commandName: Overhead
+  - commandName: Forward Light
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
@@ -109,13 +106,13 @@ MonoBehaviour:
     clearInputBuffer: 0
     animationParametres:
     - parameterType: 9
-      parameterName: Overhead
+      parameterName: WForwardLight
       parameterValue: 0
     debug: 0
     commandSteps:
     - rawInputs: 000000000100000000000000000000000200000000000000
       combinedInputs: Forward+vLight
-  - commandName: Light Punch
+  - commandName: Light
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
@@ -128,13 +125,13 @@ MonoBehaviour:
     clearInputBuffer: 0
     animationParametres:
     - parameterType: 9
-      parameterName: WLightPunch
+      parameterName: WLight
       parameterValue: 0
     debug: 0
     commandSteps:
     - rawInputs: 000000000000000000000000000000000200000000000000
       combinedInputs: vLight
-  - commandName: Heavy Swing
+  - commandName: Heavy
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
@@ -147,7 +144,7 @@ MonoBehaviour:
     clearInputBuffer: 0
     animationParametres:
     - parameterType: 9
-      parameterName: HeavySwing
+      parameterName: WHeavy
       parameterValue: 0
     debug: 0
     commandSteps:
@@ -225,7 +222,7 @@ MonoBehaviour:
     clearInputBuffer: 1
     animationParametres:
     - parameterType: 9
-      parameterName: BackDash
+      parameterName: WBackDash
       parameterValue: 0
     debug: 1
     commandSteps:
@@ -250,7 +247,7 @@ MonoBehaviour:
     clearInputBuffer: 1
     animationParametres:
     - parameterType: 9
-      parameterName: ForwardDash
+      parameterName: WForwardDash
       parameterValue: 0
     debug: 0
     commandSteps:
@@ -260,7 +257,7 @@ MonoBehaviour:
       combinedInputs: ^Forward
     - rawInputs: 000000000100000000000000000000000000000000000000
       combinedInputs: Forward
-  - commandName: ToCrouch
+  - commandName: GotoCrouch
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
@@ -292,7 +289,7 @@ MonoBehaviour:
     commandSteps:
     - rawInputs: 000000000100000000000000000000000000000000000000
       combinedInputs: Forward
-  - commandName: WalkBack
+  - commandName: Walk Back
     commandEnabled: 1
     requireGrounded: 1
     requireAirborne: 0
