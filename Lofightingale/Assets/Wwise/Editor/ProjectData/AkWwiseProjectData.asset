@@ -12,14 +12,424 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9067b2a6bc149bab7792105e0ae98d, type: 3}
   m_Name: AkWwiseProjectData
   m_EditorClassIdentifier: 
-  AcousticTextureWwu: []
-  AuxBusWwu: []
-  BankWwu: []
-  EventWwu: []
-  RtpcWwu: []
-  StateWwu: []
-  SwitchWwu: []
-  TriggerWwu: []
-  ExpandedItems: []
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 499cb324a63a164e847912b1320037ab
+    GuidInternal: 
+    m_lastTime: -8586266674570648667
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 93689afb593eb94582493e3ef29ebb81
+    GuidInternal: 
+    m_lastTime: -8586266674570758687
+    List: []
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 5de566f4db66f24bbdfba52834885292
+    GuidInternal: 
+    m_lastTime: -8586233240740024721
+    List: []
+  EventWwu:
+  - PhysicalPath: Events\Characters.wwu
+    ParentPhysicalPath: Events\Default Work Unit.wwu
+    guid: c4ac94eeb5f9ab48aadbb5d663f87bcb
+    GuidInternal: 
+    m_lastTime: -8586221153752671892
+    List: []
+  - PhysicalPath: Events\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: b5199e304cd62b4c9e19dcb9f1231cd1
+    GuidInternal: 
+    m_lastTime: -8586221153752671892
+    List: []
+  - PhysicalPath: Events\Warrior.wwu
+    ParentPhysicalPath: Events\Characters.wwu
+    guid: 9c091f8d58b6b446ae234e9037cbe171
+    GuidInternal: 
+    m_lastTime: -8586221153752661761
+    List: []
+  - PhysicalPath: Events\Warrior_Fight.wwu
+    ParentPhysicalPath: Events\Warrior.wwu
+    guid: 1295bd2d77eb6f4a868527488f3ce2c5
+    GuidInternal: 
+    m_lastTime: -8586221133177171229
+    List:
+    - name: WarriorCrouchForwardHatk
+      guid: 009ba55d2240724290827829af539686
+      id: 550472972
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Warrior
+        ObjectType: 12
+      - ElementName: Warrior_Fight
+        ObjectType: 12
+      - ElementName: WarriorCrouchForwardHatk
+        ObjectType: 3
+      Path: Default Work Unit\Characters\Warrior\Warrior_Fight\WarriorCrouchForwardHatk
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: WarriorCrouchHAtk
+      guid: 756edd94ae72384d971292041f290cf3
+      id: 230864981
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Warrior
+        ObjectType: 12
+      - ElementName: Warrior_Fight
+        ObjectType: 12
+      - ElementName: WarriorCrouchHAtk
+        ObjectType: 3
+      Path: Default Work Unit\Characters\Warrior\Warrior_Fight\WarriorCrouchHAtk
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: WarriorCrouchLAtk
+      guid: 6161238a35f2a44c8a7bc4dce6e14745
+      id: 2954975497
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Warrior
+        ObjectType: 12
+      - ElementName: Warrior_Fight
+        ObjectType: 12
+      - ElementName: WarriorCrouchLAtk
+        ObjectType: 3
+      Path: Default Work Unit\Characters\Warrior\Warrior_Fight\WarriorCrouchLAtk
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: WarriorForwardLAtk
+      guid: 45cde0ac7bde334b938f3cbd2d926a79
+      id: 138460362
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Warrior
+        ObjectType: 12
+      - ElementName: Warrior_Fight
+        ObjectType: 12
+      - ElementName: WarriorForwardLAtk
+        ObjectType: 3
+      Path: Default Work Unit\Characters\Warrior\Warrior_Fight\WarriorForwardLAtk
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: WarriorHAtk
+      guid: ad8c88b1fa44544fae9de0c2407e229f
+      id: 2956642975
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Warrior
+        ObjectType: 12
+      - ElementName: Warrior_Fight
+        ObjectType: 12
+      - ElementName: WarriorHAtk
+        ObjectType: 3
+      Path: Default Work Unit\Characters\Warrior\Warrior_Fight\WarriorHAtk
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: WarriorLAtk
+      guid: 7c9a9a2b9a06c643bbc19915b20615c7
+      id: 1685359331
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Warrior
+        ObjectType: 12
+      - ElementName: Warrior_Fight
+        ObjectType: 12
+      - ElementName: WarriorLAtk
+        ObjectType: 3
+      Path: Default Work Unit\Characters\Warrior\Warrior_Fight\WarriorLAtk
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: WarriorSpecialAtk
+      guid: 8cbff1ef50e80f4ca4525796b62f188d
+      id: 1083176844
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Warrior
+        ObjectType: 12
+      - ElementName: Warrior_Fight
+        ObjectType: 12
+      - ElementName: WarriorSpecialAtk
+        ObjectType: 3
+      Path: Default Work Unit\Characters\Warrior\Warrior_Fight\WarriorSpecialAtk
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+  - PhysicalPath: Events\Warrior_Movements.wwu
+    ParentPhysicalPath: Events\Warrior.wwu
+    guid: a9d036ba65b93743b36e8f861e3b22d4
+    GuidInternal: 
+    m_lastTime: -8586221153752661761
+    List:
+    - name: WarriorDash
+      guid: 30731b63b18ea4488bbf70e6e280e470
+      id: 3265868909
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Warrior
+        ObjectType: 12
+      - ElementName: Warrior_Movements
+        ObjectType: 12
+      - ElementName: WarriorDash
+        ObjectType: 3
+      Path: Default Work Unit\Characters\Warrior\Warrior_Movements\WarriorDash
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: WarriorFalling
+      guid: 173a1bf82eb34b4298cfa817fdc4379b
+      id: 785699386
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Warrior
+        ObjectType: 12
+      - ElementName: Warrior_Movements
+        ObjectType: 12
+      - ElementName: WarriorFalling
+        ObjectType: 3
+      Path: Default Work Unit\Characters\Warrior\Warrior_Movements\WarriorFalling
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: WarriorGotoCrouch
+      guid: 245218c956607340b5ee3e03eb4b562a
+      id: 414466818
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Warrior
+        ObjectType: 12
+      - ElementName: Warrior_Movements
+        ObjectType: 12
+      - ElementName: WarriorGotoCrouch
+        ObjectType: 3
+      Path: Default Work Unit\Characters\Warrior\Warrior_Movements\WarriorGotoCrouch
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: WarriorJump
+      guid: e57d1135165d7242b18b94f21e5b4c3f
+      id: 3824039645
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Warrior
+        ObjectType: 12
+      - ElementName: Warrior_Movements
+        ObjectType: 12
+      - ElementName: WarriorJump
+        ObjectType: 3
+      Path: Default Work Unit\Characters\Warrior\Warrior_Movements\WarriorJump
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: WarriorLand
+      guid: 29b528d4d051ca47a45ef1747b1554d6
+      id: 1316251522
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Warrior
+        ObjectType: 12
+      - ElementName: Warrior_Movements
+        ObjectType: 12
+      - ElementName: WarriorLand
+        ObjectType: 3
+      Path: Default Work Unit\Characters\Warrior\Warrior_Movements\WarriorLand
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: WarriorWalk
+      guid: ffc7da49a23e244ba2fae7a2af43a962
+      id: 1097155922
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Warrior
+        ObjectType: 12
+      - ElementName: Warrior_Movements
+        ObjectType: 12
+      - ElementName: WarriorWalk
+        ObjectType: 3
+      Path: Default Work Unit\Characters\Warrior\Warrior_Movements\WarriorWalk
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+  - PhysicalPath: Events\Warrior_Other.wwu
+    ParentPhysicalPath: Events\Warrior.wwu
+    guid: 2d0e9fc416f2e44eaa236d17ad27b0b4
+    GuidInternal: 
+    m_lastTime: -8586221153752661761
+    List:
+    - name: WarriorBlock
+      guid: dd83aafd6907074595adf080e3c677af
+      id: 721073004
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Warrior
+        ObjectType: 12
+      - ElementName: Warrior_Other
+        ObjectType: 12
+      - ElementName: WarriorBlock
+        ObjectType: 3
+      Path: Default Work Unit\Characters\Warrior\Warrior_Other\WarriorBlock
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: WarriorGotoBlock
+      guid: 63b347bc9395884ab974b86b3ca36bb7
+      id: 1669670939
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Warrior
+        ObjectType: 12
+      - ElementName: Warrior_Other
+        ObjectType: 12
+      - ElementName: WarriorGotoBlock
+        ObjectType: 3
+      Path: Default Work Unit\Characters\Warrior\Warrior_Other\WarriorGotoBlock
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: WarriorHurt
+      guid: 1c0f0cb471219b4784595653c44ba0b9
+      id: 2786895446
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Warrior
+        ObjectType: 12
+      - ElementName: Warrior_Other
+        ObjectType: 12
+      - ElementName: WarriorHurt
+        ObjectType: 3
+      Path: Default Work Unit\Characters\Warrior\Warrior_Other\WarriorHurt
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: WarriorLandProne
+      guid: d2fc3098b5fa104f804b4b4303eb9b11
+      id: 1342786492
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Warrior
+        ObjectType: 12
+      - ElementName: Warrior_Other
+        ObjectType: 12
+      - ElementName: WarriorLandProne
+        ObjectType: 3
+      Path: Default Work Unit\Characters\Warrior\Warrior_Other\WarriorLandProne
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: WarriorWakeUp
+      guid: d06290ecc7091d4c845a2728853ca08a
+      id: 2508798506
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Warrior
+        ObjectType: 12
+      - ElementName: Warrior_Other
+        ObjectType: 12
+      - ElementName: WarriorWakeUp
+        ObjectType: 3
+      Path: Default Work Unit\Characters\Warrior\Warrior_Other\WarriorWakeUp
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+  RtpcWwu:
+  - PhysicalPath: Game Parameters\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: c4774a95d7bbcf42b97785f33925a38f
+    GuidInternal: 
+    m_lastTime: -8586266674570898724
+    List: []
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 39b7f44e54194a4d8bba55a3b4305f8e
+    GuidInternal: 
+    m_lastTime: -8586266674570678673
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 4640a533a3efcf4ebd2aa31c36a9e5e3
+    GuidInternal: 
+    m_lastTime: -8586266674570678673
+    List: []
+  TriggerWwu:
+  - PhysicalPath: Triggers\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 9fef1f6fc8a1de47a371f2812c08a1e9
+    GuidInternal: 
+    m_lastTime: -8586266674570678673
+    List: []
+  ExpandedItems:
+  - /Lofightingale_WwiseProject
+  - /Lofightingale_WwiseProject/Events
+  - /Lofightingale_WwiseProject/Events/Default Work Unit
+  - /Lofightingale_WwiseProject/Events/Default Work Unit/Characters
+  - /Lofightingale_WwiseProject/Events/Default Work Unit/Characters/Warrior
+  - /Lofightingale_WwiseProject/Events/Default Work Unit/Characters/Warrior/Warrior_Fight
+  - /Lofightingale_WwiseProject/Events/Default Work Unit/Characters/Warrior/Warrior_Movements
+  - /Lofightingale_WwiseProject/Events/Default Work Unit/Characters/Warrior/Warrior_Other
   autoPopulateEnabled: 1
   CurrentPluginConfig: 
