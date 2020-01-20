@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{2DBD9512-EB77-4A6F-8685-27488F3CE2C5}" SchemaVersion="94" RootDocumentID="{309E19B5-D64C-4C2B-9E19-DCB9F1231CD1}">
+	<Events>
+		<WorkUnit Name="Warrior_Fight" ID="{2DBD9512-EB77-4A6F-8685-27488F3CE2C5}" OwnerID="{8D1F099C-B658-46B4-AE23-4E9037CBE171}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="WarriorLAtk" ID="{2B9A9A7C-069A-43C6-BBC1-9915B20615C7}">
+					<ChildrenList>
+						<Action Name="" ID="{DE1AA19D-4498-41E2-8FBA-6C5622FA65F7}" ShortID="281914550">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="WarriorLAtk" ID="{67437585-0685-4182-8B20-F6781EAA288E}" WorkUnitID="{FF112238-1840-4360-BA1D-E2D1F4C3D590}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WarriorForwardLAtk" ID="{ACE0CD45-DE7B-4B33-938F-3CBD2D926A79}">
+					<ChildrenList>
+						<Action Name="" ID="{22C90818-69BE-40ED-BD29-69CF9C825978}" ShortID="837349878">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="WarriorForwardLAtk" ID="{49E4622D-8083-4327-973A-B0DB17879549}" WorkUnitID="{FF112238-1840-4360-BA1D-E2D1F4C3D590}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WarriorCrouchLAtk" ID="{8A236161-F235-4CA4-8A7B-C4DCE6E14745}">
+					<ChildrenList>
+						<Action Name="" ID="{030A7BB4-47F9-4458-B1FD-F6ABC26679BD}" ShortID="655732290">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="WarriorCrouchLAtk" ID="{E2749DD4-82E1-4BD6-9B33-ED3721C9F146}" WorkUnitID="{FF112238-1840-4360-BA1D-E2D1F4C3D590}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WarriorHAtk" ID="{B1888CAD-44FA-4F54-AE9D-E0C2407E229F}">
+					<ChildrenList>
+						<Action Name="" ID="{08F9B858-0F90-4F07-B85A-EEA0F97FDE29}" ShortID="182516610">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="WarriorHAtk" ID="{B5A9CF16-AEB7-46E8-8457-4E3229E90931}" WorkUnitID="{FF112238-1840-4360-BA1D-E2D1F4C3D590}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WarriorCrouchHAtk" ID="{94DD6E75-72AE-4D38-9712-92041F290CF3}">
+					<ChildrenList>
+						<Action Name="" ID="{F2D4B283-FB52-483F-8CCA-6522BB8DD288}" ShortID="628050599">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="WarriorCrouchHAtk" ID="{4EEEB61C-3FCE-4455-AF17-024A0625C020}" WorkUnitID="{FF112238-1840-4360-BA1D-E2D1F4C3D590}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WarriorCrouchForwardHatk" ID="{5DA59B00-4022-4272-9082-7829AF539686}">
+					<ChildrenList>
+						<Action Name="" ID="{828CBB48-0926-423B-8220-7A02AA90EAEE}" ShortID="745806298">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="WarriorCrouchForwardHAtk" ID="{49757D8E-23EA-44AB-B1A4-F6C0A5D2600E}" WorkUnitID="{FF112238-1840-4360-BA1D-E2D1F4C3D590}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WarriorSpecialAtk" ID="{EFF1BF8C-E850-4C0F-A452-5796B62F188D}">
+					<ChildrenList>
+						<Action Name="" ID="{6C04904D-2021-4564-B477-758FF648511F}" ShortID="1035687270">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="WarriorSpecialAtk" ID="{1A579C0D-AB43-4460-8DF4-EA550684B3F8}" WorkUnitID="{FF112238-1840-4360-BA1D-E2D1F4C3D590}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

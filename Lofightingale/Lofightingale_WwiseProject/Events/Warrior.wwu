@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{8D1F099C-B658-46B4-AE23-4E9037CBE171}" SchemaVersion="94" RootDocumentID="{309E19B5-D64C-4C2B-9E19-DCB9F1231CD1}">
+	<Events>
+		<WorkUnit Name="Warrior" ID="{8D1F099C-B658-46B4-AE23-4E9037CBE171}" OwnerID="{EE94ACC4-F9B5-48AB-AADB-B5D663F87BCB}" PersistMode="Nested">
+			<ChildrenList>
+				<WorkUnit Name="Warrior_Fight" ID="{2DBD9512-EB77-4A6F-8685-27488F3CE2C5}" PersistMode="Reference"/>
+				<WorkUnit Name="Warrior_Movements" ID="{BA36D0A9-B965-4337-B36E-8F861E3B22D4}" PersistMode="Reference"/>
+				<WorkUnit Name="Warrior_Other" ID="{C49F0E2D-F216-4EE4-AA23-6D17AD27B0B4}" PersistMode="Reference"/>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

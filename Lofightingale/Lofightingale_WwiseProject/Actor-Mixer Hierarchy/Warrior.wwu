@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{EB888CB6-B8FA-4D6C-AF3B-350764132D03}" SchemaVersion="94" RootDocumentID="{DF3F4474-9CE2-45D3-B82E-F4ECF6DC175B}">
+	<AudioObjects>
+		<WorkUnit Name="Warrior" ID="{EB888CB6-B8FA-4D6C-AF3B-350764132D03}" OwnerID="{DF3F4474-9CE2-45D3-B82E-F4ECF6DC175B}" PersistMode="Nested">
+			<ChildrenList>
+				<WorkUnit Name="Warrior_Movements" ID="{1E236316-A7DB-4F5D-9EA9-7425177CBC74}" PersistMode="Reference"/>
+				<WorkUnit Name="Warrior_Fight" ID="{FF112238-1840-4360-BA1D-E2D1F4C3D590}" PersistMode="Reference"/>
+				<WorkUnit Name="Warrior_Other" ID="{249F5520-CA36-4D98-B650-596A339CCF3A}" PersistMode="Reference"/>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

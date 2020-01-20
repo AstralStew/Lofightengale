@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{249F5520-CA36-4D98-B650-596A339CCF3A}" SchemaVersion="94" RootDocumentID="{DF3F4474-9CE2-45D3-B82E-F4ECF6DC175B}">
+	<AudioObjects>
+		<WorkUnit Name="Warrior_Other" ID="{249F5520-CA36-4D98-B650-596A339CCF3A}" OwnerID="{EB888CB6-B8FA-4D6C-AF3B-350764132D03}" PersistMode="Nested">
+			<ChildrenList>
+				<Sound Name="WarriorGotoBlock" ID="{4144E87B-7ABD-41B3-90C0-F641FC09CB3F}" ShortID="341015318">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
+				<Sound Name="WarriorBlock" ID="{8EF0A11B-AA89-4F7C-97DF-917F0F47ADB6}" ShortID="452886630">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
+				<Sound Name="WarriorHurt" ID="{3EDAC216-92EF-4871-BA81-893FFE4CC60C}" ShortID="333203029">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
+				<Sound Name="WarriorLandProne" ID="{4FDF1D3A-EBE5-4FFB-BF1D-BFBC18961E0D}" ShortID="897368650">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
+				<Sound Name="WarriorWakeUp" ID="{C23083D5-F834-47A9-8E32-8BEA05EC861A}" ShortID="232942608">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

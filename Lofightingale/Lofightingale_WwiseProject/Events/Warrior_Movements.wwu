@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{BA36D0A9-B965-4337-B36E-8F861E3B22D4}" SchemaVersion="94" RootDocumentID="{309E19B5-D64C-4C2B-9E19-DCB9F1231CD1}">
+	<Events>
+		<WorkUnit Name="Warrior_Movements" ID="{BA36D0A9-B965-4337-B36E-8F861E3B22D4}" OwnerID="{8D1F099C-B658-46B4-AE23-4E9037CBE171}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="WarriorWalk" ID="{49DAC7FF-3EA2-4B24-A2FA-E7A2AF43A962}">
+					<ChildrenList>
+						<Action Name="" ID="{684BBBD3-1627-4D22-84A4-A8E9CF35A13B}" ShortID="195065300">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="WarriorWalk" ID="{A652A59B-2514-4736-9CCB-30F68AF1C844}" WorkUnitID="{1E236316-A7DB-4F5D-9EA9-7425177CBC74}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WarriorGotoCrouch" ID="{C9185224-6056-4073-B5EE-3E03EB4B562A}">
+					<ChildrenList>
+						<Action Name="" ID="{99ADA5C3-61A0-4343-818C-69DC77342191}" ShortID="941134649">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="WarriorGotoCrouch" ID="{395C3EEB-E846-46DF-82AD-93CB6C96375F}" WorkUnitID="{1E236316-A7DB-4F5D-9EA9-7425177CBC74}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WarriorJump" ID="{35117DE5-5D16-4272-B18B-94F21E5B4C3F}">
+					<ChildrenList>
+						<Action Name="" ID="{AD9AB8BA-AB46-4A16-BA35-0478A9C11547}" ShortID="329187971">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="WarriorJump" ID="{694E49EE-06CC-458F-A43C-BEC83764C32B}" WorkUnitID="{1E236316-A7DB-4F5D-9EA9-7425177CBC74}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WarriorFalling" ID="{F81B3A17-B32E-424B-98CF-A817FDC4379B}">
+					<ChildrenList>
+						<Action Name="" ID="{BA341969-E745-406C-B1E7-D263D069E254}" ShortID="753413699">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="WarriorFalling" ID="{8F712C91-0F62-438B-8DB6-4383E0CF5CF4}" WorkUnitID="{1E236316-A7DB-4F5D-9EA9-7425177CBC74}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WarriorLand" ID="{D428B529-51D0-47CA-A45E-F1747B1554D6}">
+					<ChildrenList>
+						<Action Name="" ID="{AACC4923-436D-4F92-80FB-3897CE819FCD}" ShortID="504335212">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="WarriorLand" ID="{DF3B06FA-9B4C-44AE-9D24-2CDDD9CD14C6}" WorkUnitID="{1E236316-A7DB-4F5D-9EA9-7425177CBC74}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WarriorDash" ID="{631B7330-8EB1-48A4-8BBF-70E6E280E470}">
+					<ChildrenList>
+						<Action Name="" ID="{1F881C19-BAAF-425F-B048-E6F6CF3D7F61}" ShortID="61893169">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="WarriorDash" ID="{49597E4F-EBC7-4390-91EC-521BE591B3CF}" WorkUnitID="{1E236316-A7DB-4F5D-9EA9-7425177CBC74}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

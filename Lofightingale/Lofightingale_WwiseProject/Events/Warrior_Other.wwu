@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{C49F0E2D-F216-4EE4-AA23-6D17AD27B0B4}" SchemaVersion="94" RootDocumentID="{309E19B5-D64C-4C2B-9E19-DCB9F1231CD1}">
+	<Events>
+		<WorkUnit Name="Warrior_Other" ID="{C49F0E2D-F216-4EE4-AA23-6D17AD27B0B4}" OwnerID="{8D1F099C-B658-46B4-AE23-4E9037CBE171}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="WarriorGotoBlock" ID="{BC47B363-9593-4A88-B974-B86B3CA36BB7}">
+					<ChildrenList>
+						<Action Name="" ID="{52AB0979-EDF6-4356-ADA7-61D246B2A6AD}" ShortID="283793459">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="WarriorGotoBlock" ID="{4144E87B-7ABD-41B3-90C0-F641FC09CB3F}" WorkUnitID="{249F5520-CA36-4D98-B650-596A339CCF3A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WarriorBlock" ID="{FDAA83DD-0769-4507-95AD-F080E3C677AF}">
+					<ChildrenList>
+						<Action Name="" ID="{C750CCEF-318F-45E7-AD3C-767C271C94BB}" ShortID="871970275">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="WarriorBlock" ID="{8EF0A11B-AA89-4F7C-97DF-917F0F47ADB6}" WorkUnitID="{249F5520-CA36-4D98-B650-596A339CCF3A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WarriorHurt" ID="{B40C0F1C-2171-479B-8459-5653C44BA0B9}">
+					<ChildrenList>
+						<Action Name="" ID="{EDFD3773-EC22-4A64-992A-AB9DF1243320}" ShortID="504726504">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="WarriorHurt" ID="{3EDAC216-92EF-4871-BA81-893FFE4CC60C}" WorkUnitID="{249F5520-CA36-4D98-B650-596A339CCF3A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WarriorLandProne" ID="{9830FCD2-FAB5-4F10-804B-4B4303EB9B11}">
+					<ChildrenList>
+						<Action Name="" ID="{D8CAE056-15A6-4F11-B82E-2FDAD1F69377}" ShortID="336687013">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="WarriorLandProne" ID="{4FDF1D3A-EBE5-4FFB-BF1D-BFBC18961E0D}" WorkUnitID="{249F5520-CA36-4D98-B650-596A339CCF3A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WarriorWakeUp" ID="{EC9062D0-09C7-4C1D-845A-2728853CA08A}">
+					<ChildrenList>
+						<Action Name="" ID="{9395548A-CE32-4D1F-8BF5-E43464C8786C}" ShortID="359676359">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="WarriorWakeUp" ID="{C23083D5-F834-47A9-8E32-8BEA05EC861A}" WorkUnitID="{249F5520-CA36-4D98-B650-596A339CCF3A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

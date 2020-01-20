@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{1E236316-A7DB-4F5D-9EA9-7425177CBC74}" SchemaVersion="94" RootDocumentID="{DF3F4474-9CE2-45D3-B82E-F4ECF6DC175B}">
+	<AudioObjects>
+		<WorkUnit Name="Warrior_Movements" ID="{1E236316-A7DB-4F5D-9EA9-7425177CBC74}" OwnerID="{EB888CB6-B8FA-4D6C-AF3B-350764132D03}" PersistMode="Nested">
+			<ChildrenList>
+				<Sound Name="WarriorWalk" ID="{A652A59B-2514-4736-9CCB-30F68AF1C844}" ShortID="1029008440">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
+				<Sound Name="WarriorGotoCrouch" ID="{395C3EEB-E846-46DF-82AD-93CB6C96375F}" ShortID="589845824">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
+				<Sound Name="WarriorJump" ID="{694E49EE-06CC-458F-A43C-BEC83764C32B}" ShortID="553004840">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
+				<Sound Name="WarriorFalling" ID="{8F712C91-0F62-438B-8DB6-4383E0CF5CF4}" ShortID="872686003">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
+				<Sound Name="WarriorLand" ID="{DF3B06FA-9B4C-44AE-9D24-2CDDD9CD14C6}" ShortID="815995758">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
+				<Sound Name="WarriorDash" ID="{49597E4F-EBC7-4390-91EC-521BE591B3CF}" ShortID="1042269995">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

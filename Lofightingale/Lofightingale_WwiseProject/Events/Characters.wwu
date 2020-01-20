@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{EE94ACC4-F9B5-48AB-AADB-B5D663F87BCB}" SchemaVersion="94" RootDocumentID="{309E19B5-D64C-4C2B-9E19-DCB9F1231CD1}">
+	<Events>
+		<WorkUnit Name="Characters" ID="{EE94ACC4-F9B5-48AB-AADB-B5D663F87BCB}" OwnerID="{309E19B5-D64C-4C2B-9E19-DCB9F1231CD1}" PersistMode="Nested">
+			<ChildrenList>
+				<WorkUnit Name="Warrior" ID="{8D1F099C-B658-46B4-AE23-4E9037CBE171}" PersistMode="Reference"/>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

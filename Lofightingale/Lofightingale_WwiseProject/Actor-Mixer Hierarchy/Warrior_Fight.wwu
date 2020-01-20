@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{FF112238-1840-4360-BA1D-E2D1F4C3D590}" SchemaVersion="94" RootDocumentID="{DF3F4474-9CE2-45D3-B82E-F4ECF6DC175B}">
+	<AudioObjects>
+		<WorkUnit Name="Warrior_Fight" ID="{FF112238-1840-4360-BA1D-E2D1F4C3D590}" OwnerID="{EB888CB6-B8FA-4D6C-AF3B-350764132D03}" PersistMode="Nested">
+			<ChildrenList>
+				<Sound Name="WarriorLAtk" ID="{67437585-0685-4182-8B20-F6781EAA288E}" ShortID="456000864">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
+				<Sound Name="WarriorForwardLAtk" ID="{49E4622D-8083-4327-973A-B0DB17879549}" ShortID="466868669">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
+				<Sound Name="WarriorCrouchLAtk" ID="{E2749DD4-82E1-4BD6-9B33-ED3721C9F146}" ShortID="57340822">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
+				<Sound Name="WarriorHAtk" ID="{B5A9CF16-AEB7-46E8-8457-4E3229E90931}" ShortID="237292886">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
+				<Sound Name="WarriorCrouchHAtk" ID="{4EEEB61C-3FCE-4455-AF17-024A0625C020}" ShortID="1017701563">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
+				<Sound Name="WarriorCrouchForwardHAtk" ID="{49757D8E-23EA-44AB-B1A4-F6C0A5D2600E}" ShortID="352135952">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
+				<Sound Name="WarriorSpecialAtk" ID="{1A579C0D-AB43-4460-8DF4-EA550684B3F8}" ShortID="466594989">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>
