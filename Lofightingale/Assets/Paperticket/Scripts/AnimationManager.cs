@@ -265,7 +265,7 @@ namespace Paperticket
 
 
         public void PlaySound (string eventName) {
-
+            
             AkSoundEngine.PostEvent(eventName, wwiseEmitter.gameObject);
 
         }

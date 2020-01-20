@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e43e335221dc42cd9223034fbda37f4, type: 3}
+  m_Name: 631B7330-8EB1-48A4-8BBF-70E6E280E470
+  m_EditorClassIdentifier: 
+  objectName: WarriorDash
+  id: 3265868909
+  guid: 631B7330-8EB1-48A4-8BBF-70E6E280E470
