@@ -63,6 +63,16 @@
 						</Reference>
 					</ReferenceList>
 				</Sound>
+				<Sound Name="WarriorLAtk" ID="{17055037-8763-4227-B25F-41B5A67FE0C0}" ShortID="950408993">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{44266EE1-D349-4219-92B5-33739D011BC8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FB9A6893-3E59-45B9-8249-3E3EF29EBB81}"/>
+						</Reference>
+					</ReferenceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

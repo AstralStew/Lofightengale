@@ -8,7 +8,7 @@
 						<Action Name="" ID="{DE1AA19D-4498-41E2-8FBA-6C5622FA65F7}" ShortID="281914550">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="WarriorLAtk" ID="{67437585-0685-4182-8B20-F6781EAA288E}" WorkUnitID="{FF112238-1840-4360-BA1D-E2D1F4C3D590}"/>
+									<ObjectRef Name="WarriorLAtk" ID="{17055037-8763-4227-B25F-41B5A67FE0C0}" WorkUnitID="{FF112238-1840-4360-BA1D-E2D1F4C3D590}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
