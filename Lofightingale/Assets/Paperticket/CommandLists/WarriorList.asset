@@ -224,7 +224,7 @@ MonoBehaviour:
     - parameterType: 9
       parameterName: WBackDash
       parameterValue: 0
-    debug: 1
+    debug: 0
     commandSteps:
     - rawInputs: 010000000000000000000000000000000000000000000000
       combinedInputs: Back
@@ -249,7 +249,7 @@ MonoBehaviour:
     - parameterType: 9
       parameterName: WForwardDash
       parameterValue: 0
-    debug: 0
+    debug: 1
     commandSteps:
     - rawInputs: 000000000100000000000000000000000000000000000000
       combinedInputs: Forward
