@@ -108,11 +108,15 @@ namespace Paperticket
                 for (int i = 0; i < overlapContacts.Length; i++) {
                     // Check against each hit tag
                     for (int j = 0; j < hitTags.Length; j++) {
-                        // Return the target if it matches one of the hit tags
-                        if (_DebugEvents) Debug.Log("myname = "+gameObject.name+", overlapped name = "+overlapContacts[i].gameObject.name+", overlapped contact's tag ="+overlapContacts[i].tag+", hit tag = " + hitTags[j]);
-                        if (overlapContacts[i].tag == hitTags[j]) {
-                            targetHitbox = overlapContacts[i].GetComponentInParent<Hitbox>();
-                            return true;
+                        // Make sure the target is not null
+                        if (overlapContacts[i]) { 
+                            if (_DebugEvents) Debug.Log("myname = " + gameObject.name + ", overlapped name = " + overlapContacts[i].gameObject.name + System.Environment.NewLine +
+                                                        "overlap no = " + i + ", overlapped contact's tag =" + overlapContacts[i].tag + ", target tag = " + hitTags[j]);
+                            // Return the target if it matches one of the hit tags
+                            if (overlapContacts[i].tag == hitTags[j]) {
+                                targetHitbox = overlapContacts[i].GetComponentInParent<Hitbox>();
+                                return true;
+                            }
                         }
                     }
                 }

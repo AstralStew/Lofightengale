@@ -1979,7 +1979,7 @@ PrefabInstance:
     - target: {fileID: 4716216931726345236, guid: f8500db78fe5f13439456ccb816cff16,
         type: 3}
       propertyPath: _DebugEvents
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4716216931726345236, guid: f8500db78fe5f13439456ccb816cff16,
         type: 3}
@@ -2014,7 +2014,7 @@ PrefabInstance:
     - target: {fileID: 4870888517200566137, guid: f8500db78fe5f13439456ccb816cff16,
         type: 3}
       propertyPath: _DebugEvents
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4870888517200566137, guid: f8500db78fe5f13439456ccb816cff16,
         type: 3}
