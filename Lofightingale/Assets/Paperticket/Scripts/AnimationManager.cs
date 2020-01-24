@@ -23,8 +23,8 @@ namespace Paperticket
 
         [Header("Read Only")]
 
-        [SerializeField] List<Hitbox> activeboxes;
-        [SerializeField] List<Hitbox> hurtboxes;
+        [SerializeField] Hitbox activeboxes;
+        [SerializeField] Hitbox hurtboxes;
 
 
         AnimationPackage animPackage;
@@ -59,13 +59,28 @@ namespace Paperticket
 
             // Save reference to and disable the script if cannot find hitboxes and hurtboxes 
             foreach (Hitbox hitbox in GetComponentsInChildren<Hitbox>()) {
-                if (hitbox.hitboxState == HitboxStates.Active) {
-                    activeboxes.Add(hitbox);
-                } else {
-                    hurtboxes.Add(hitbox);
+                switch (hitbox.hitboxState) {
+                    case HitboxStates.Active:
+                        //activeboxes.Add(hitbox);
+                        activeboxes = hitbox;
+                        break;
+                    case HitboxStates.Hurtbox:
+                        //hurtboxes.Add(hitbox);
+                        hurtboxes = hitbox;
+                        break;
+                    case HitboxStates.Proximity:
+                        // Ignore detectbox, as it is handled by CharacterManager
+                        // Actually we'll probs do it here but later
+                        break;
+                    default:
+                        Debug.LogError("[AnimationManager] ERROR -> Bad HitboxState when saving references!");
+                        break;
                 }
             }
-            if (activeboxes.Count == 0 || hurtboxes.Count == 0) {
+            //if (activeboxes.Count == 0 || hurtboxes.Count == 0) {
+            //    Debug.LogError("[AnimationManager] ERROR -> Active/hurtboxes seem to be missing! Please add at least one of each as children to this object.");
+            //}
+            if (activeboxes == null | hurtboxes == null) {
                 Debug.LogError("[AnimationManager] ERROR -> Active/hurtboxes seem to be missing! Please add at least one of each as children to this object.");
             }
 
@@ -79,8 +94,11 @@ namespace Paperticket
             CommandManager.onCommandRegistered += PlayCommandAnimation;
 
             // Subscribe to hitboxes registering a hit
-            foreach (Hitbox hitbox in activeboxes) hitbox.onSuccessfulCheck += TakeHitProperties;
-            foreach (Hitbox hitbox in hurtboxes) hitbox.onSuccessfulCheck += TakeHitProperties;
+            //foreach (Hitbox hitbox in activeboxes) hitbox.onSuccessfulCheck += TakeHitProperties;
+            activeboxes.onSuccessfulCheck += TakeHitProperties;
+            //foreach (Hitbox hitbox in hurtboxes) hitbox.onSuccessfulCheck += TakeHitProperties;
+            hurtboxes.onSuccessfulCheck += TakeHitProperties;
+
         }
         void OnDisable() {
 
@@ -88,8 +106,10 @@ namespace Paperticket
             CommandManager.onCommandRegistered -= PlayCommandAnimation;
 
             // Unsubscribe to hitboxes registering a hit
-            foreach (Hitbox hitbox in activeboxes) hitbox.onSuccessfulCheck -= TakeHitProperties;
-            foreach (Hitbox hitbox in hurtboxes) hitbox.onSuccessfulCheck -= TakeHitProperties;
+            //foreach (Hitbox hitbox in activeboxes) hitbox.onSuccessfulCheck -= TakeHitProperties;
+            activeboxes.onSuccessfulCheck -= TakeHitProperties;
+            //foreach (Hitbox hitbox in hurtboxes) hitbox.onSuccessfulCheck -= TakeHitProperties;
+            hurtboxes.onSuccessfulCheck -= TakeHitProperties;
         }
 
 
@@ -102,9 +122,15 @@ namespace Paperticket
 
             SetAnimationInt("isWalking", characterManager.isWalking);
 
+            SetAnimationBool("isNearEnemy", characterManager.isInEnemyProximity);
+            
         }
 
+        void FixedUpdate() {
 
+            characterManager.isInEnemyProximity = false;
+
+        }
 
 
 
@@ -170,7 +196,7 @@ namespace Paperticket
             // Reset all trigger parametres
             for (int i = 0; i < animator.parameterCount; i++) {
                 if (animator.parameters[i].type == AnimatorControllerParameterType.Trigger) {
-                    if (_Debug) Debug.Log("[AnimationManager] Resetting parameter = " + animator.parameters[i].name);
+                    //if (_Debug) Debug.Log("[AnimationManager] Resetting parameter = " + animator.parameters[i].name);
                     animator.ResetTrigger(animator.parameters[i].name);
                 }
             }
@@ -218,9 +244,9 @@ namespace Paperticket
             }
 
             // Set the active properties of all the active hitboxes 
-            foreach (Hitbox hitbox in activeboxes) hitbox.activeProperties = hitProperties;
-            foreach (Hitbox hitbox in hurtboxes) hitbox.activeProperties = null;
-            
+            //foreach (Hitbox hitbox in activeboxes) hitbox.activeProperties = hitProperties;
+            activeboxes.activeProperties = hitProperties;
+
         }
 
         /// <summary>
@@ -229,38 +255,55 @@ namespace Paperticket
         /// <param name="hitProperties"> The hit properties provided by the external hitbox</param>
         public void TakeHitProperties( HitProperties hitProperties ) {
 
-            if (!hitProperties) {
-                if (_Debug) Debug.Log("[AnimationManager] No HitProperties received = We hit something else");
 
-                // Turn off hitboxes (they will reenable as part of the animation track)
-                foreach (Hitbox hitbox in activeboxes) {
-                    hitbox.SetHitboxActive(false);
-                }
+            switch (hitProperties.HitboxState) {
+                case HitboxStates.Active:
+                    if (_Debug) Debug.Log("[AnimationManager] HitProperties received from an activebox. We were hit by something!");
 
-                // Set isRecovering off
-                characterManager.SetRecovering(false);
+                    SetAnimationTrigger("WHurt");
 
-                return;
+                    // Apply the damage of the hit properties
+                    if (hitProperties.HitDamage != 0) characterManager.ChangeHealth(-hitProperties.HitDamage);
+
+                    // Apply the hit stun of the hit properties
+                    // This will apply to this script, and change the length of the WarriorHurt 
+
+                    // Apply the proration of the hit properties
+                    // The damage multiplier, this may not be a thing yet
+
+                    // Apply the velocity of the hit properties
+                    if (hitProperties.HitVelocity != Vector2.zero) characterManager.SetVelocity(hitProperties.HitVelocity, false);
+                    
+
+                    break;
+                case HitboxStates.Hurtbox:
+                    if (_Debug) Debug.Log("[AnimationManager] HitProperties received from a hurtbox. We hit something else!");
+
+                    // Turn off hitboxes (they will reenable as part of the animation track)
+                    activeboxes.SetHitboxActive(false);
+                    //foreach (Hitbox hitbox in activeboxes) {
+                    //    hitbox.SetHitboxActive(false);
+                    //}
+
+
+                    // Set isRecovering off
+                    characterManager.SetRecovering(false);
+                    
+
+                    break;
+                case HitboxStates.Proximity:
+                    if (_Debug) Debug.Log("[AnimationManager] HitProperties received from a proximity. An attack is probably imminent! Ignoring tho...");
+
+                    characterManager.isInEnemyProximity = true;
+
+                    //characterManager.facingEnemy = true;
+
+                    break;
+                default:
+                    Debug.LogError("[AnimationManager] HitProperties received from unknown state!");
+                    break;
             }
-
-
-            if (_Debug) Debug.Log("[AnimationManager] HitProperties received = We were hit by something");
-
-            SetAnimationTrigger("WHurt");
-
-            // Apply the damage of the hit properties
-            if (hitProperties.hitDamage != 0) characterManager.ChangeHealth(-hitProperties.hitDamage);
-
-            // Apply the hit stun of the hit properties
-            // This will apply to this script, and change the length of the WarriorHurt 
-
-            // Apply the proration of the hit properties
-            // The damage multiplier, this may not be a thing yet
-
-            // Apply the velocity of the hit properties
-            if (hitProperties.hitVelocity != Vector2.zero) characterManager.SetVelocity(hitProperties.hitVelocity, false);
-
-
+                                 
         }
 
 

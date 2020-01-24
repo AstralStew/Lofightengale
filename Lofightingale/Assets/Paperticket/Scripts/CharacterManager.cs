@@ -23,6 +23,8 @@ namespace Paperticket
         [SerializeField] BoxCollider2D physicsCollider;
         [SerializeField] TriggerBoxChecker groundChecker;
 
+        //[SerializeField] Hitbox detectbox;
+
 
         [Header("Move Settings")]
 
@@ -31,7 +33,7 @@ namespace Paperticket
         [SerializeField] [Min(0.1f)] float minSpeed;
         public float gravityScale;
         public int maxAirActions;
-
+        private Vector2 adjustedVelocity;
 
 
         [Header("Debugging Options")]
@@ -64,14 +66,20 @@ namespace Paperticket
         [Tooltip("Whether the character is idle (0) or walking left (-1) or right (1)")]
         public int isWalking;
 
+        [Tooltip("Whether the character is currently able to be damaged")]
+        public int isInvulnerable;
+
+        [Tooltip("Whether the character is in proximity of an enemy activebox")]
+        public bool isInEnemyProximity;
+
         [Tooltip("Whether the character has flipped and is currently facing left")]
         public bool facingLeft;
 
         [Tooltip("The number of commands marked as Air Actions that the character can perform before having to return to the ground")]
         public int airActions;
 
-        [Tooltip("The number of consecutive moves that have been performed withj")]
-        public int comboCounter;
+        //[Tooltip("The number of consecutive moves that have been performed withj")]
+        //public int comboCounter;
 
         [SerializeField] Vector2 currentVelocity;
         [SerializeField] Vector2 oldVelocity;
@@ -87,7 +95,7 @@ namespace Paperticket
         
 
         void Awake() {
-
+            
             CheckRequiredComponents();            
 
             // Set the initial gravity setting
@@ -122,23 +130,24 @@ namespace Paperticket
                 Debug.LogError("[CharacterController] ERROR -> No Trigger Box Checker found! Please add one to Ground Checker variable.");
                 enabled = false;
             }
+            
         }
-
-        private Vector2 adjustedVelocity;
+        
+        
         void FixedUpdate()
         {
 
             // Update whether the player is grounded or not
             isGrounded = groundChecker.IsTouchingLayers;
 
-
+            // Update the velocity if necessary
             if (oldVelocity != currentVelocity)
             {
                 adjustedVelocity = new Vector2(transform.right.x * currentVelocity.x, currentVelocity.y);
                 rigidbody2D.velocity = adjustedVelocity;
                 oldVelocity = currentVelocity;
             }
-                        
+                                   
             
         }
 
@@ -206,6 +215,9 @@ namespace Paperticket
             SetVelocity(direction * magnitude, additive);
         }
         
+        public void SetInEnemyProximity(bool inEnemyProximity) {
+            isInEnemyProximity = inEnemyProximity;
+        }
 
         public void SetFacing (bool faceLeft) {
 

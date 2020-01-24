@@ -6,15 +6,16 @@ using UnityEngine.Events;
 namespace Paperticket
 {
 
-    public enum HitboxStates { Active, Hurtbox }
+    public enum HitboxStates { Active, Hurtbox, Proximity }
        
     public class Hitbox : MonoBehaviour
 
     {
         public HitboxStates hitboxState;
         [SerializeField] BoxCollider2D[] boxColliders;                             
-        [SerializeField] LayerMask hitLayers;
-        [SerializeField] string[] hitTags;
+        [SerializeField] LayerMask targetLayers;
+        [SerializeField] string[] targetTags;
+        [SerializeField] HitboxStates[] targetStates;
 
         [SerializeField] int concurrentHitsAllowed;
 
@@ -22,10 +23,12 @@ namespace Paperticket
 
         [SerializeField] bool successfulCheckThisFrame;
 
+
         public HitProperties activeProperties;
 
         ContactFilter2D overlapContactFilter;
-        [SerializeField] Collider2D[] overlapContacts;
+        [SerializeField] List<Collider2D> overlapContacts;
+        [SerializeField] List<Hitbox> ValidHits;
         Hitbox targetHitbox;
 
 
@@ -65,17 +68,25 @@ namespace Paperticket
         }
 
         void Start() {
-            overlapContactFilter.layerMask = hitLayers;
+            // Setup the overlap contact settings
+            overlapContactFilter.layerMask = targetLayers;
             overlapContactFilter.useTriggers = true;
             overlapContactFilter.useLayerMask = true;
-            overlapContacts = new Collider2D[concurrentHitsAllowed];
+            //overlapContacts = new Collider2D[concurrentHitsAllowed];
+
+            // Match the HitProperties state to this hitbox
+            if (!activeProperties) {
+                activeProperties = ScriptableObject.CreateInstance<HitProperties>();
+                activeProperties.HitboxState = hitboxState;
+            }
         }
 
-
+        
 
         void FixedUpdate() {
 
             successfulCheckThisFrame = false;
+            ValidHits = new List<Hitbox>();
 
             //  Send event to all listeners if any of the hitboxes are touching a valid object
             foreach (BoxCollider2D hitbox in boxColliders) {
@@ -83,48 +94,144 @@ namespace Paperticket
                 // Skip this collider if it is not active
                 if (!hitbox.gameObject.activeInHierarchy) continue;
 
-                //hitbox.IsTouchingLayers(hitLayers) && 
-                if (IsTouchingHitbox(hitbox, out targetHitbox)) {
+                // Add any valid hits to the list 
+                GenerateValidHits(hitbox);
 
-                    // Cancel if my state is the same as the dummy targets state
-                    if (hitboxState != targetHitbox.hitboxState) {
+            }
 
-                        // Send event to all listeners if any hitbox is successful
-                        successfulCheckThisFrame = true;
-                        onSuccessfulCheck?.Invoke(targetHitbox.activeProperties);
-                        if (_DebugEvents) Debug.Log("[Hitbox] Hitbox ('" + gameObject.name + "') was successfully triggered!");
-                        break;   
-                    }
+
+            if (ValidHits.Count > 0) {
+                successfulCheckThisFrame = true;
+
+                foreach (Hitbox hitbox in ValidHits) {
+
+                    onSuccessfulCheck?.Invoke(hitbox.activeProperties);
+                    if (_DebugEvents) Debug.Log("[Hitbox] Hitbox ('" + gameObject.name + "') was successfully triggered by (" + hitbox.name + ")");
+
                 }
             }
+
         }
 
+
+            //    //hitbox.IsTouchingLayers(hitLayers) && 
+            //    if (IsTouchingHitbox(hitbox, out targetHitbox)) {
+
+            //        //// Cancel if my state is the same as the dummy targets state
+            //        //switch (hitboxState) {
+            //        //    case HitboxStates.Active:                            
+            //        //        if (targetHitbox.hitboxState == HitboxStates.Hurtbox) {                                
+            //        //            successfulCheckThisFrame = true;
+            //        //        }
+            //        //        break;
+            //        //    case HitboxStates.Hurtbox:
+            //        //        if (targetHitbox.hitboxState == HitboxStates.Active) {
+            //        //            successfulCheckThisFrame = true;
+            //        //        }
+            //        //        break;
+            //        //    case HitboxStates.Proximity:
+            //        //        if (targetHitbox.hitboxState == HitboxStates.Active) {
+            //        //            successfulCheckThisFrame = true;
+            //        //        }
+            //        //        break;
+            //        //    default:
+            //        //        Debug.LogError("[Hitbox] ERROR -> Bad HitboxState received by hitbox!");
+            //        //        break;
+            //        //}
+
+            //        //if (successfulCheckThisFrame) {
+            //            // Send event to all listeners if any hitbox is successful
+            //            successfulCheckThisFrame = true;
+            //            onSuccessfulCheck?.Invoke(targetHitbox.activeProperties);
+            //            if (_DebugEvents) Debug.Log("[Hitbox] Hitbox ('" + gameObject.name + "') was successfully triggered!");
+            //            break;   
+            //        //}
+            //    }
+            ////}
+        //}
+
        
-        bool IsTouchingHitbox(BoxCollider2D hitbox, out Hitbox targetHitbox) {
+        //bool IsTouchingHitbox(BoxCollider2D hitbox, out Hitbox targetHitbox) {
+
+        //    // Return if there are no overlap results
+        //    if (hitbox.OverlapCollider(overlapContactFilter, overlapContacts) > 0) {
+        //        if (_DebugUpdates) Debug.Log("[Hitbox] " + hitbox.OverlapCollider(overlapContactFilter, overlapContacts) + " hit results:");
+        //        // Iterate through each trigger overlapping the hitbox
+        //        for (int i = 0; i < overlapContacts.Count; i++) {
+        //            // Check against each hit tag
+        //            for (int j = 0; j < targetTags.Length; j++) {
+        //                // Make sure the target is not null
+        //                if (overlapContacts[i]) { 
+        //                    // Make sure the target has the right tag
+        //                    if (overlapContacts[i].tag == targetTags[j]) {
+        //                        if (_DebugEvents) Debug.Log("myname = " + gameObject.name + ", target tag = " + targetTags[j] + ", overlap no = " + i + System.Environment.NewLine +
+        //                                                            "overlapped name = " + overlapContacts[i].gameObject.name + ", overlapped contact's tag =" + overlapContacts[i].tag);
+        //                        targetHitbox = overlapContacts[i].GetComponentInParent<Hitbox>();
+        //                        for (int k = 0; k < targetStates.Length; k++) {
+        //                            // Return the target if it matches one of the hit tags
+        //                            if (targetHitbox.hitboxState == targetStates[k]) {
+        //                                if (_DebugEvents) Debug.Log("[Hitbox] Target state (" + targetStates[k] + ") matches!");
+        //                                return true;
+        //                            }
+        //                        }                                
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    targetHitbox = null;
+        //    return false;            
+
+        //}
+
+       
+        
+        void GenerateValidHits ( BoxCollider2D hitbox) {
+
+            //validHits = new List<Hitbox>();
 
             // Return if there are no overlap results
             if (hitbox.OverlapCollider(overlapContactFilter, overlapContacts) > 0) {
+                if (_DebugUpdates) Debug.Log("[Hitbox] " + hitbox.OverlapCollider(overlapContactFilter, overlapContacts) + " hit results:");
                 // Iterate through each trigger overlapping the hitbox
-                for (int i = 0; i < overlapContacts.Length; i++) {
-                    // Check against each hit tag
-                    for (int j = 0; j < hitTags.Length; j++) {
+                for (int i = 0; i < overlapContacts.Count; i++) {
                         // Make sure the target is not null
-                        if (overlapContacts[i]) { 
-                            if (_DebugEvents) Debug.Log("myname = " + gameObject.name + ", overlapped name = " + overlapContacts[i].gameObject.name + System.Environment.NewLine +
-                                                        "overlap no = " + i + ", overlapped contact's tag =" + overlapContacts[i].tag + ", target tag = " + hitTags[j]);
-                            // Return the target if it matches one of the hit tags
-                            if (overlapContacts[i].tag == hitTags[j]) {
+                        if (overlapContacts[i]) {
+                        // Check against each hit tag
+                        for (int j = 0; j < targetTags.Length; j++) {
+
+                            // Make sure the target has the right tag
+                            if (overlapContacts[i].tag == targetTags[j]) {
+                                if (_DebugEvents) Debug.Log("myname = " + gameObject.name + ", target tag = " + targetTags[j] + ", overlap no = " + i + System.Environment.NewLine +
+                                                                    "overlapped name = " + overlapContacts[i].gameObject.name + ", overlapped contact's tag =" + overlapContacts[i].tag);
+
+                                // Grab the hitbox component above the overlapping collider
                                 targetHitbox = overlapContacts[i].GetComponentInParent<Hitbox>();
-                                return true;
+
+                                // Make sure target matches one of the hit states
+                                for (int k = 0; k < targetStates.Length; k++) {                                    
+                                    if (targetHitbox.hitboxState == targetStates[k]) {
+                                        if (_DebugEvents) Debug.Log("[Hitbox] Target (" + targetHitbox.name + ") state (" + targetStates[k] + ") matches what I'm looking for!");
+
+                                        // Add the target hitbox if it isn't a duplicate
+                                        if (!ValidHits.Contains(targetHitbox)) {
+                                            ValidHits.Add(targetHitbox);
+
+                                            // Goto the next overlap contact
+                                            j = targetTags.Length;
+                                            break;
+                                        }                                        
+                                    }
+                                }
                             }
                         }
                     }
                 }
-            }
-            targetHitbox = null;
-            return false;            
-
+            }      
         }
+
+
+
 
 
 

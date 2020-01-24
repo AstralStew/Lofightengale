@@ -75,7 +75,17 @@ PrefabInstance:
     - target: {fileID: 909569285437494185, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.35
+      value: -0.101
+      objectReference: {fileID: 0}
+    - target: {fileID: 909569285437494185, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5859375
+      objectReference: {fileID: 0}
+    - target: {fileID: 909569285437494185, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5859375
       objectReference: {fileID: 0}
     - target: {fileID: 909569286174593647, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
         type: 3}
@@ -88,6 +98,36 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 16b98e01785ea564ebbd3e46e529c8b0, type: 2}
+    - target: {fileID: 909569285754513165, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
+        type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 909569285754513165, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
+        type: 3}
+      propertyPath: m_Name
+      value: Hitbox03
+      objectReference: {fileID: 0}
+    - target: {fileID: 909569285754513165, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
+        type: 3}
+      propertyPath: m_TagString
+      value: Activebox
+      objectReference: {fileID: 0}
+    - target: {fileID: 909569285893336262, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
+        type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 909569285893336262, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
+        type: 3}
+      propertyPath: m_Name
+      value: Hurtbox02
+      objectReference: {fileID: 0}
+    - target: {fileID: 909569285893336262, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 909569284952658221, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
         type: 3}
       propertyPath: m_Layer
@@ -133,6 +173,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Activebox
       objectReference: {fileID: 0}
+    - target: {fileID: 909569285505965940, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
+        type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 909569285505965940, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
+        type: 3}
+      propertyPath: m_Name
+      value: Hitbox02
+      objectReference: {fileID: 0}
+    - target: {fileID: 909569285505965940, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
+        type: 3}
+      propertyPath: m_TagString
+      value: Activebox
+      objectReference: {fileID: 0}
     - target: {fileID: 909569285437494184, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -159,50 +214,10 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 909569285505965940, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
+    - target: {fileID: 909569285437494184, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
         type: 3}
-      propertyPath: m_Layer
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 909569285505965940, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
-        type: 3}
-      propertyPath: m_Name
-      value: Hitbox02
-      objectReference: {fileID: 0}
-    - target: {fileID: 909569285505965940, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
-        type: 3}
-      propertyPath: m_TagString
-      value: Activebox
-      objectReference: {fileID: 0}
-    - target: {fileID: 909569285754513165, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
-        type: 3}
-      propertyPath: m_Layer
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 909569285754513165, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
-        type: 3}
-      propertyPath: m_Name
-      value: Hitbox03
-      objectReference: {fileID: 0}
-    - target: {fileID: 909569285754513165, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
-        type: 3}
-      propertyPath: m_TagString
-      value: Activebox
-      objectReference: {fileID: 0}
-    - target: {fileID: 909569285893336262, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
-        type: 3}
-      propertyPath: m_Layer
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 909569285893336262, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
-        type: 3}
-      propertyPath: m_Name
-      value: Hurtbox02
-      objectReference: {fileID: 0}
-    - target: {fileID: 909569285893336262, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
+      propertyPath: m_DrawMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3b0e7df76bf1494d8c8b0ecb6fa7112, type: 3}

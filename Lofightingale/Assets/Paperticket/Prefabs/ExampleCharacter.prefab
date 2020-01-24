@@ -661,7 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25f53733c63276488e583ca3e52fbc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CommandList: {fileID: 11400000, guid: 413b1a6ff6945744694058119acc6fe7, type: 2}
+  _CommandList: {fileID: 0}
   _DebugManager: 0
   _DebugCommands: 0
 --- !u!1 &909569286256989553
@@ -1029,10 +1029,13 @@ MonoBehaviour:
   _DebugUpdates: 1
   _DebugEvents: 0
   _DebugGizmos: 1
+  HitPoints: 0
+  DefenseMultiplier: 0
   isRecovering: 0
   isGrounded: 0
   isCrouching: 0
   isWalking: 0
+  facingEnemy: 0
   facingLeft: 0
   airActions: 0
   currentVelocity: {x: 0, y: 0}
@@ -1112,6 +1115,8 @@ MonoBehaviour:
   _WipeTriggersOnAnimationStarted: 0
   _WipeTriggersOnAnimationFinished: 1
   _Debug: 0
+  activeboxes: {fileID: 0}
+  hurtboxes: {fileID: 0}
 --- !u!95 &909569286570281119
 Animator:
   serializedVersion: 3
@@ -1122,7 +1127,7 @@ Animator:
   m_GameObject: {fileID: 909569286570281105}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 41f38cd6206494847af9fe3493dc0190, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -1176,22 +1181,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d1d4eccbcae9446a096cc60e219227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitboxState: 0
   boxColliders:
   - {fileID: 909569285133788703}
   - {fileID: 909569285893336260}
-  hitLayers:
+  targetLayers:
     serializedVersion: 2
-    m_Bits: 8388608
+    m_Bits: 0
+  targetTags: []
+  targetStates: 
+  concurrentHitsAllowed: 0
+  successfulCheckThisFrame: 0
+  activeProperties: {fileID: 0}
+  overlapContacts: []
   activeColour: {r: 1, g: 0.6039734, b: 0, a: 1}
   inactiveColour: {r: 0.0073930025, g: 1, b: 0, a: 1}
   gizmoOpacity: 0.545
   _DebugUpdates: 0
   _DebugEvents: 0
   _DebugGizmos: 0
-  successfulCheckThisFrame: 0
-  SuccessEvents:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &3861892071594388140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,35 +1247,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d1d4eccbcae9446a096cc60e219227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitboxState: 0
   boxColliders:
   - {fileID: 909569285204836012}
   - {fileID: 909569285505965938}
   - {fileID: 909569285754513163}
   - {fileID: 909569284952658219}
-  hitLayers:
+  targetLayers:
     serializedVersion: 2
-    m_Bits: 8388608
+    m_Bits: 0
+  targetTags: []
+  targetStates: 
+  concurrentHitsAllowed: 0
+  successfulCheckThisFrame: 0
+  activeProperties: {fileID: 0}
+  overlapContacts: []
   activeColour: {r: 1, g: 0, b: 0.8950033, a: 1}
   inactiveColour: {r: 1, g: 0.00969137, b: 0, a: 1}
   gizmoOpacity: 0.545
   _DebugUpdates: 0
   _DebugEvents: 0
   _DebugGizmos: 0
-  successfulCheckThisFrame: 0
-  SuccessEvents:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 909569286570281105}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &6441976788003875342
 GameObject:
   m_ObjectHideFlags: 0
