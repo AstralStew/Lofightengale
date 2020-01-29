@@ -1,0 +1,29 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Paperticket
+{
+    public class BaseEnemy : MonoBehaviour
+    {
+
+        public float health;
+
+        public HitProperties hitProperties;
+        
+        [SerializeField] Hitbox activebox;
+        [SerializeField] Hitbox proxbox;
+        [SerializeField] SpriteRenderer sprite;
+
+        // Start is called before the first frame update
+        void Start() {
+
+        }
+
+        // Update is called once per frame
+        void Update() {
+
+        }
+    }
+
+}

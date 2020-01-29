@@ -954,6 +954,7 @@ GameObject:
   m_Component:
   - component: {fileID: 846003317}
   - component: {fileID: 846003318}
+  - component: {fileID: 846003319}
   m_Layer: 11
   m_Name: SpinningChakram
   m_TagString: Enemy
@@ -995,6 +996,23 @@ MonoBehaviour:
   reloadTime: 3
   spinSpeed: -10
   _Debug: 1
+--- !u!114 &846003319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846003316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc8febfadf0e3d647a3b489726f260f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  hitProperties: {fileID: 0}
+  activebox: {fileID: 413189148}
+  proxbox: {fileID: 764760526}
+  sprite: {fileID: 784677385}
 --- !u!1 &986334485
 GameObject:
   m_ObjectHideFlags: 0
