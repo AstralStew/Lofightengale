@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputSystem: {fileID: 909569285755559583}
   commandManager: {fileID: 909569286174593647}
-  animationManager: {fileID: 909569286570281118}
+  animationManager: {fileID: 0}
   rigidbody2D: {fileID: 909569286366403116}
   physicsCollider: {fileID: 3595031197404337742}
   groundChecker: {fileID: 909569284708998149}
@@ -1035,7 +1035,8 @@ MonoBehaviour:
   isGrounded: 0
   isCrouching: 0
   isWalking: 0
-  facingEnemy: 0
+  isInvulnerable: 0
+  isInEnemyProximity: 0
   facingLeft: 0
   airActions: 0
   currentVelocity: {x: 0, y: 0}
@@ -1070,7 +1071,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 909569286570281116}
-  - component: {fileID: 909569286570281118}
+  - component: {fileID: 6787703861626582504}
   - component: {fileID: 909569286570281119}
   m_Layer: 0
   m_Name: Animation Manager
@@ -1098,7 +1099,7 @@ Transform:
   m_Father: {fileID: 909569286366403118}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &909569286570281118
+--- !u!114 &6787703861626582504
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1107,7 +1108,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 909569286570281105}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c872e520aba4e964e86164fae676992a, type: 3}
+  m_Script: {fileID: 11500000, guid: 89a1f8fe80bcbe74c9e6815f3392057a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 909569286570281119}
@@ -1194,6 +1195,7 @@ MonoBehaviour:
   successfulCheckThisFrame: 0
   activeProperties: {fileID: 0}
   overlapContacts: []
+  ValidHits: []
   activeColour: {r: 1, g: 0.6039734, b: 0, a: 1}
   inactiveColour: {r: 0.0073930025, g: 1, b: 0, a: 1}
   gizmoOpacity: 0.545
@@ -1262,6 +1264,7 @@ MonoBehaviour:
   successfulCheckThisFrame: 0
   activeProperties: {fileID: 0}
   overlapContacts: []
+  ValidHits: []
   activeColour: {r: 1, g: 0, b: 0.8950033, a: 1}
   inactiveColour: {r: 1, g: 0.00969137, b: 0, a: 1}
   gizmoOpacity: 0.545

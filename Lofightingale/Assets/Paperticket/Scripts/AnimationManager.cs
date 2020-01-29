@@ -8,42 +8,36 @@ namespace Paperticket
 {
     public class AnimationManager : MonoBehaviour {
 
-        CharacterManager characterManager;
-        [SerializeField] Animator animator;
-        [SerializeField] AkGameObj wwiseEmitter;
-
-        
+        //CharacterManager characterManager;
+        [SerializeField] protected Animator animator;
+        [SerializeField] protected AkGameObj wwiseEmitter;
+              
 
         [Header("Controls")]
 
-        [SerializeField] bool _WipeTriggersOnAnimationStarted;
-        [SerializeField] bool _WipeTriggersOnAnimationFinished;
+        [SerializeField] protected bool _WipeTriggersOnAnimationStarted;
+        [SerializeField] protected bool _WipeTriggersOnAnimationFinished;
                
-        [SerializeField] bool _Debug;
+        [SerializeField] protected bool _Debug;
 
         [Header("Read Only")]
 
-        [SerializeField] Hitbox activeboxes;
-        [SerializeField] Hitbox hurtboxes;
+        [SerializeField] protected Hitbox activeboxes;
+        [SerializeField] protected Hitbox hurtboxes;
 
 
-        AnimationPackage animPackage;
+        //AnimationPackage animPackage;
 
 
         public delegate void OnAnimationStarted();
-        public event OnAnimationStarted onAnimationStarted;
         public delegate void OnAnimationFinished();
+
+        public event OnAnimationStarted onAnimationStarted;
         public event OnAnimationFinished onAnimationFinished;
 
                
-        void Awake() {
+        public virtual void Awake() {
 
-            // Save reference to and disable the script if cannot find character manager
-            characterManager = characterManager ?? GetComponentInParent<CharacterManager>();
-            if (characterManager == null) {
-                Debug.LogError("[AnimationManager] ERROR -> No character manager found! Child this object to the character manager!");
-                enabled = false;
-            }
             // Save reference to and disable the script if cannot find animator component
             animator = animator ?? GetComponentInChildren<Animator>();
             if (animator == null) {
@@ -52,7 +46,7 @@ namespace Paperticket
             }
             // Save reference to and disable the script if cannot find wwise/akgameobj component
             wwiseEmitter = wwiseEmitter ?? GetComponentInChildren<AkGameObj>();
-            if (characterManager == null) {
+            if (wwiseEmitter == null) {
                 Debug.LogError("[AnimationManager] ERROR -> No AkGameObj component found! Please add one to WwiseEmitter variable.");
                 enabled = false;
             }
@@ -77,97 +71,80 @@ namespace Paperticket
                         break;
                 }
             }
-            //if (activeboxes.Count == 0 || hurtboxes.Count == 0) {
-            //    Debug.LogError("[AnimationManager] ERROR -> Active/hurtboxes seem to be missing! Please add at least one of each as children to this object.");
-            //}
             if (activeboxes == null | hurtboxes == null) {
                 Debug.LogError("[AnimationManager] ERROR -> Active/hurtboxes seem to be missing! Please add at least one of each as children to this object.");
-            }
-
-
+            }            
 
         }
 
-        void OnEnable() {
-
-            // Subscribe to commands being registered
-            CommandManager.onCommandRegistered += PlayCommandAnimation;
-
+        public virtual void OnEnable() {
             // Subscribe to hitboxes registering a hit
-            //foreach (Hitbox hitbox in activeboxes) hitbox.onSuccessfulCheck += TakeHitProperties;
             activeboxes.onSuccessfulCheck += TakeHitProperties;
-            //foreach (Hitbox hitbox in hurtboxes) hitbox.onSuccessfulCheck += TakeHitProperties;
             hurtboxes.onSuccessfulCheck += TakeHitProperties;
 
         }
-        void OnDisable() {
-
-            // Unsubscribe to commands being registered
-            CommandManager.onCommandRegistered -= PlayCommandAnimation;
-
+        public virtual void OnDisable() {
             // Unsubscribe to hitboxes registering a hit
-            //foreach (Hitbox hitbox in activeboxes) hitbox.onSuccessfulCheck -= TakeHitProperties;
             activeboxes.onSuccessfulCheck -= TakeHitProperties;
-            //foreach (Hitbox hitbox in hurtboxes) hitbox.onSuccessfulCheck -= TakeHitProperties;
             hurtboxes.onSuccessfulCheck -= TakeHitProperties;
         }
 
 
 
 
-        void Update() {
+        //void Update() {
 
-            SetAnimationBool("isCrouching", characterManager.isCrouching);
-            SetAnimationBool("isGrounded", characterManager.isGrounded);
+        //    SetAnimationBool("isCrouching", characterManager.isCrouching);
+        //    SetAnimationBool("isGrounded", characterManager.isGrounded);
 
-            SetAnimationInt("isWalking", characterManager.isWalking);
+        //    SetAnimationInt("isWalking", characterManager.isWalking);
 
-            SetAnimationBool("isNearEnemy", characterManager.isInEnemyProximity);
+        //    SetAnimationBool("isNearEnemy", characterManager.isInEnemyProximity);
             
-        }
+        //}
 
-        void FixedUpdate() {
+        //void FixedUpdate() {
 
-            characterManager.isInEnemyProximity = false;
+        //    characterManager.isInEnemyProximity = false;
 
-        }
+        //}
 
 
 
-        public void PlayCommandAnimation( Command command ) {
+        //public void PlayCommandAnimation( Command command ) {
 
-            // Check if there are any parameters to change
-            if (command.animationParametres.Length > 0) {
+        //    // Check if there are any parameters to change
+        //    if (command.animationParametres.Length > 0) {
 
-                // For each of the animation parameters listed with the command
-                for (int i = 0; i < command.animationParametres.Length; i++) {
+        //        // For each of the animation parameters listed with the command
+        //        for (int i = 0; i < command.animationParametres.Length; i++) {
 
-                    // Check the type of animation parameter
-                    switch (command.animationParametres[i].parameterType) {
+        //            // Check the type of animation parameter
+        //            switch (command.animationParametres[i].parameterType) {
 
-                        // Set the float value
-                        case AnimatorControllerParameterType.Float:
-                            SetAnimationFloat(command.animationParametres[i].parameterName, command.animationParametres[i].parameterValue);
-                            break;
+        //                // Set the float value
+        //                case AnimatorControllerParameterType.Float:
+        //                    SetAnimationFloat(command.animationParametres[i].parameterName, command.animationParametres[i].parameterValue);
+        //                    break;
 
-                        // Set the int value
-                        case AnimatorControllerParameterType.Int:
-                            SetAnimationInt(command.animationParametres[i].parameterName, (int)Mathf.Round(command.animationParametres[i].parameterValue));
-                            break;
+        //                // Set the int value
+        //                case AnimatorControllerParameterType.Int:
+        //                    SetAnimationInt(command.animationParametres[i].parameterName, (int)Mathf.Round(command.animationParametres[i].parameterValue));
+        //                    break;
 
-                        // Set the bool value
-                        case AnimatorControllerParameterType.Bool:
-                            SetAnimationBool(command.animationParametres[i].parameterName, command.animationParametres[i].parameterValue > 0);
-                            break;
+        //                // Set the bool value
+        //                case AnimatorControllerParameterType.Bool:
+        //                    SetAnimationBool(command.animationParametres[i].parameterName, command.animationParametres[i].parameterValue > 0);
+        //                    break;
 
-                        // Set the trigger value
-                        case AnimatorControllerParameterType.Trigger:
-                            SetAnimationTrigger(command.animationParametres[i].parameterName);
-                            break;
-                    }
-                }
-            }
-        }
+        //                // Set the trigger value
+        //                case AnimatorControllerParameterType.Trigger:
+        //                    SetAnimationTrigger(command.animationParametres[i].parameterName);
+        //                    break;
+        //            }
+        //        }
+        //    }
+        //}
 
 
         // Animator Parameter Functions
@@ -207,36 +184,29 @@ namespace Paperticket
 
         // Animation Event Functions
 
-        public void SetRecovering (int active) {            
-            characterManager.SetRecovering(active>0);
+        public virtual void SetRecovering (int active) {            
+            if (_Debug) Debug.Log("["+gameObject.name+"/Base] SetRecovering triggered.");
         }
 
-        public void SetGravity (int active) {
-            characterManager.SetGravity(active>0);
+        public virtual void SetGravity (int active) {
+            if (_Debug) Debug.Log("[" + gameObject.name + "/Base] SetGravity triggered.");
         }
 
-        public void SetGrounded (int active ) {
-            characterManager.SetGrounded(active > 0);
+        public virtual void SetGrounded (int active ) {
+            if (_Debug) Debug.Log("[" + gameObject.name + "/Base] SetGrounded triggered.");
         }
 
         
-        public void SetVelocity( AnimationEvent animationEvent ) {
-
-            if (animationEvent.objectReferenceParameter) {
-
-                animPackage = (AnimationPackage)animationEvent.objectReferenceParameter;
-
-                characterManager.SetVelocity(animPackage.newVelocity.normalized, animPackage.newVelocity.magnitude, false);
-
-            }
-
+        public virtual void SetVelocity( AnimationEvent animationEvent ) {
+            if (_Debug) Debug.Log("[" + gameObject.name + "/Base] SetVelocity triggered.");
         }
 
         /// <summary>
         /// Set the hit properties of the active/hurt hitboxes
         /// </summary>
         /// <param name="hitProperties"> The hit properties provided in the animation event</param>
-        public void SetHitProperties ( HitProperties hitProperties ) {
+        public virtual void SetHitProperties ( HitProperties hitProperties ) {
+            if (_Debug) Debug.Log("[" + gameObject.name + "/Base] SetHitProperties triggered.");
 
             if (!hitProperties) {
                 Debug.LogError("[AnimationManager] ERROR -> No hit properties provided to SetHitProperties. Did you forget to add the object to the animation event?");
@@ -244,7 +214,6 @@ namespace Paperticket
             }
 
             // Set the active properties of all the active hitboxes 
-            //foreach (Hitbox hitbox in activeboxes) hitbox.activeProperties = hitProperties;
             activeboxes.activeProperties = hitProperties;
 
         }
@@ -253,62 +222,15 @@ namespace Paperticket
         /// Receive the hit properties from the external hitbox 
         /// </summary>
         /// <param name="hitProperties"> The hit properties provided by the external hitbox</param>
-        public void TakeHitProperties( HitProperties hitProperties ) {
+        public virtual void TakeHitProperties( HitProperties hitProperties ) {
+            if (_Debug) Debug.Log("[" + gameObject.name + "/Base] TakeHitProperties triggered.");
 
-
-            switch (hitProperties.HitboxState) {
-                case HitboxStates.Active:
-                    if (_Debug) Debug.Log("[AnimationManager] HitProperties received from an activebox. We were hit by something!");
-
-                    SetAnimationTrigger("WHurt");
-
-                    // Apply the damage of the hit properties
-                    if (hitProperties.HitDamage != 0) characterManager.ChangeHealth(-hitProperties.HitDamage);
-
-                    // Apply the hit stun of the hit properties
-                    // This will apply to this script, and change the length of the WarriorHurt 
-
-                    // Apply the proration of the hit properties
-                    // The damage multiplier, this may not be a thing yet
-
-                    // Apply the velocity of the hit properties
-                    if (hitProperties.HitVelocity != Vector2.zero) characterManager.SetVelocity(hitProperties.HitVelocity, false);
-                    
-
-                    break;
-                case HitboxStates.Hurtbox:
-                    if (_Debug) Debug.Log("[AnimationManager] HitProperties received from a hurtbox. We hit something else!");
-
-                    // Turn off hitboxes (they will reenable as part of the animation track)
-                    activeboxes.SetHitboxActive(false);
-                    //foreach (Hitbox hitbox in activeboxes) {
-                    //    hitbox.SetHitboxActive(false);
-                    //}
-
-
-                    // Set isRecovering off
-                    characterManager.SetRecovering(false);
-                    
-
-                    break;
-                case HitboxStates.Proximity:
-                    if (_Debug) Debug.Log("[AnimationManager] HitProperties received from a proximity. An attack is probably imminent! Ignoring tho...");
-
-                    characterManager.isInEnemyProximity = true;
-
-                    //characterManager.facingEnemy = true;
-
-                    break;
-                default:
-                    Debug.LogError("[AnimationManager] HitProperties received from unknown state!");
-                    break;
-            }
-                                 
         }
 
 
         public void PlaySound (string eventName) {
-            
+            if (_Debug) Debug.Log("[" + gameObject.name + "/Base] PlaySound triggered.");
+
             AkSoundEngine.PostEvent(eventName, wwiseEmitter.gameObject);
 
         }

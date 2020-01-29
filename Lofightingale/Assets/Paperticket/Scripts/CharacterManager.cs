@@ -17,7 +17,7 @@ namespace Paperticket
         public CommandManager commandManager;
 
         [Tooltip("The AnimationManager script that controls the animations for this character")]
-        public AnimationManager animationManager;
+        public PlayerAnimationManager animationManager;
         
         [SerializeField] Rigidbody2D rigidbody2D;
         [SerializeField] BoxCollider2D physicsCollider;
@@ -119,12 +119,12 @@ namespace Paperticket
                 enabled = false;
             }
             // Save reference to and disable the script if cannot find animation manager
-            animationManager = animationManager ?? GetComponentInChildren<AnimationManager>();
+            animationManager = animationManager ?? GetComponentInChildren<PlayerAnimationManager>();
             if (animationManager == null) {
                 Debug.LogError("[CharacterController] ERROR -> No animation manager script found! Please add one to Animation Manager variable.");
                 enabled = false;
             }
-            // Save reference to and disable the script if cannot find animation manager
+            // Save reference to and disable the script if cannot find ground checker
             groundChecker = groundChecker ?? GetComponentInChildren<TriggerBoxChecker>();
             if (groundChecker == null) {
                 Debug.LogError("[CharacterController] ERROR -> No Trigger Box Checker found! Please add one to Ground Checker variable.");
