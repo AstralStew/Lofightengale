@@ -682,7 +682,7 @@ MonoBehaviour:
   inactiveColour: {r: 1, g: 0.00969137, b: 0, a: 1}
   gizmoOpacity: 0.545
   _DebugUpdates: 0
-  _DebugEvents: 0
+  _DebugEvents: 1
   _DebugGizmos: 0
 --- !u!1 &439606359
 GameObject:
@@ -836,11 +836,11 @@ MonoBehaviour:
   animator: {fileID: 493806039}
   wwiseEmitter: {fileID: 1805329963}
   _WipeTriggersOnAnimationStarted: 0
-  _WipeTriggersOnAnimationFinished: 0
-  _Debug: 0
+  _WipeTriggersOnAnimationFinished: 1
+  _Debug: 1
   activeboxes: {fileID: 0}
   hurtboxes: {fileID: 0}
-  hurtAnimationTrigger: 
+  hurtAnimationTrigger: CHurt
 --- !u!1 &503772141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,7 +1135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773957536}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.14, z: 0}
+  m_LocalPosition: {x: 0, y: -1.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 846003317}
@@ -1153,7 +1153,7 @@ GameObject:
   - component: {fileID: 842949110}
   m_Layer: 23
   m_Name: Hurtbox01
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1225,7 +1225,7 @@ Transform:
   m_GameObject: {fileID: 846003316}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.04, y: 0.55, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6648, y: 1.6648, z: 1.6648}
   m_Children:
   - {fileID: 493806038}
   - {fileID: 773957539}
@@ -1269,7 +1269,7 @@ MonoBehaviour:
   _DebugUpdates: 0
   _DebugEvents: 0
   _DebugGizmos: 0
-  reloadTime: 3
+  reloadTime: 1.5
   spinAttackName: CSpinAttack
 --- !u!50 &846003319
 Rigidbody2D:
@@ -2061,7 +2061,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 5, y: 2}
   m_EdgeRadius: 0
 --- !u!1 &1569180566
 GameObject:

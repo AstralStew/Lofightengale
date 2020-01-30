@@ -67,7 +67,7 @@ namespace Paperticket
         public int isWalking;
 
         [Tooltip("Whether the character is currently able to be damaged")]
-        public int isInvulnerable;
+        public bool isInvulnerable;
 
         [Tooltip("Whether the character is in proximity of an enemy activebox")]
         public bool isInEnemyProximity;
@@ -193,6 +193,10 @@ namespace Paperticket
 
         public void SetGrounded (bool active) {
             isGrounded = active;
+        }
+
+        public void SetInvulnerable( bool active ) {
+            isInvulnerable = active;
         }
 
 

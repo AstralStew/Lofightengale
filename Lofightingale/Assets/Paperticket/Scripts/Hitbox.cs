@@ -237,6 +237,8 @@ namespace Paperticket
 
 
         public void SetHitboxActive (bool active) {
+            if (_DebugEvents) Debug.Log("[Hitbox] Turning hitboxes " + (active ? "on" : "off"));
+
             foreach (BoxCollider2D hitbox in boxColliders) {
                 hitbox.gameObject.SetActive(active);
             }

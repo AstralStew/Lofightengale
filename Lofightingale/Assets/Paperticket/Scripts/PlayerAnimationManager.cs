@@ -108,6 +108,12 @@ namespace Paperticket {
             characterManager.SetGrounded(active > 0);
         }
 
+        public override void SetInvulnerable( int active ) {
+            base.SetInvulnerable(active);
+
+            characterManager.SetInvulnerable(active > 0);
+        }
+
 
         public override void SetVelocity( AnimationEvent animationEvent ) {
             base.SetVelocity(animationEvent);
@@ -130,24 +136,28 @@ namespace Paperticket {
                 case HitboxStates.Active:
                     if (_Debug) Debug.Log("[PlayerAnimationManager] HitProperties received from an activebox. We were hit by something!");
 
-                    if (hurtAnimationTrigger != "") {
-                        SetAnimationTrigger(hurtAnimationTrigger);
-                    } else {
-                        Debug.LogError("[PlayerAnimationManager] ERROR -> No Hurt Animation trigger found! Please enter the name of the animation trigger in the Inspector!");
+                    // As long as the character is not currently invulnerable
+                    if (!characterManager.isInvulnerable) {
+
+                        if (hurtAnimationTrigger != "") {
+                            SetAnimationTrigger(hurtAnimationTrigger);
+                        } else {
+                            Debug.LogError("[PlayerAnimationManager] ERROR -> No Hurt Animation trigger found! Please enter the name of the animation trigger in the Inspector!");
+                        }
+
+                        // Apply the damage of the hit properties
+                        if (hitProperties.HitDamage != 0) characterManager.ChangeHealth(-hitProperties.HitDamage);
+
+                        // Apply the hit stun of the hit properties
+                        // This will apply to this script, and change the length of the WarriorHurt 
+
+                        // Apply the proration of the hit properties
+                        // The damage multiplier, this may not be a thing yet
+
+                        // Apply the velocity of the hit properties
+                        if (hitProperties.HitVelocity != Vector2.zero) characterManager.SetVelocity(hitProperties.HitVelocity, false);
+
                     }
-
-                    // Apply the damage of the hit properties
-                    if (hitProperties.HitDamage != 0) characterManager.ChangeHealth(-hitProperties.HitDamage);
-
-                    // Apply the hit stun of the hit properties
-                    // This will apply to this script, and change the length of the WarriorHurt 
-
-                    // Apply the proration of the hit properties
-                    // The damage multiplier, this may not be a thing yet
-
-                    // Apply the velocity of the hit properties
-                    if (hitProperties.HitVelocity != Vector2.zero) characterManager.SetVelocity(hitProperties.HitVelocity, false);
-
 
                     break;
                 case HitboxStates.Hurtbox:
@@ -176,6 +186,9 @@ namespace Paperticket {
                 default:
                     Debug.LogError("[PlayerAnimationManager] HitProperties received from unknown state!");
                     break;
+
+
+
             }
 
         }

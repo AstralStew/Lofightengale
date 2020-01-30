@@ -196,7 +196,11 @@ namespace Paperticket
             if (_Debug) Debug.Log("[" + gameObject.name + "/Base] SetGrounded triggered.");
         }
 
-        
+        public virtual void SetInvulnerable ( int active ) {
+            if (_Debug) Debug.Log("[" + gameObject.name + "/Base] SetInvulnerable triggered.");
+        }
+
+
         public virtual void SetVelocity( AnimationEvent animationEvent ) {
             if (_Debug) Debug.Log("[" + gameObject.name + "/Base] SetVelocity triggered.");
         }
@@ -235,7 +239,14 @@ namespace Paperticket
 
         }
 
+        public void SetActiveboxActive (int active) {
+            activeboxes.SetHitboxActive(active > 0);
+        }
 
+        public void SetHurtboxActive (int active) {
+            hurtboxes.SetHitboxActive(active > 0);
+        }
+        
 
         // Animation State Event Functions
 
