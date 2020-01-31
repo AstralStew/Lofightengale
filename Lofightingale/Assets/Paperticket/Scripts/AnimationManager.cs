@@ -168,6 +168,7 @@ namespace Paperticket
             animator.SetTrigger(triggerName);
         }
                
+        
         void ResetAnimationTriggerParameters() {
 
             // Reset all trigger parametres
@@ -239,6 +240,8 @@ namespace Paperticket
 
         }
 
+        
+
         public void SetActiveboxActive (int active) {
             activeboxes.SetHitboxActive(active > 0);
         }
@@ -247,6 +250,11 @@ namespace Paperticket
             hurtboxes.SetHitboxActive(active > 0);
         }
         
+
+
+        public virtual void SetPhysicsColliderActive(int active) {
+            if (_Debug) Debug.Log("[AnimationManager(" + gameObject.name + ")] SetPhysicsColliderActive triggered.");
+        }
 
         // Animation State Event Functions
 

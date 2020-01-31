@@ -23,16 +23,16 @@ namespace Paperticket {
             //activeBox.activeProperties = hitProperties;
 
             // Let it rip!
-            Reload();
+            //Reload();
 
         }
 
         void OnEnable() {
-            animationManager.onAnimationFinished += Reload;
+            //animationManager.onAnimationFinished += Reload;
         }
 
         void OnDisable() {
-            animationManager.onAnimationFinished -= Reload;
+            //animationManager.onAnimationFinished -= Reload;
         }
 
 

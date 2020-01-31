@@ -13,8 +13,8 @@ namespace Paperticket
         public EnemyAnimationManager animationManager;
 
         [SerializeField] Rigidbody2D rigidbody2D;
-        [SerializeField] BoxCollider2D physicsCollider;
-        [SerializeField] TriggerBoxChecker groundChecker;
+        public BoxCollider2D physicsCollider;
+        //[SerializeField] TriggerBoxChecker groundChecker;
 
 
         [Header("Move Settings")]
@@ -38,8 +38,8 @@ namespace Paperticket
         [Tooltip("Whether the enemy is recovering or not")]
         public bool isRecovering;
 
-        [Tooltip("Whether the enemy is grounded or not")]
-        public bool isGrounded;
+        //[Tooltip("Whether the enemy is grounded or not")]
+        //public bool isGrounded;
 
         [Tooltip("Whether the enemy is crouching or not")]
         public bool isCrouching;
@@ -101,19 +101,19 @@ namespace Paperticket
                 Debug.LogError("[BaseEnemy] ERROR -> No animation manager script found! Please add one to Animation Manager variable.");
                 enabled = false;
             }
-            // Save reference to and disable the script if cannot find ground checker
-            groundChecker = groundChecker ?? GetComponentInChildren<TriggerBoxChecker>();
-            if (groundChecker == null) {
-                Debug.LogError("[BaseEnemy] ERROR -> No Trigger Box Checker found! Please add one to Ground Checker variable.");
-                enabled = false;
-            }
+            //// Save reference to and disable the script if cannot find ground checker
+            //groundChecker = groundChecker ?? GetComponentInChildren<TriggerBoxChecker>();
+            //if (groundChecker == null) {
+            //    Debug.LogError("[BaseEnemy] ERROR -> No Trigger Box Checker found! Please add one to Ground Checker variable.");
+            //    enabled = false;
+            //}
 
         }
 
         void FixedUpdate() {
 
             // Update whether the enemy is grounded or not
-            isGrounded = groundChecker.IsTouchingLayers;
+            //isGrounded = groundChecker.IsTouchingLayers;
 
             // Update the velocity if necessary
             if (oldVelocity != currentVelocity) {
@@ -125,10 +125,10 @@ namespace Paperticket
         void Update() {
             //isCrouching = isGrounded && inputSystem.InputPresentInFrame("Down", 1);
             // If grounded, check the whether the enemy is walking
-            if (isGrounded) {
-                airActions = maxAirActions;
+            //if (isGrounded) {
+            //    airActions = maxAirActions;
                 //if (inputSystem.InputPresentInFrame("Forward", 1)) { isWalking = 1; } else if (inputSystem.InputPresentInFrame("Back", 1)) { isWalking = -1; } else { isWalking = 0; }
-            }
+           // }
             //if (Input.GetButtonDown("RightStickButton")) {
             //    SetFacing(!facingLeft);
             //}
@@ -149,9 +149,9 @@ namespace Paperticket
             rigidbody2D.gravityScale = active ? gravityScale : 0;
         }
 
-        public virtual void SetGrounded( bool active ) {
-            isGrounded = active;
-        }
+        //public virtual void SetGrounded( bool active ) {
+        //    isGrounded = active;
+        //}
 
 
         public virtual void SetVelocity( Vector2 velocity, bool additive ) {
@@ -190,6 +190,7 @@ namespace Paperticket
 
         public virtual void ChangeHealth( int modifier ) {
             HitPoints = Mathf.Max(0, HitPoints + modifier);
+            CheckForDeath();
         }
 
         public virtual void SetDefenseMultiplier( int value ) {
@@ -210,7 +211,22 @@ namespace Paperticket
         }
 
 
+        void CheckForDeath() {
 
+            if (HitPoints == 0) {
+                Debug.Log("ENEMY SHOULD BE DESTROYED");
+                animationManager.SetAnimationTrigger(animationManager.deathAnimationTrigger);
+                animationManager.onAnimationFinished += DestroySelf;
+            }
+        }
+
+        void DestroySelf() {
+            animationManager.onAnimationFinished -= DestroySelf;
+
+            Debug.Log("really, should be DESTROYED");
+
+            Destroy(gameObject);
+        }
 
     }
 

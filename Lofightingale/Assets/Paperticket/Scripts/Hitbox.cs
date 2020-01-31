@@ -91,6 +91,8 @@ namespace Paperticket
             //  Send event to all listeners if any of the hitboxes are touching a valid object
             foreach (BoxCollider2D hitbox in boxColliders) {
 
+                if (_DebugUpdates) Debug.Log("[Hitbox(" + gameObject.name + ")] The collider " + hitbox.gameObject.name + " is currently " + hitbox.gameObject.activeInHierarchy);
+
                 // Skip this collider if it is not active
                 if (!hitbox.gameObject.activeInHierarchy) continue;
 
@@ -106,6 +108,8 @@ namespace Paperticket
                 foreach (Hitbox hitbox in ValidHits) {
 
                     onSuccessfulCheck?.Invoke(hitbox.activeProperties);
+                    //hitbox.GetComponentInParent<AnimationManager>().TakeHitProperties(activeProperties);
+                    
                     if (_DebugEvents) Debug.Log("[Hitbox] Hitbox ('" + gameObject.name + "') was successfully triggered by (" + hitbox.name + ")");
 
                 }
@@ -241,6 +245,8 @@ namespace Paperticket
 
             foreach (BoxCollider2D hitbox in boxColliders) {
                 hitbox.gameObject.SetActive(active);
+                //if (_DebugEvents) Debug.Log("[Hitbox] Hitbox: "+hitbox.gameObject.name+" is " + (hitbox.enabled ? "active" : "inactive"));
+                
             }
         }
 

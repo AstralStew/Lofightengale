@@ -42,6 +42,11 @@ namespace Paperticket {
 
             SetAnimationBool("isNearEnemy", characterManager.isInEnemyProximity);
 
+            if (resetActiveHitboxes) {
+                Debug.Log("PLAYER DEBUGGING ACTIVE HITBOXES");
+                activeboxes.SetHitboxActive(false);
+                resetActiveHitboxes = false;
+            }
         }
 
         void FixedUpdate() {
@@ -128,7 +133,7 @@ namespace Paperticket {
 
         }
 
-
+        bool resetActiveHitboxes;
         public override void TakeHitProperties( HitProperties hitProperties ) {
             base.TakeHitProperties(hitProperties);
 
@@ -163,8 +168,10 @@ namespace Paperticket {
                 case HitboxStates.Hurtbox:
                     if (_Debug) Debug.Log("[PlayerAnimationManager] HitProperties received from a hurtbox. We hit something else!");
 
-                    // Turn off hitboxes (they will reenable as part of the animation track)
-                    activeboxes.SetHitboxActive(false);
+                    //  turn this back on
+                    //activeboxes.SetHitboxActive(false);
+                    resetActiveHitboxes = true;
+
                     //foreach (Hitbox hitbox in activeboxes) {
                     //    hitbox.SetHitboxActive(false);
                     //}

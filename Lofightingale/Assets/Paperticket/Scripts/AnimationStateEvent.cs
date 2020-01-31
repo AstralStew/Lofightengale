@@ -12,7 +12,7 @@ namespace Paperticket {
 
         override public void OnStateEnter( Animator animator, AnimatorStateInfo stateInfo, int layerIndex ) {
 
-            if (SendEventOnStateEnter) animator.GetComponent<AnimationManager>().RegisterAnimationStateExit();
+            if (SendEventOnStateEnter) animator.GetComponent<AnimationManager>().RegisterAnimationStateEnter();
 
         }
 

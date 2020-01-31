@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736fcdf789dfbf54c8bd73923f40fd17, type: 3}
   m_Name: WLightPunch
   m_EditorClassIdentifier: 
-  hitDamage: 2
-  hitStun: 0
-  hitProration: 0
-  hitVelocity: {x: -2, y: 0}
+  HitDamage: 2
+  HitStun: 0
+  HitProration: 0
+  HitVelocity: {x: -2, y: 0}
+  HitboxState: 0

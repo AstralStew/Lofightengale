@@ -5,7 +5,8 @@ using UnityEngine;
 namespace Paperticket {
     public class EnemyAnimationManager : AnimationManager {
 
-        [SerializeField] string hurtAnimationTrigger;
+        public string hurtAnimationTrigger;
+        public string deathAnimationTrigger;
         BaseEnemy baseEnemy;
 
         public override void Awake() {
@@ -47,11 +48,17 @@ namespace Paperticket {
         void Update() {
 
             SetAnimationBool("isCrouching", baseEnemy.isCrouching);
-            SetAnimationBool("isGrounded", baseEnemy.isGrounded);
+            //SetAnimationBool("isGrounded", baseEnemy.isGrounded);
 
             SetAnimationInt("isWalking", baseEnemy.isWalking);
 
             SetAnimationBool("isNearPlayer", baseEnemy.isInPlayerProximity);
+
+            if (resetActiveHitboxes) {
+                Debug.Log("DEBUGGING ACTIVE HITBOXES");
+                activeboxes.SetHitboxActive(false);
+                resetActiveHitboxes = false;
+            }
 
         }
 
@@ -128,11 +135,11 @@ namespace Paperticket {
             baseEnemy.SetGravity(active > 0);
         }
 
-        public override void SetGrounded( int active ) {
-            base.SetGrounded(active);
+        //public override void SetGrounded( int active ) {
+        //    base.SetGrounded(active);
 
-            baseEnemy.SetGrounded(active > 0);
-        }
+        //    baseEnemy.SetGrounded(active > 0);
+        //}
 
 
         public override void SetVelocity( AnimationEvent animationEvent ) {
@@ -148,9 +155,20 @@ namespace Paperticket {
 
         }
 
+        public override void SetPhysicsColliderActive( int active ) {
+            base.SetPhysicsColliderActive(active);
 
+            baseEnemy.physicsCollider.gameObject.SetActive(active > 0);
+        }
+
+
+
+
+        bool resetActiveHitboxes;
         public override void TakeHitProperties( HitProperties hitProperties ) {
             base.TakeHitProperties(hitProperties);
+
+            if (_Debug) Debug.Log("[EnemyAnimationManager] Reached TakeHitProperties, attempting to recieve hit properties");
 
             switch (hitProperties.HitboxState) {
                 case HitboxStates.Active:
@@ -163,7 +181,7 @@ namespace Paperticket {
                     }
 
                     // Apply the damage of the hit properties
-                    if (hitProperties.HitDamage != 0) { }// characterManager.ChangeHealth(-hitProperties.HitDamage);
+                    if (hitProperties.HitDamage != 0) baseEnemy.ChangeHealth(-hitProperties.HitDamage);     
 
                     // Apply the hit stun of the hit properties
                     // This will apply to this script, and change the length of the WarriorHurt 
@@ -172,7 +190,7 @@ namespace Paperticket {
                     // The damage multiplier, this may not be a thing yet
 
                     // Apply the velocity of the hit properties
-                    if (hitProperties.HitVelocity != Vector2.zero) { }//characterManager.SetVelocity(hitProperties.HitVelocity, false);
+                    if (hitProperties.HitVelocity != Vector2.zero) baseEnemy.SetVelocity(hitProperties.HitVelocity, false);
 
 
                     break;
@@ -180,7 +198,11 @@ namespace Paperticket {
                     if (_Debug) Debug.Log("[EnemyAnimationManager] HitProperties received from a hurtbox. We hit something else!");
 
                     // Turn off hitboxes (they will reenable as part of the animation track)
-                    activeboxes.SetHitboxActive(false);
+                    //  turn this back on
+                    //activeboxes.SetHitboxActive(false);
+                    resetActiveHitboxes = true;
+
+
                     //foreach (Hitbox hitbox in activeboxes) {
                     //    hitbox.SetHitboxActive(false);
                     //}
