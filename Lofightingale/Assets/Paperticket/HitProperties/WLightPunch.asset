@@ -15,5 +15,5 @@ MonoBehaviour:
   HitDamage: 2
   HitStun: 0
   HitProration: 0
-  HitVelocity: {x: -2, y: 0}
+  HitVelocity: {x: 10, y: 0}
   HitboxState: 0

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Video;
 
 namespace Paperticket
 {
@@ -33,7 +32,6 @@ namespace Paperticket
         [SerializeField] [Min(0.1f)] float minSpeed;
         public float gravityScale;
         public int maxAirActions;
-        private Vector2 adjustedVelocity;
 
 
         [Header("Debugging Options")]
@@ -83,16 +81,7 @@ namespace Paperticket
 
         [SerializeField] Vector2 currentVelocity;
         [SerializeField] Vector2 oldVelocity;
-
-
-
-        void OnValidate() {
-
-            //groundedCornerThreshold = Mathf.Clamp(groundedCornerThreshold, 0, boxCollider.bounds.extents.x - 0.01f);
-            //groundGizmoThickness = Mathf.Max(groundGizmoThickness, 0);
-        }
-
-        
+                                    
 
         void Awake() {
             
@@ -143,8 +132,7 @@ namespace Paperticket
             // Update the velocity if necessary
             if (oldVelocity != currentVelocity)
             {
-                adjustedVelocity = new Vector2(transform.right.x * currentVelocity.x, currentVelocity.y);
-                rigidbody2D.velocity = adjustedVelocity;
+                rigidbody2D.velocity = new Vector2(transform.right.x * currentVelocity.x, currentVelocity.y);                
                 oldVelocity = currentVelocity;
             }
                                    
@@ -262,75 +250,10 @@ namespace Paperticket
 
         void OnDrawGizmosSelected() {
 
-            //if (_DebugGizmos) {
-
-            //    if (groundGizmoThickness > 0) {
-                    
-            //        // Grounded box outline
-            //        Gizmos.color = new Color(groundGizmoColour.r, groundGizmoColour.g, groundGizmoColour.b, 1);
-            //        Gizmos.DrawWireCube(new Vector2(boxCollider.bounds.center.x, boxCollider.bounds.min.y),
-            //                        new Vector2((boxCollider.bounds.extents.x - groundedCornerThreshold) * 2, groundGizmoThickness));
-
-            //        // Grounded box fill
-            //        Gizmos.color = groundGizmoColour;
-            //        Gizmos.DrawCube(new Vector2(boxCollider.bounds.center.x, boxCollider.bounds.min.y),
-            //                        new Vector2((boxCollider.bounds.extents.x - groundedCornerThreshold) * 2, groundGizmoThickness));
-            //    }
-
-            //}
+           // Could put on screen indicators here
 
         }
 
     }
 
 }
-
-
-
-
-
-
-
-// Update whether the player is grounded or not
-
-//Vector2 direction;
-//float moveSpeedAdjusted;
-//ContactPoint2D[] contactPoints = new ContactPoint2D[5];
-//ContactPoint2D currentPoint;
-//isGrounded = rigidbody2D.IsTouchingLayers(groundLayers);
-
-
-//// Check if the player is intersecting any ground layers
-//if (rigidbody2D.IsTouchingLayers(groundLayers)) {
-//    if (_DebugUpdates) Debug.Log("[CharacterManager] Touching ground layers...");
-//    isGrounded = false;
-//    groundedCornerThreshold = Mathf.Clamp(groundedCornerThreshold, 0, boxCollider.bounds.extents.x);
-
-//    // Iterate through the ground contacts
-//    for (int i = 0; i < rigidbody2D.GetContacts(contactPoints); i++) {
-
-//        currentPoint = contactPoints[i];
-
-//        if (_DebugUpdates) Debug.Log("[CharacterManager] Checking collider: " + currentPoint.collider.name +"\n" +
-//                                "Contact point X: ("+ currentPoint.point.x + "), Y: (" + currentPoint.point.y + ")\n" +
-//                                "Min bound X: (" + boxCollider.bounds.min.x + "), Y: (" + boxCollider.bounds.min.y + ")\n" +
-//                                "Max bound X: (" + boxCollider.bounds.max.x + "), Y: ("+ boxCollider.bounds.max.y + ")\n" +
-//                                "Contact point >= min: (" + (currentPoint.point.x >= boxCollider.bounds.min.x + groundedCornerThreshold) + ")\n" +
-//                                "Contact point <= max: (" + (currentPoint.point.x <= boxCollider.bounds.max.x - groundedCornerThreshold) + ")\n" +
-//                                "Contact point near ground: (" + (Mathf.Abs(currentPoint.point.y - boxCollider.bounds.min.y) < 0.05f) + ")\n");
-
-
-//        // Make sure the contacts are with the bottom collider bounds, and aren't too close to the side corners
-//        if (/*currentPoint.point.x >= boxCollider.bounds.min.x + groundedCornerThreshold &&
-//            currentPoint.point.x <= boxCollider.bounds.max.x - groundedCornerThreshold &&
-//            */ Mathf.Abs(currentPoint.point.y - boxCollider.bounds.min.y) <= 0.01f) {
-
-//            // Set the player to grounded
-//            isGrounded = true;
-//            groundedPoint = currentPoint;
-//            break;
-//        }
-//    }              
-//} else {
-//    isGrounded = false;
-//}

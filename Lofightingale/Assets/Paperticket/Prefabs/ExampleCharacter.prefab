@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputSystem: {fileID: 909569285755559583}
   commandManager: {fileID: 909569286174593647}
-  animationManager: {fileID: 0}
+  animationManager: {fileID: 6787703861626582504}
   rigidbody2D: {fileID: 909569286366403116}
   physicsCollider: {fileID: 3595031197404337742}
   groundChecker: {fileID: 909569284708998149}
@@ -1118,6 +1118,7 @@ MonoBehaviour:
   _Debug: 0
   activeboxes: {fileID: 0}
   hurtboxes: {fileID: 0}
+  hurtAnimationTrigger: WHurt
 --- !u!95 &909569286570281119
 Animator:
   serializedVersion: 3

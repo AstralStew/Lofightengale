@@ -52,7 +52,7 @@ namespace Paperticket {
 
             SetAnimationInt("isWalking", baseEnemy.isWalking);
 
-            SetAnimationBool("isNearPlayer", baseEnemy.isInPlayerProximity);
+            SetAnimationBool("isNearPlayer", baseEnemy.isInOpponentProximity);
 
             if (resetActiveHitboxes) {
                 Debug.Log("DEBUGGING ACTIVE HITBOXES");
@@ -64,7 +64,7 @@ namespace Paperticket {
 
         void FixedUpdate() {
 
-            baseEnemy.isInPlayerProximity = false;
+            baseEnemy.isInOpponentProximity = false;
 
         }
 
@@ -158,7 +158,7 @@ namespace Paperticket {
         public override void SetPhysicsColliderActive( int active ) {
             base.SetPhysicsColliderActive(active);
 
-            baseEnemy.physicsCollider.gameObject.SetActive(active > 0);
+            //baseEnemy.physicsCollider.gameObject.SetActive(active > 0);
         }
 
 
@@ -216,7 +216,7 @@ namespace Paperticket {
                 case HitboxStates.Proximity:
                     if (_Debug) Debug.Log("[EnemyAnimationManager] HitProperties received from a proximity. An attack is probably imminent! Ignoring tho...");
 
-                    baseEnemy.isInPlayerProximity = true;
+                    baseEnemy.isInOpponentProximity = true;
 
                     //characterManager.facingEnemy = true;
 

@@ -685,8 +685,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 200
-  m_LinearDrag: 10
+  m_Mass: 1
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 2cc95737aa65ef44596ed2c22645f559, type: 2}
@@ -706,29 +706,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f37294f022c1fb4ab10acfdd8575ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationManager: {fileID: 539656021}
   rigidbody2D: {fileID: 187108589}
   physicsCollider: {fileID: 891843588}
+  groundChecker: {fileID: 0}
+  enableGravity: 0
+  gravityScale: 0
+  enableMovement: 0
   moveSpeed: 0
   maxSpeed: 0
   minSpeed: 0
-  gravityScale: 0
+  enableCrouch: 0
   maxAirActions: 0
-  HitPoints: 10
-  DefenseMultiplier: 0
-  isRecovering: 0
-  isCrouching: 0
-  isWalking: 0
-  isInvulnerable: 0
-  isInPlayerProximity: 0
-  facingLeft: 0
-  airActions: 0
-  currentVelocity: {x: 0, y: 0}
-  oldVelocity: {x: 0, y: 0}
-  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   _DebugUpdates: 0
   _DebugEvents: 0
   _DebugGizmos: 0
+  HitPoints: 10
+  DefenseMultiplier: 0
+  isInvulnerable: 0
+  isRecovering: 0
+  isGrounded: 0
+  isWalking: 0
+  isCrouching: 0
+  airActions: 0
+  facingLeft: 0
+  isInOpponentProximity: 0
+  currentVelocity: {x: 0, y: 0}
+  oldVelocity: {x: 0, y: 0}
+  animationManager: {fileID: 539656021}
+  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   reloadTime: 1.5
   spinAttackName: CSpinAttack
 --- !u!1 &211438959
@@ -1897,8 +1902,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 200
-  m_LinearDrag: 10
+  m_Mass: 1
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 2cc95737aa65ef44596ed2c22645f559, type: 2}
@@ -1918,29 +1923,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f37294f022c1fb4ab10acfdd8575ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationManager: {fileID: 885171786}
   rigidbody2D: {fileID: 441018038}
   physicsCollider: {fileID: 884540700}
+  groundChecker: {fileID: 0}
+  enableGravity: 0
+  gravityScale: 0
+  enableMovement: 0
   moveSpeed: 0
   maxSpeed: 0
   minSpeed: 0
-  gravityScale: 0
+  enableCrouch: 0
   maxAirActions: 0
-  HitPoints: 10
-  DefenseMultiplier: 0
-  isRecovering: 0
-  isCrouching: 0
-  isWalking: 0
-  isInvulnerable: 0
-  isInPlayerProximity: 0
-  facingLeft: 0
-  airActions: 0
-  currentVelocity: {x: 0, y: 0}
-  oldVelocity: {x: 0, y: 0}
-  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   _DebugUpdates: 0
   _DebugEvents: 0
   _DebugGizmos: 0
+  HitPoints: 10
+  DefenseMultiplier: 0
+  isInvulnerable: 0
+  isRecovering: 0
+  isGrounded: 0
+  isWalking: 0
+  isCrouching: 0
+  airActions: 0
+  facingLeft: 0
+  isInOpponentProximity: 0
+  currentVelocity: {x: 0, y: 0}
+  oldVelocity: {x: 0, y: 0}
+  animationManager: {fileID: 885171786}
+  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   reloadTime: 1.5
   spinAttackName: CSpinAttack
 --- !u!1 &463544439
@@ -2381,8 +2391,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 200
-  m_LinearDrag: 10
+  m_Mass: 1
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 2cc95737aa65ef44596ed2c22645f559, type: 2}
@@ -2402,29 +2412,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f37294f022c1fb4ab10acfdd8575ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationManager: {fileID: 665819578}
   rigidbody2D: {fileID: 515314128}
   physicsCollider: {fileID: 2145885795}
+  groundChecker: {fileID: 0}
+  enableGravity: 0
+  gravityScale: 0
+  enableMovement: 0
   moveSpeed: 0
   maxSpeed: 0
   minSpeed: 0
-  gravityScale: 0
+  enableCrouch: 0
   maxAirActions: 0
-  HitPoints: 10
-  DefenseMultiplier: 0
-  isRecovering: 0
-  isCrouching: 0
-  isWalking: 0
-  isInvulnerable: 0
-  isInPlayerProximity: 0
-  facingLeft: 0
-  airActions: 0
-  currentVelocity: {x: 0, y: 0}
-  oldVelocity: {x: 0, y: 0}
-  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   _DebugUpdates: 0
   _DebugEvents: 0
   _DebugGizmos: 0
+  HitPoints: 10
+  DefenseMultiplier: 0
+  isInvulnerable: 0
+  isRecovering: 0
+  isGrounded: 0
+  isWalking: 0
+  isCrouching: 0
+  airActions: 0
+  facingLeft: 0
+  isInOpponentProximity: 0
+  currentVelocity: {x: 0, y: 0}
+  oldVelocity: {x: 0, y: 0}
+  animationManager: {fileID: 665819578}
+  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   reloadTime: 1.5
   spinAttackName: CSpinAttack
 --- !u!1 &534112944
@@ -2715,8 +2730,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 200
-  m_LinearDrag: 10
+  m_Mass: 1
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 2cc95737aa65ef44596ed2c22645f559, type: 2}
@@ -2736,29 +2751,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f37294f022c1fb4ab10acfdd8575ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationManager: {fileID: 1836562086}
   rigidbody2D: {fileID: 638268348}
   physicsCollider: {fileID: 1645350696}
+  groundChecker: {fileID: 0}
+  enableGravity: 0
+  gravityScale: 0
+  enableMovement: 0
   moveSpeed: 0
   maxSpeed: 0
   minSpeed: 0
-  gravityScale: 0
+  enableCrouch: 0
   maxAirActions: 0
-  HitPoints: 10
-  DefenseMultiplier: 0
-  isRecovering: 0
-  isCrouching: 0
-  isWalking: 0
-  isInvulnerable: 0
-  isInPlayerProximity: 0
-  facingLeft: 0
-  airActions: 0
-  currentVelocity: {x: 0, y: 0}
-  oldVelocity: {x: 0, y: 0}
-  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   _DebugUpdates: 0
   _DebugEvents: 0
   _DebugGizmos: 0
+  HitPoints: 10
+  DefenseMultiplier: 0
+  isInvulnerable: 0
+  isRecovering: 0
+  isGrounded: 0
+  isWalking: 0
+  isCrouching: 0
+  airActions: 0
+  facingLeft: 0
+  isInOpponentProximity: 0
+  currentVelocity: {x: 0, y: 0}
+  oldVelocity: {x: 0, y: 0}
+  animationManager: {fileID: 1836562086}
+  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   reloadTime: 1.5
   spinAttackName: CSpinAttack
 --- !u!1 &665819575
@@ -3089,29 +3109,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f37294f022c1fb4ab10acfdd8575ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationManager: {fileID: 493806040}
   rigidbody2D: {fileID: 846003319}
   physicsCollider: {fileID: 272882747}
+  groundChecker: {fileID: 0}
+  enableGravity: 0
+  gravityScale: 0
+  enableMovement: 0
   moveSpeed: 0
   maxSpeed: 0
   minSpeed: 0
-  gravityScale: 0
+  enableCrouch: 0
   maxAirActions: 0
-  HitPoints: 10
-  DefenseMultiplier: 0
-  isRecovering: 0
-  isCrouching: 0
-  isWalking: 0
-  isInvulnerable: 0
-  isInPlayerProximity: 0
-  facingLeft: 0
-  airActions: 0
-  currentVelocity: {x: 0, y: 0}
-  oldVelocity: {x: 0, y: 0}
-  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   _DebugUpdates: 0
   _DebugEvents: 0
   _DebugGizmos: 0
+  HitPoints: 10
+  DefenseMultiplier: 0
+  isInvulnerable: 0
+  isRecovering: 0
+  isGrounded: 0
+  isWalking: 0
+  isCrouching: 0
+  airActions: 0
+  facingLeft: 0
+  isInOpponentProximity: 0
+  currentVelocity: {x: 0, y: 0}
+  oldVelocity: {x: 0, y: 0}
+  animationManager: {fileID: 493806040}
+  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   reloadTime: 1.5
   spinAttackName: CSpinAttack
 --- !u!50 &846003319
@@ -3126,8 +3151,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 200
-  m_LinearDrag: 10
+  m_Mass: 1
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 2cc95737aa65ef44596ed2c22645f559, type: 2}
@@ -4019,8 +4044,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 200
-  m_LinearDrag: 10
+  m_Mass: 1
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 2cc95737aa65ef44596ed2c22645f559, type: 2}
@@ -4040,29 +4065,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f37294f022c1fb4ab10acfdd8575ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationManager: {fileID: 837852760}
   rigidbody2D: {fileID: 1140096494}
   physicsCollider: {fileID: 1433891905}
+  groundChecker: {fileID: 0}
+  enableGravity: 0
+  gravityScale: 0
+  enableMovement: 0
   moveSpeed: 0
   maxSpeed: 0
   minSpeed: 0
-  gravityScale: 0
+  enableCrouch: 0
   maxAirActions: 0
-  HitPoints: 10
-  DefenseMultiplier: 0
-  isRecovering: 0
-  isCrouching: 0
-  isWalking: 0
-  isInvulnerable: 0
-  isInPlayerProximity: 0
-  facingLeft: 0
-  airActions: 0
-  currentVelocity: {x: 0, y: 0}
-  oldVelocity: {x: 0, y: 0}
-  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   _DebugUpdates: 0
   _DebugEvents: 0
   _DebugGizmos: 0
+  HitPoints: 10
+  DefenseMultiplier: 0
+  isInvulnerable: 0
+  isRecovering: 0
+  isGrounded: 0
+  isWalking: 0
+  isCrouching: 0
+  airActions: 0
+  facingLeft: 0
+  isInOpponentProximity: 0
+  currentVelocity: {x: 0, y: 0}
+  oldVelocity: {x: 0, y: 0}
+  animationManager: {fileID: 837852760}
+  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   reloadTime: 1.5
   spinAttackName: CSpinAttack
 --- !u!1 &1144656433
@@ -5252,8 +5282,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 200
-  m_LinearDrag: 10
+  m_Mass: 1
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 2cc95737aa65ef44596ed2c22645f559, type: 2}
@@ -5273,29 +5303,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f37294f022c1fb4ab10acfdd8575ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationManager: {fileID: 2130100488}
   rigidbody2D: {fileID: 1509322281}
   physicsCollider: {fileID: 1439255100}
+  groundChecker: {fileID: 0}
+  enableGravity: 0
+  gravityScale: 0
+  enableMovement: 0
   moveSpeed: 0
   maxSpeed: 0
   minSpeed: 0
-  gravityScale: 0
+  enableCrouch: 0
   maxAirActions: 0
-  HitPoints: 10
-  DefenseMultiplier: 0
-  isRecovering: 0
-  isCrouching: 0
-  isWalking: 0
-  isInvulnerable: 0
-  isInPlayerProximity: 0
-  facingLeft: 0
-  airActions: 0
-  currentVelocity: {x: 0, y: 0}
-  oldVelocity: {x: 0, y: 0}
-  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   _DebugUpdates: 0
   _DebugEvents: 0
   _DebugGizmos: 0
+  HitPoints: 10
+  DefenseMultiplier: 0
+  isInvulnerable: 0
+  isRecovering: 0
+  isGrounded: 0
+  isWalking: 0
+  isCrouching: 0
+  airActions: 0
+  facingLeft: 0
+  isInOpponentProximity: 0
+  currentVelocity: {x: 0, y: 0}
+  oldVelocity: {x: 0, y: 0}
+  animationManager: {fileID: 2130100488}
+  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   reloadTime: 1.5
   spinAttackName: CSpinAttack
 --- !u!1 &1535306133
@@ -6261,7 +6296,7 @@ PrefabInstance:
     - target: {fileID: 4781940588236956404, guid: f8500db78fe5f13439456ccb816cff16,
         type: 3}
       propertyPath: _EnableGUI
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3152282581395368552, guid: f8500db78fe5f13439456ccb816cff16,
         type: 3}
@@ -8330,8 +8365,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 200
-  m_LinearDrag: 10
+  m_Mass: 1
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 2cc95737aa65ef44596ed2c22645f559, type: 2}
@@ -8351,29 +8386,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f37294f022c1fb4ab10acfdd8575ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationManager: {fileID: 888750231}
   rigidbody2D: {fileID: 2097734652}
   physicsCollider: {fileID: 1585004151}
+  groundChecker: {fileID: 0}
+  enableGravity: 0
+  gravityScale: 0
+  enableMovement: 0
   moveSpeed: 0
   maxSpeed: 0
   minSpeed: 0
-  gravityScale: 0
+  enableCrouch: 0
   maxAirActions: 0
-  HitPoints: 10
-  DefenseMultiplier: 0
-  isRecovering: 0
-  isCrouching: 0
-  isWalking: 0
-  isInvulnerable: 0
-  isInPlayerProximity: 0
-  facingLeft: 0
-  airActions: 0
-  currentVelocity: {x: 0, y: 0}
-  oldVelocity: {x: 0, y: 0}
-  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   _DebugUpdates: 0
   _DebugEvents: 0
   _DebugGizmos: 0
+  HitPoints: 10
+  DefenseMultiplier: 0
+  isInvulnerable: 0
+  isRecovering: 0
+  isGrounded: 0
+  isWalking: 0
+  isCrouching: 0
+  airActions: 0
+  facingLeft: 0
+  isInOpponentProximity: 0
+  currentVelocity: {x: 0, y: 0}
+  oldVelocity: {x: 0, y: 0}
+  animationManager: {fileID: 888750231}
+  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   reloadTime: 1.5
   spinAttackName: CSpinAttack
 --- !u!1 &2106121703

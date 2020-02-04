@@ -15,9 +15,9 @@ namespace Paperticket {
 
 
         // Start is called before the first frame update
-        public override void Awake() {
+        void Awake() {
 
-            base.Awake();
+            //base.Awake();
 
             // Set the active properties of all the active hitboxes 
             //activeBox.activeProperties = hitProperties;
