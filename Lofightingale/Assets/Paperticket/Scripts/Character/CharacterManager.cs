@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace Paperticket
 {
-    [RequireComponent(typeof(Rigidbody2D))]
-    public class CharacterManager : MonoBehaviour
+    public class CharacterManager : BaseCharacter
     {
-        [Header("References")]
+        [Space(20)]
+        [Header("BasePlayerCharacter Properties")]
 
         [Tooltip("The InputSystem script that handles input for this character")]
         public InputSystem inputSystem;
@@ -17,84 +17,11 @@ namespace Paperticket
 
         [Tooltip("The AnimationManager script that controls the animations for this character")]
         public PlayerAnimationManager animationManager;
-        
-        [SerializeField] Rigidbody2D rigidbody2D;
-        [SerializeField] BoxCollider2D physicsCollider;
-        [SerializeField] TriggerBoxChecker groundChecker;
-
-        //[SerializeField] Hitbox detectbox;
 
 
-        [Header("Move Settings")]
-
-        [SerializeField] [Min(0.1f)] float moveSpeed;
-        [SerializeField] [Min(0.1f)] float maxSpeed;
-        [SerializeField] [Min(0.1f)] float minSpeed;
-        public float gravityScale;
-        public int maxAirActions;
-
-
-        [Header("Debugging Options")]
-
-        [SerializeField] bool _DebugUpdates;
-        [SerializeField] bool _DebugEvents;
-        [SerializeField] bool _DebugGizmos;
-
-        //ContactPoint2D groundedPoint;
-
-
-
-        [Header("Read Only")]
-
-        [Tooltip("How many hit points the character has")]
-        public int HitPoints;
-
-        [Tooltip("The multiplier of damage recieved by the character")]
-        public float DefenseMultiplier;
-                
-        [Tooltip("Whether the character is recovering or not")]
-        public bool isRecovering;
-
-        [Tooltip("Whether the character is grounded or not")]
-        public bool isGrounded;
-
-        [Tooltip("Whether the character is crouching or not")]
-        public bool isCrouching;
-
-        [Tooltip("Whether the character is idle (0) or walking left (-1) or right (1)")]
-        public int isWalking;
-
-        [Tooltip("Whether the character is currently able to be damaged")]
-        public bool isInvulnerable;
-
-        [Tooltip("Whether the character is in proximity of an enemy activebox")]
-        public bool isInEnemyProximity;
-
-        [Tooltip("Whether the character has flipped and is currently facing left")]
-        public bool facingLeft;
-
-        [Tooltip("The number of commands marked as Air Actions that the character can perform before having to return to the ground")]
-        public int airActions;
-
-        //[Tooltip("The number of consecutive moves that have been performed withj")]
-        //public int comboCounter;
-
-        [SerializeField] Vector2 currentVelocity;
-        [SerializeField] Vector2 oldVelocity;
-                                    
-
-        void Awake() {
-            
-            CheckRequiredComponents();            
-
-            // Set the initial gravity setting
-            SetGravity(true);
-
-        }
-        void CheckRequiredComponents() {
-            rigidbody2D = rigidbody2D ?? GetComponent<Rigidbody2D>();
-            physicsCollider = physicsCollider ?? GetComponentInChildren<BoxCollider2D>();
-
+        public override void CheckRequiredComponents() {
+            base.CheckRequiredComponents();
+                        
             // Save reference to and disable the script if cannot find input system
             inputSystem = inputSystem ?? GetComponentInChildren<InputSystem>();
             if (inputSystem == null) {
@@ -110,143 +37,52 @@ namespace Paperticket
             // Save reference to and disable the script if cannot find animation manager
             animationManager = animationManager ?? GetComponentInChildren<PlayerAnimationManager>();
             if (animationManager == null) {
-                Debug.LogError("[CharacterController] ERROR -> No animation manager script found! Please add one to Animation Manager variable.");
+                Debug.LogError("[BaseEnemy] ERROR -> No animation manager script found! Please add one to Animation Manager variable.");
                 enabled = false;
             }
-            // Save reference to and disable the script if cannot find ground checker
-            groundChecker = groundChecker ?? GetComponentInChildren<TriggerBoxChecker>();
-            if (groundChecker == null) {
-                Debug.LogError("[CharacterController] ERROR -> No Trigger Box Checker found! Please add one to Ground Checker variable.");
-                enabled = false;
-            }
-            
         }
+               
         
-        
-        void FixedUpdate()
-        {
-
-            // Update whether the player is grounded or not
-            isGrounded = groundChecker.IsTouchingLayers;
-
-            // Update the velocity if necessary
-            if (oldVelocity != currentVelocity)
-            {
-                rigidbody2D.velocity = new Vector2(transform.right.x * currentVelocity.x, currentVelocity.y);                
-                oldVelocity = currentVelocity;
-            }
-                                   
-            
-        }
 
         void Update() {            
-
-            isCrouching = isGrounded && inputSystem.InputPresentInFrame("Down", 1);
-
-            // If grounded, check the whether the player is walking
-            if (isGrounded) {
-                airActions = maxAirActions;
-                if (inputSystem.InputPresentInFrame("Forward", 1)) { isWalking = 1; }
-                else if (inputSystem.InputPresentInFrame("Back", 1)) { isWalking = -1; }
-                else { isWalking = 0; }
-            }
-
+            
             if (Input.GetButtonDown("RightStickButton")) {
                 SetFacing(!facingLeft);
             }
 
-
-
         }
 
+        public override void CrouchingCheck() {
 
+            // Crouch only successful if the player is grounded
+            isCrouching = inputSystem.InputPresentInFrame("Down", 1);
 
+        }
+        public override void MovementCheck() {
 
+            // Walk forward
+            if (inputSystem.InputPresentInFrame("Forward", 1)) { isWalking = 1; }
 
+            // Walk back
+            else if (inputSystem.InputPresentInFrame("Back", 1)) { isWalking = -1; }
 
-        
+            // Not walking
+            else isWalking = 0;
+            
+        }
+                              
 
-
-        public void SetRecovering( bool active ) {
+        public override void SetRecovering( bool active ) {
             
             // Turn input buffer back on if we are coming out of recovery
             if (isRecovering && !active) {
                 inputSystem.ActivateInputBuffer(true);
             }
 
-            isRecovering = active;
-        }
-
-        public void SetGravity( bool active) {
-            rigidbody2D.gravityScale = active ? gravityScale : 0;
-        }
-
-        public void SetGrounded (bool active) {
-            isGrounded = active;
-        }
-
-        public void SetInvulnerable( bool active ) {
-            isInvulnerable = active;
-        }
-
-
-        public void SetVelocity( Vector2 velocity, bool additive ) {
-
-            if (_DebugEvents) Debug.Log("[CharacterManager] Setting new velocity! Vector2 = " + velocity + ", additive = " + additive);
-
-            // If not additive, reset the current velocity before setting new one
-            if (!additive) {
-                currentVelocity = Vector2.zero;
-            }
-
-            // Save the new velocity
-            currentVelocity += velocity;
-
-            if (_DebugEvents) Debug.Log("[CharacterManager] New velocity = " + currentVelocity);
-
-        }
-        public void SetVelocity (Vector2 direction, float magnitude, bool additive ) {
-            SetVelocity(direction * magnitude, additive);
-        }
-        
-        public void SetInEnemyProximity(bool inEnemyProximity) {
-            isInEnemyProximity = inEnemyProximity;
-        }
-
-        public void SetFacing (bool faceLeft) {
-
-            transform.rotation *= Quaternion.Euler(Vector2.down * 180);
-            facingLeft = faceLeft;
-
-            Debug.Log("[CharacterManager] Now facing " + (facingLeft ? "left" : "right"));
-
-        }
-
-        
-
-        public void ChangeHealth( int modifier) {
-            HitPoints = Mathf.Max(0, HitPoints + modifier);
-        }
-
-        public void SetDefenseMultiplier( int value ) {
-            DefenseMultiplier = value;
-        }
-
-
-
-
-        public void AddForce( Vector2 direction, float magnitude, bool wipeVelocity ) {
-
-            // Wipe the existing velocity of the character if applicable
-            if (wipeVelocity) rigidbody2D.velocity = Vector2.zero;
-
-            // Add the specified force
-            rigidbody2D.AddForce(direction.normalized * magnitude);
-
-        }
-
-
-        
+            base.SetRecovering(active);
+        }        
+                               
+                
 
         void OnDrawGizmosSelected() {
 

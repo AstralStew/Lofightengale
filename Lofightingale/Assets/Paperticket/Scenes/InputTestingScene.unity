@@ -733,7 +733,6 @@ MonoBehaviour:
   currentVelocity: {x: 0, y: 0}
   oldVelocity: {x: 0, y: 0}
   animationManager: {fileID: 539656021}
-  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   reloadTime: 1.5
   spinAttackName: CSpinAttack
 --- !u!1 &211438959
@@ -1950,7 +1949,6 @@ MonoBehaviour:
   currentVelocity: {x: 0, y: 0}
   oldVelocity: {x: 0, y: 0}
   animationManager: {fileID: 885171786}
-  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   reloadTime: 1.5
   spinAttackName: CSpinAttack
 --- !u!1 &463544439
@@ -2439,7 +2437,6 @@ MonoBehaviour:
   currentVelocity: {x: 0, y: 0}
   oldVelocity: {x: 0, y: 0}
   animationManager: {fileID: 665819578}
-  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   reloadTime: 1.5
   spinAttackName: CSpinAttack
 --- !u!1 &534112944
@@ -2778,7 +2775,6 @@ MonoBehaviour:
   currentVelocity: {x: 0, y: 0}
   oldVelocity: {x: 0, y: 0}
   animationManager: {fileID: 1836562086}
-  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   reloadTime: 1.5
   spinAttackName: CSpinAttack
 --- !u!1 &665819575
@@ -3136,7 +3132,6 @@ MonoBehaviour:
   currentVelocity: {x: 0, y: 0}
   oldVelocity: {x: 0, y: 0}
   animationManager: {fileID: 493806040}
-  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   reloadTime: 1.5
   spinAttackName: CSpinAttack
 --- !u!50 &846003319
@@ -4092,7 +4087,6 @@ MonoBehaviour:
   currentVelocity: {x: 0, y: 0}
   oldVelocity: {x: 0, y: 0}
   animationManager: {fileID: 837852760}
-  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   reloadTime: 1.5
   spinAttackName: CSpinAttack
 --- !u!1 &1144656433
@@ -5330,7 +5324,6 @@ MonoBehaviour:
   currentVelocity: {x: 0, y: 0}
   oldVelocity: {x: 0, y: 0}
   animationManager: {fileID: 2130100488}
-  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   reloadTime: 1.5
   spinAttackName: CSpinAttack
 --- !u!1 &1535306133
@@ -6211,6 +6204,21 @@ PrefabInstance:
         type: 3}
       propertyPath: HitPoints
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4781940588835219018, guid: f8500db78fe5f13439456ccb816cff16,
+        type: 3}
+      propertyPath: enableGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4781940588835219018, guid: f8500db78fe5f13439456ccb816cff16,
+        type: 3}
+      propertyPath: enableMovement
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4781940588835219018, guid: f8500db78fe5f13439456ccb816cff16,
+        type: 3}
+      propertyPath: enableCrouch
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4781940588495942901, guid: f8500db78fe5f13439456ccb816cff16,
         type: 3}
@@ -8413,7 +8421,6 @@ MonoBehaviour:
   currentVelocity: {x: 0, y: 0}
   oldVelocity: {x: 0, y: 0}
   animationManager: {fileID: 888750231}
-  hitProperties: {fileID: 11400000, guid: e31b667029f6f08469cef1e9ccedf64c, type: 2}
   reloadTime: 1.5
   spinAttackName: CSpinAttack
 --- !u!1 &2106121703

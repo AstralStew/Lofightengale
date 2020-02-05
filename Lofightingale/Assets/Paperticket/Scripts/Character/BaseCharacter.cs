@@ -128,25 +128,27 @@ namespace Paperticket {
             }
                         
             if (enableMovement) {
+                MovementCheck();
                 // Check the whether the player is walking         
-                if (isGrounded) isWalking = MovementCheck();
+                //if (isGrounded) isWalking = MovementCheck();
             }
 
-            if (enableCrouch) {
-                isCrouching = isGrounded && CrouchingCheck();
+            if (enableCrouch && isGrounded) {
+                CrouchingCheck();
+                //isCrouching = isGrounded && CrouchingCheck();
             }
 
             // Set Facing cheat
             //
             
         }
-        public virtual bool CrouchingCheck () {
+        public virtual void CrouchingCheck () {
             //inputSystem.InputPresentInFrame("Down", 1)
-            return false;
+            isCrouching = false;
         }
-        public virtual int MovementCheck() {
+        public virtual void MovementCheck() {
             //inputSystem.InputPresentInFrame("Down", 1)
-            return 0;
+            isWalking = 0;
         }
 
 

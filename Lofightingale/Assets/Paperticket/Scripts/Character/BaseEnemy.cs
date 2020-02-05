@@ -12,16 +12,7 @@ namespace Paperticket
         [Tooltip("The AnimationManager script that controls the animations for this enemy")]
         public EnemyAnimationManager animationManager;
                 
-        public HitProperties hitProperties;
-        
-        
-        [Space(10)]
-
-        protected GameObject sprite;
-        protected Hitbox activeBox;
-        protected Hitbox proxbox;
-
-               
+                       
        
         public override void CheckRequiredComponents() {
             base.CheckRequiredComponents();
@@ -35,11 +26,11 @@ namespace Paperticket
 
         }
 
-        public override bool CrouchingCheck() {
-            return base.CrouchingCheck();
+        public override void CrouchingCheck() {
+            base.CrouchingCheck();
         }
-        public override int MovementCheck() {
-            return base.MovementCheck();
+        public override void MovementCheck() {
+            base.MovementCheck();
         }
 
         
