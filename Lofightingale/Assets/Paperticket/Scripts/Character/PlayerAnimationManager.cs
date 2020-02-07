@@ -6,13 +6,13 @@ namespace Paperticket {
     public class PlayerAnimationManager : AnimationManager {
 
         [SerializeField] string hurtAnimationTrigger = "WHurt";
-        CharacterManager characterManager;
+        BasePlayer characterManager;
         
         public override void Awake() {
             base.Awake();
 
             // Save reference to and disable the script if cannot find character manager
-            characterManager = characterManager ?? GetComponentInParent<CharacterManager>();
+            characterManager = characterManager ?? GetComponentInParent<BasePlayer>();
             if (characterManager == null) {
                 Debug.LogError("[PlayerAnimationManager] ERROR -> No character manager found! Child this object to the character manager!");
                 enabled = false;

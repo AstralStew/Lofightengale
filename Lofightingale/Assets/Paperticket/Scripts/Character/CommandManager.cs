@@ -6,7 +6,7 @@ namespace Paperticket {
     [AddComponentMenu("Paperticket/Command Manager")]
     public class CommandManager : MonoBehaviour {
 
-        CharacterManager characterManager;
+        BasePlayer basePlayer;
         public CommandList _CommandList;
 
         
@@ -24,9 +24,9 @@ namespace Paperticket {
 
         void OnEnable() {
 
-            characterManager = characterManager ?? GetComponentInParent<CharacterManager>();
-            if(characterManager == null) {
-                Debug.LogError("[CommandManager] ERROR -> No character manager found! Child this object to the character manager!");
+            basePlayer = basePlayer ?? GetComponentInParent<BasePlayer>();
+            if(basePlayer == null) {
+                Debug.LogError("[CommandManager] ERROR -> No BasePlayer found! Child this object to a BasePlayer script!");
                 enabled = false;
             }
 
@@ -39,14 +39,14 @@ namespace Paperticket {
             CompileCommands();
 
             InputSystem.onInputRegistered += CheckCommands;
-            characterManager.animationManager.onAnimationFinished += CheckCommands;
-            characterManager.animationManager.onAnimationStarted += CheckCommands;
+            basePlayer.animationManager.onAnimationFinished += CheckCommands;
+            basePlayer.animationManager.onAnimationStarted += CheckCommands;
         }
 
         void OnDisable() {
             InputSystem.onInputRegistered -= CheckCommands;
-            characterManager.animationManager.onAnimationFinished -= CheckCommands;
-            characterManager.animationManager.onAnimationStarted -= CheckCommands;
+            basePlayer.animationManager.onAnimationFinished -= CheckCommands;
+            basePlayer.animationManager.onAnimationStarted -= CheckCommands;
         }
 
 
@@ -132,7 +132,7 @@ namespace Paperticket {
 
         void CheckCommands() {
             //if (_Debug) Debug.Log("[CommandManager] Checking for commands!");
-            if (characterManager.isRecovering) return;
+            if (basePlayer.isRecovering) return;
             
 
             // Go through each command in the command list
@@ -141,10 +141,10 @@ namespace Paperticket {
 
                 // Make sure this command is enabled and it's other requirements are met
                 if ((!commandList[i].commandEnabled) ||
-                    (commandList[i].requireGrounded && !characterManager.isGrounded) ||
-                    (commandList[i].requireAirborne && characterManager.isGrounded) ||
-                    (commandList[i].requireCrouching && !characterManager.isCrouching) ||
-                    (commandList[i].requireAirActions && characterManager.airActions == 0)) continue;
+                    (commandList[i].requireGrounded && !basePlayer.isGrounded) ||
+                    (commandList[i].requireAirborne && basePlayer.isGrounded) ||
+                    (commandList[i].requireCrouching && !basePlayer.isCrouching) ||
+                    (commandList[i].requireAirActions && basePlayer.airActions == 0)) continue;
 
                 if (_DebugCommands && commandList[i].debug) Debug.Log("[CommandManager] Checking Command(" + commandList[i].commandName + ")...");
                 
@@ -241,7 +241,7 @@ namespace Paperticket {
 
             // Mark off air actions if applicable
             if (_CommandList.commandList[commandIndex].requireAirActions) {
-                characterManager.airActions = Mathf.Max(characterManager.airActions - 1, 0);
+                basePlayer.airActions = Mathf.Max(basePlayer.airActions - 1, 0);
             }
 
             // Clear the input buffer if applicable

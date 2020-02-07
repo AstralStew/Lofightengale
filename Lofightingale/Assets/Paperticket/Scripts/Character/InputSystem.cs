@@ -9,7 +9,7 @@ namespace Paperticket {
 
         public static InputSystem instance;
 
-        CharacterManager characterManager;
+        BasePlayer basePlayer;
 
         [Header("Raw Inputs")]
         
@@ -61,9 +61,9 @@ namespace Paperticket {
         void Awake() {
 
             // Save reference to and disable the script if cannot find character manager
-            characterManager = characterManager ?? GetComponentInParent<CharacterManager>();
-            if (characterManager == null) {
-                Debug.LogError("[InputSystem] ERROR -> No character manager found! Child this object to the character manager!");
+            basePlayer = basePlayer ?? GetComponentInParent<BasePlayer>();
+            if (basePlayer == null) {
+                Debug.LogError("[InputSystem] ERROR -> No BasePlayer found! Child this object to a BasePlayer script!");
                 enabled = false;
             }
 
@@ -141,7 +141,7 @@ namespace Paperticket {
             for (int i = 0; i < _UnityInputNames.Count; i++) {
 
                 // Swap left and right if the character is facing the other way
-                if (i <= 1 && characterManager.facingLeft) {
+                if (i <= 1 && basePlayer.facingLeft) {
                     inputName = _UnityInputNames[Mathf.Abs(i - 1)];
                 } else {
                     inputName = _UnityInputNames[i];

@@ -120,7 +120,7 @@ namespace Paperticket {
 
         }
 
-        void Update() {
+        public virtual void Update() {
              
             if (enableGravity) {
                 // Reset the ability to use air actions
@@ -138,16 +138,12 @@ namespace Paperticket {
                 //isCrouching = isGrounded && CrouchingCheck();
             }
 
-            // Set Facing cheat
-            //
             
         }
         public virtual void CrouchingCheck () {
-            //inputSystem.InputPresentInFrame("Down", 1)
             isCrouching = false;
         }
         public virtual void MovementCheck() {
-            //inputSystem.InputPresentInFrame("Down", 1)
             isWalking = 0;
         }
 
@@ -223,13 +219,6 @@ namespace Paperticket {
             Debug.Log("[BaseCharacter] Now facing " + (facingLeft ? "left" : "right"));
 
         }
-
-   
-
-
-
-
-
 
 
         void OnDrawGizmosSelected() {

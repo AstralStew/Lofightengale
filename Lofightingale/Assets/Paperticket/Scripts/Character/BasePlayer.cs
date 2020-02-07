@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Paperticket
 {
-    public class CharacterManager : BaseCharacter
+    public class BasePlayer : BaseCharacter
     {
         [Space(20)]
         [Header("BasePlayerCharacter Properties")]
@@ -44,8 +44,9 @@ namespace Paperticket
                
         
 
-        void Update() {            
-            
+        public override void Update() {
+            base.Update();
+
             if (Input.GetButtonDown("RightStickButton")) {
                 SetFacing(!facingLeft);
             }
@@ -53,13 +54,13 @@ namespace Paperticket
         }
 
         public override void CrouchingCheck() {
-
+            
             // Crouch only successful if the player is grounded
             isCrouching = inputSystem.InputPresentInFrame("Down", 1);
 
         }
         public override void MovementCheck() {
-
+            
             // Walk forward
             if (inputSystem.InputPresentInFrame("Forward", 1)) { isWalking = 1; }
 
